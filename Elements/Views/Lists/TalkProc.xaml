@@ -1,0 +1,121 @@
+﻿<Page x:Class="Elements.Views.Lists.TalkProc"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Elements.Views.Lists"
+      mc:Ignorable="d"
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TalkProc">
+
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" HorizontalAlignment="Left" Background="White" Margin="0 10">
+            <WrapPanel>
+                <TextBlock MinWidth="50" TextAlignment="Right" VerticalAlignment="Center" Padding="10 0">ID</TextBlock>
+                <TextBox Width="150" Height="25" Margin="0, 2" VerticalContentAlignment="Center"
+                         Text="{Binding Fields.id}" />
+            </WrapPanel>
+
+            <WrapPanel>
+                <TextBlock MinWidth="50" TextAlignment="Right" VerticalAlignment="Center" Padding="10 0 ">Текст</TextBlock>
+                <TextBox Width="150" Height="25" Margin="0, 2" VerticalContentAlignment="Center"
+                         Text="{Binding Fields.Text}" />
+            </WrapPanel>
+        </StackPanel>
+
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <DataGrid Grid.Column="0" Name="Windows" ItemsSource="{Binding Fields.Windows}" SelectedIndex="0"
+                      AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeRows="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Windows" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <TextBlock Text=" Диалог" />
+                                    <TextBlock Text="{Binding Id}" Padding="5 0" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Grid.Column="1">
+                <WrapPanel>
+                    <TextBlock Width="100" Text="ID " />
+                    <TextBox Width="150" Text="{Binding ElementName=Windows, Path=SelectedItem.Id}" />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Width="100" Text="ID Parent" />
+                    <TextBox Width="150" Text="{Binding ElementName=Windows, Path=SelectedItem.IdParent}" />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Width="100" Text="Text" />
+                    <TextBox MinWidth="150" MaxWidth="500" Height="100"
+                             Text="{Binding ElementName=Windows, Path=SelectedItem.TalkText}" TextWrapping="Wrap" />
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+
+        <Grid Grid.Row="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <DataGrid Grid.Column="0" Name="Options"
+                      ItemsSource="{Binding ElementName=Windows, Path=SelectedItem.Options}" SelectedIndex="0"
+                      AutoGenerateColumns="False" IsReadOnly="True" CanUserResizeRows="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Windows" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <WrapPanel>
+                                    <TextBlock Text=" Ответ" />
+                                    <TextBlock Text="{Binding Id}" Padding="5 0" />
+                                </WrapPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <StackPanel Grid.Column="1">
+                <WrapPanel>
+                    <TextBlock Width="100" Text="ID " />
+                    <TextBox Width="150" Text="{Binding ElementName=Options, Path=SelectedItem.Id}" />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Width="100" Text="Param" />
+                    <TextBox Width="150" Text="{Binding ElementName=Options, Path=SelectedItem.Param}" />
+                </WrapPanel>
+
+                <WrapPanel>
+                    <TextBlock Width="100" Text="Text" />
+                    <TextBox MinWidth="150" MaxWidth="500" Height="100"
+                             Text="{Binding ElementName=Options, Path=SelectedItem.Text}" TextWrapping="Wrap" />
+                </WrapPanel>
+            </StackPanel>
+        </Grid>
+
+
+    </Grid>
+</Page>
