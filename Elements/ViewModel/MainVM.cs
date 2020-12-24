@@ -51,7 +51,7 @@ namespace Elements.ViewModel
         private int _indexSearch;
         private Type _selectedList;
         private Element.Item _selectedSearchItem;
-        private Element.Item _selectedLink;
+        private Data.link _selectedLink;
 
         public long ReadTime { get; set; }
         public Page EditorPage { get; set; }
@@ -91,7 +91,7 @@ namespace Elements.ViewModel
             }
         }
 
-        public Element.Item SelectedLink
+        public Data.link SelectedLink
         {
             get => _selectedLink;
             set
@@ -100,8 +100,8 @@ namespace Elements.ViewModel
 
                 if (_selectedLink != null)
                 {
-                    SelectedList = _selectedLink.Type;
-                    FoundItem = _selectedLink;
+                    SelectedList = _selectedLink.item.Type;
+                    FoundItem = _selectedLink.item;
                 }
                 
             }

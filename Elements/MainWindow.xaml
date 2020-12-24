@@ -143,12 +143,13 @@
 
                         >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="70"/>
+                                <DataGridTextColumn Header="ID" Binding="{Binding item.Id}" Width="70"/>
+                                <DataGridTextColumn Header="Тип" Binding="{Binding type}" Width="100"/>
                                 <DataGridTemplateColumn Header="Name" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <WrapPanel>
-                                                <TextBlock Padding="5,0,0,0" Text="{Binding Fields.Name}" VerticalAlignment="Center" />
+                                                <TextBlock Padding="5,0,0,0" Text="{Binding item.Fields.Name}" VerticalAlignment="Center" />
                                             </WrapPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>

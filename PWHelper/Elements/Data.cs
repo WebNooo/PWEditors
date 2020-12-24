@@ -40,7 +40,7 @@ namespace PWHelper.Elements
         }
 
         public static RangeObservableCollection<link> Links { get; set; } = new RangeObservableCollection<link>();
-        public static Dictionary<uint, List<Element.Item>> Links2 { get; set; } = new Dictionary<uint, List<Element.Item>>();
+        public static Dictionary<uint, List<link>> Links2 { get; set; } = new Dictionary<uint, List<link>>();
 
         public static long Load(string fileName)
         {
@@ -82,30 +82,14 @@ namespace PWHelper.Elements
                 Element.Items.All(n =>
                 {
 
-                    if (n.Type.Name == "RECIPE_ESSENCE" || n.Type.Name == "NPC_SELL_SERVICE")
+                    if (n.Type.Name == "RECIPE_ESSENCE")
                     {
-                        //fields = ;
-                        PropertyInfo[] fields = n.Fields.GetType().GetProperties();
-                        fields.All(x =>
-                        {
-                            if (x.PropertyType.Name == "UInt32")
-                            {
-                                uint t = x.GetValue(n.Fields, null);
-                                if (t > 0)
-                                {
-                                    if (Links2.ContainsKey(t))
-                                    {
-                                        Links2[t].Add(n);
-                                    }
-                                    else
-                                    {
-                                        Links2.Add(t, new List<Element.Item> { n });
-                                    }
-                                }
-                            }
+                        SetLink(n.Fields.GetType().GetProperties(), n, "Рецепт");
+                    }
 
-                            return true;
-                        });
+                    if (n.Type.Name == "NPC_SELL_SERVICE")
+                    {
+                        SetLink(n.Fields.GetType().GetProperties(), n, "Торговля");
                     }
 
                     return true;
@@ -118,6 +102,30 @@ namespace PWHelper.Elements
             s.Stop();
 
             return s.ElapsedMilliseconds;
+        }
+
+        public static void SetLink(PropertyInfo[] fields, Element.Item item, string name)
+        {
+            fields.All(x =>
+            {
+                if (x.PropertyType.Name == "UInt32")
+                {
+                    uint t = x.GetValue(item.Fields, null);
+                    if (t > 0)
+                    {
+                        if (Links2.ContainsKey(t))
+                        {
+                            Links2[t].Add(new link { item = item, type = name });
+                        }
+                        else
+                        {
+                            Links2.Add(t, new List<link> { new link { item = item, type = name } });
+                        }
+                    }
+                }
+
+                return true;
+            });
         }
     }
 }

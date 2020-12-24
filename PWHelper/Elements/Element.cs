@@ -392,7 +392,7 @@ namespace PWHelper.Elements
                     // {
                          if (Space == ID_SPACE.ESSENCE && Data.Links2.ContainsKey((uint)Fields.id))
                          {
-                             List<Item> v = Data.Links2[(uint)Fields.id];
+                             List<Data.link> v = Data.Links2[(uint)Fields.id];
                              return v.Count;
                          }
                     // }
