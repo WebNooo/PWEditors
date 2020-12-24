@@ -38,20 +38,25 @@ namespace Elements.ViewModel.Lists
         public ItemProperty[] getFields()
         {
             var properties = Items[0].Fields.GetType().GetProperties();
-            var props = new ItemProperty[properties.Length];
-            for (var j = 0; j < properties.Length; j++)
+            if (properties != null)
             {
-                props[j] = new ItemProperty
+                var props = new ItemProperty[properties.Length];
+                for (var j = 0; j < properties.Length; j++)
                 {
-                    Name = properties[j].Name,
-                    Value = properties[j].GetValue(Items[0].Fields, null),
-                    Type = properties[j]
-                };
+                    props[j] = new ItemProperty
+                    {
+                        Name = properties[j].Name,
+                        Value = properties[j].GetValue(Items[0].Fields, null),
+                        Type = properties[j]
+                    };
+                }
+                ItemProperty.CurrentItem = Items[0].Fields;
+                return props;
+
             }
 
-            ItemProperty.CurrentItem = Items[0].Fields;
+            return null;
 
-            return props;
         }
 
         public ItemProperty SelectItem { get; set; }

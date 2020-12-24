@@ -105,6 +105,7 @@ namespace PWHelper
 
         public static ImageSource GetImage(int index)
         {
+            if (index < 0) index = 0;
             var y = (index / columns) * heightImage;
             int x;
 
