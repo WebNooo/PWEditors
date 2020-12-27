@@ -31,17 +31,20 @@ namespace PWHelper.Elements
 
         public static object GetTypeValue(string type, object value)
         {
+            var numberValue = value == null || value == "" ? "0" : value;
+            
             return type switch
             {
-                "Int16" => Convert.ToInt16(value == "" ? "0" : value),
-                "Int32" => Convert.ToInt32(value == "" ? "0" : value),
-                "Int64" => Convert.ToInt64(value == "" ? "0" : value),
+                "Int16" => Convert.ToInt16(numberValue),
+                "Int32" => Convert.ToInt32(numberValue),
+                "UInt32" => Convert.ToUInt32(numberValue),
+                "Int64" => Convert.ToInt64(numberValue),
 
-                "Short" => Convert.ToInt16(value == "" ? "0" : value),
-                "Int" => Convert.ToInt32(value == "" ? "0" : value),
-                "Long" => Convert.ToInt64(value == "" ? "0" : value),
-                "Single" => Convert.ToSingle(value == "" ? "0.0" : value),
-                "Float" => Convert.ToSingle(value == "" ? "0.0" : value),
+                "Short" => Convert.ToInt16(numberValue),
+                "Int" => Convert.ToInt32(numberValue),
+                "Long" => Convert.ToInt64(numberValue),
+                "Single" => Convert.ToSingle(numberValue),
+                "Float" => Convert.ToSingle(numberValue),
                 _ => value.ToString()
             };
         }

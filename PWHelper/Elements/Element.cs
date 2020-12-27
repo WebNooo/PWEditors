@@ -57,7 +57,6 @@ namespace PWHelper.Elements
                     if (id > ADDON)
                         ADDON = id;
                     return;
-
                 }
 
                 if (space == ID_SPACE.TALK)
@@ -65,7 +64,6 @@ namespace PWHelper.Elements
                     if (id > TALK)
                         TALK = id;
                     return;
-
                 }
 
                 if (space == ID_SPACE.FACE)
@@ -73,7 +71,6 @@ namespace PWHelper.Elements
                     if (id > FACE)
                         FACE = id;
                     return;
-
                 }
 
                 if (space == ID_SPACE.RECIPE)
@@ -81,7 +78,6 @@ namespace PWHelper.Elements
                     if (id > RECIPE)
                         RECIPE = id;
                     return;
-
                 }
 
                 if (space == ID_SPACE.CONFIG)
@@ -89,7 +85,6 @@ namespace PWHelper.Elements
                     if (id > CONFIG)
                         CONFIG = id;
                     return;
-
                 }
 
                 if (space == ID_SPACE.HOME)
@@ -98,11 +93,10 @@ namespace PWHelper.Elements
                         HOME = id;
                     return;
                 }
-              
-                
+
+
                 if (id > UNKNOWN)
-                        UNKNOWN = id;
-                
+                    UNKNOWN = id;
             }
         }
 
@@ -110,17 +104,18 @@ namespace PWHelper.Elements
 
         public Dictionary<ID_SPACE, int> IDs = new Dictionary<ID_SPACE, int>
         {
-            {ID_SPACE.ESSENCE, 0 },
-            {ID_SPACE.ADDON, 0 },
-            {ID_SPACE.TALK, 0 },
-            {ID_SPACE.FACE, 0 },
-            {ID_SPACE.RECIPE, 0 },
-            {ID_SPACE.CONFIG, 0 },
-            {ID_SPACE.HOME, 0 },
-            {ID_SPACE.UNKNOWN, 0 },
+            {ID_SPACE.ESSENCE, 0},
+            {ID_SPACE.ADDON, 0},
+            {ID_SPACE.TALK, 0},
+            {ID_SPACE.FACE, 0},
+            {ID_SPACE.RECIPE, 0},
+            {ID_SPACE.CONFIG, 0},
+            {ID_SPACE.HOME, 0},
+            {ID_SPACE.UNKNOWN, 0},
         };
 
-        public Dictionary<string, ID_SPACE> spaces = new Dictionary<string, ID_SPACE> {
+        public Dictionary<string, ID_SPACE> spaces = new Dictionary<string, ID_SPACE>
+        {
             {"EQUIPMENT_ADDON", ID_SPACE.ADDON},
             {"WEAPON_MAJOR_TYPE", ID_SPACE.ESSENCE},
             {"WEAPON_SUB_TYPE", ID_SPACE.ESSENCE},
@@ -383,24 +378,46 @@ namespace PWHelper.Elements
             public Type Type { get; set; }
             public ID_SPACE Space { get; set; }
             public dynamic Fields { get; set; }
-            public int Id { get => Fields.id; set => Fields.id = value; }
+
+            public int Id
+            {
+                get => Fields.id;
+                set => Fields.id = value;
+            }
+
             public int Links
             {
                 get
                 {
                     // try
                     // {
-                         if (Space == ID_SPACE.ESSENCE && Data.Links2.ContainsKey((uint)Fields.id))
-                         {
-                             List<Data.link> v = Data.Links2[(uint)Fields.id];
-                             return v.Count;
-                         }
+
+                    if (Space == ID_SPACE.ESSENCE)
+                    {
+                        if (Data.LinksEssence.ContainsKey(Fields.id))
+                        {
+                            List<Data.link> v = Data.LinksEssence[Fields.id];
+                            return v.Count;
+                        }
+                    }
+
+                    if (Space == ID_SPACE.ADDON)
+                    {
+                        if (Data.LinksAddon.ContainsKey(Fields.id))
+                        {
+                            List<Data.link> v = Data.LinksAddon[Fields.id];
+                            return v.Count;
+                        }
+                    }
+
+
+
                     // }
                     // catch (Exception e)
                     // {
                     //  
                     // }
-                 
+
 
                     return 0;
                 }
@@ -465,6 +482,15 @@ namespace PWHelper.Elements
         public Dictionary<Type, object[]> Lists { get; set; } = new Dictionary<Type, object[]>();
 
         public static RangeObservableCollection<Item> Items = new RangeObservableCollection<Item>();
+
+        public static Dictionary<int, Item> Essences = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Addons = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Talks = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Faces = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Recipes = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Configs = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Homes = new Dictionary<int, Item>();
+
 
         public BinaryWriter Bw;
 
@@ -556,33 +582,73 @@ namespace PWHelper.Elements
             }
         }
 
-        public void Deserialize(Type type)
+        private void ReadItems(int count, int size, IntPtr buffer, Type type, Dictionary<int, Item> collection)
         {
-
-            if (type.Name == "TALK_PROC")
+            for (var i = 0; i < count; i++)
             {
-                 Conversations.Load(type);
-                 return;
-            }
-
-            var itemsCount = BinReader.ReadInt32();
-            var sizeItem = Marshal.SizeOf(type);
-            var buffer = Marshal.AllocHGlobal(sizeItem);
- 
-            try
-            {
-                for (var i = 0; i < itemsCount; i++)
-                {
-                    Marshal.Copy(BinReader.Source, BinReader.Position, buffer, sizeItem);
-                    var space = spaces.ContainsKey(type.Name) ? spaces[type.Name] : ID_SPACE.UNKNOWN;
-                    Items.Add( new Item
+                Marshal.Copy(BinReader.Source, BinReader.Position, buffer, size);
+                //var space = spaces.ContainsKey(type.Name) ? spaces[type.Name] : ID_SPACE.UNKNOWN;
+                dynamic fields = Marshal.PtrToStructure(buffer, type);
+               // if (space == ID_SPACE.ESSENCE)
+               // {
+                    collection.Add(fields.id, new Item
                     {
                         Type = type,
-                        Space = space,
-                        Fields = Marshal.PtrToStructure(buffer, type)
+                        Fields = fields
                     });
-                    BinReader.Position += sizeItem;
-                }
+               // }
+
+                //Items.Add(new Item
+                // {
+                //     Type = type,
+                //     Space = space,
+                //     Fields = fields
+                // });
+                BinReader.Position += size;
+            }
+        }
+
+        public void Deserialize(Type type)
+        {
+            if (type.Name == "TALK_PROC")
+            {
+                Conversations.Load(type);
+                return;
+            }
+
+            var count = BinReader.ReadInt32();
+            var size = Marshal.SizeOf(type);
+            var buffer = Marshal.AllocHGlobal(size);
+
+            try
+            {
+                var space = spaces.ContainsKey(type.Name) ? spaces[type.Name] : ID_SPACE.UNKNOWN;
+                if (space == ID_SPACE.ESSENCE)
+                    ReadItems(count, size, buffer, type, Essences);
+                
+                // for (var i = 0; i < itemsCount; i++)
+                // {
+                //     Marshal.Copy(BinReader.Source, BinReader.Position, buffer, sizeItem);
+                //     
+                //     dynamic fields = Marshal.PtrToStructure(buffer, type);
+                //     if (space == ID_SPACE.ESSENCE)
+                //     {
+                //         Items2.Add(fields.id, new Item
+                //         {
+                //             Type = type,
+                //             Space = space,
+                //             Fields = fields
+                //         });
+                //     }
+                //    
+                //     // Items.Add(new Item
+                //     // {
+                //     //     Type = type,
+                //     //     Space = space,
+                //     //     Fields = fields
+                //     // });
+                //     BinReader.Position += sizeItem;
+                // }
             }
             finally
             {
@@ -606,7 +672,7 @@ namespace PWHelper.Elements
         public void RegisterStruct(Type type, string name)
         {
             Deserialize(type);
-            ListInformation.Add(new ListInfo { Type = type, Name = name });
+            ListInformation.Add(new ListInfo {Type = type, Name = name});
         }
 
         public void Add(Type type, Item item = null)

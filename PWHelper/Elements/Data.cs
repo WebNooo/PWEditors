@@ -40,7 +40,8 @@ namespace PWHelper.Elements
         }
 
         public static RangeObservableCollection<link> Links { get; set; } = new RangeObservableCollection<link>();
-        public static Dictionary<uint, List<link>> Links2 { get; set; } = new Dictionary<uint, List<link>>();
+        public static Dictionary<int, List<link>> LinksEssence { get; set; } = new Dictionary<int, List<link>>();
+        public static Dictionary<int, List<link>> LinksAddon { get; set; } = new Dictionary<int, List<link>>();
 
         public static long Load(string fileName)
         {
@@ -79,17 +80,24 @@ namespace PWHelper.Elements
 
             new Thread(() =>
             {
+                var itemType = typeof(ItemIdAttribute);
+                var addonType = typeof(AddonIdAttribute);
                 Element.Items.All(n =>
                 {
 
+                    if (n.Type.Name == "EQUIPMENT_ADDON")
+                    {
+                        SetLink(n.Fields.GetType().GetProperties(), n, "Аддоны", addonType, LinksAddon);
+                    }
+
                     if (n.Type.Name == "RECIPE_ESSENCE")
                     {
-                        SetLink(n.Fields.GetType().GetProperties(), n, "Рецепт");
+                        SetLink(n.Fields.GetType().GetProperties(), n, "Рецепт", itemType, LinksEssence);
                     }
 
                     if (n.Type.Name == "NPC_SELL_SERVICE")
                     {
-                        SetLink(n.Fields.GetType().GetProperties(), n, "Торговля");
+                        SetLink(n.Fields.GetType().GetProperties(), n, "Торговля", itemType, LinksEssence);
                     }
 
                     return true;
@@ -104,22 +112,28 @@ namespace PWHelper.Elements
             return s.ElapsedMilliseconds;
         }
 
-        public static void SetLink(PropertyInfo[] fields, Element.Item item, string name)
+        public static void SetLink(PropertyInfo[] fields, Element.Item item, string name, Type attributeType, Dictionary<int, List<link>> list)
         {
             fields.All(x =>
             {
-                if (x.PropertyType.Name == "UInt32")
+
+                // if (Attribute.GetCustomAttribute(x, typeof(AddonIdAttribute), false) != null)
+                // {
+                //     Console.WriteLine(x);
+                // }
+
+                if (Attribute.GetCustomAttribute(x, attributeType, false) != null)
                 {
-                    uint t = x.GetValue(item.Fields, null);
+                    int t = x.GetValue(item.Fields, null);
                     if (t > 0)
                     {
-                        if (Links2.ContainsKey(t))
+                        if (list.ContainsKey(t))
                         {
-                            Links2[t].Add(new link { item = item, type = name });
+                            list[t].Add(new link { item = item, type = name });
                         }
                         else
                         {
-                            Links2.Add(t, new List<link> { new link { item = item, type = name } });
+                            list.Add(t, new List<link> { new link { item = item, type = name } });
                         }
                     }
                 }

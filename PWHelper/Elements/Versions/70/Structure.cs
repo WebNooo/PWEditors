@@ -179,166 +179,168 @@ namespace PWHelper.Elements.Versions._70
         public float probability_addon_num3 { get; set; }
         public float probability_addon_num4 { get; set; }
         public float probability_unique { get; set; }
-        public uint addons_1_id_addon { get; set; }
+
+        [AddonId] public int addons_1_id_addon { get; set; }
         public float addons_1_probability_addon { get; set; }
-        public uint addons_2_id_addon { get; set; }
+        [AddonId] public int addons_2_id_addon { get; set; }
         public float addons_2_probability_addon { get; set; }
-        public uint addons_3_id_addon { get; set; }
+        [AddonId] public int addons_3_id_addon { get; set; }
         public float addons_3_probability_addon { get; set; }
-        public uint addons_4_id_addon { get; set; }
+        [AddonId] public int addons_4_id_addon { get; set; }
         public float addons_4_probability_addon { get; set; }
-        public uint addons_5_id_addon { get; set; }
+        [AddonId] public int addons_5_id_addon { get; set; }
         public float addons_5_probability_addon { get; set; }
-        public uint addons_6_id_addon { get; set; }
+        [AddonId] public int addons_6_id_addon { get; set; }
         public float addons_6_probability_addon { get; set; }
-        public uint addons_7_id_addon { get; set; }
+        [AddonId] public int addons_7_id_addon { get; set; }
         public float addons_7_probability_addon { get; set; }
-        public uint addons_8_id_addon { get; set; }
+        [AddonId] public int addons_8_id_addon { get; set; }
         public float addons_8_probability_addon { get; set; }
-        public uint addons_9_id_addon { get; set; }
+        [AddonId] public int addons_9_id_addon { get; set; }
         public float addons_9_probability_addon { get; set; }
-        public uint addons_10_id_addon { get; set; }
+        [AddonId] public int addons_10_id_addon { get; set; }
         public float addons_10_probability_addon { get; set; }
-        public uint addons_11_id_addon { get; set; }
+        [AddonId] public int addons_11_id_addon { get; set; }
         public float addons_11_probability_addon { get; set; }
-        public uint addons_12_id_addon { get; set; }
+        [AddonId] public int addons_12_id_addon { get; set; }
         public float addons_12_probability_addon { get; set; }
-        public uint addons_13_id_addon { get; set; }
+        [AddonId] public int addons_13_id_addon { get; set; }
         public float addons_13_probability_addon { get; set; }
-        public int addons_14_id_addon { get; set; }
+        [AddonId] public int addons_14_id_addon { get; set; }
         public float addons_14_probability_addon { get; set; }
-        public int addons_15_id_addon { get; set; }
+        [AddonId] public int addons_15_id_addon { get; set; }
         public float addons_15_probability_addon { get; set; }
-        public int addons_16_id_addon { get; set; }
+        [AddonId] public int addons_16_id_addon { get; set; }
         public float addons_16_probability_addon { get; set; }
-        public int addons_17_id_addon { get; set; }
+        [AddonId] public int addons_17_id_addon { get; set; }
         public float addons_17_probability_addon { get; set; }
-        public int addons_18_id_addon { get; set; }
+        [AddonId] public int addons_18_id_addon { get; set; }
         public float addons_18_probability_addon { get; set; }
-        public int addons_19_id_addon { get; set; }
+        [AddonId] public int addons_19_id_addon { get; set; }
         public float addons_19_probability_addon { get; set; }
-        public int addons_20_id_addon { get; set; }
+        [AddonId] public int addons_20_id_addon { get; set; }
         public float addons_20_probability_addon { get; set; }
-        public int addons_21_id_addon { get; set; }
+        [AddonId] public int addons_21_id_addon { get; set; }
         public float addons_21_probability_addon { get; set; }
-        public int addons_22_id_addon { get; set; }
+        [AddonId] public int addons_22_id_addon { get; set; }
         public float addons_22_probability_addon { get; set; }
-        public int addons_23_id_addon { get; set; }
+        [AddonId] public int addons_23_id_addon { get; set; }
         public float addons_23_probability_addon { get; set; }
-        public int addons_24_id_addon { get; set; }
+        [AddonId] public int addons_24_id_addon { get; set; }
         public float addons_24_probability_addon { get; set; }
-        public int addons_25_id_addon { get; set; }
+        [AddonId] public int addons_25_id_addon { get; set; }
         public float addons_25_probability_addon { get; set; }
-        public int addons_26_id_addon { get; set; }
+        [AddonId] public int addons_26_id_addon { get; set; }
         public float addons_26_probability_addon { get; set; }
-        public int addons_27_id_addon { get; set; }
+        [AddonId] public int addons_27_id_addon { get; set; }
         public float addons_27_probability_addon { get; set; }
-        public int addons_28_id_addon { get; set; }
+        [AddonId] public int addons_28_id_addon { get; set; }
         public float addons_28_probability_addon { get; set; }
-        public int addons_29_id_addon { get; set; }
+        [AddonId] public int addons_29_id_addon { get; set; }
         public float addons_29_probability_addon { get; set; }
-        public int addons_30_id_addon { get; set; }
+        [AddonId] public int addons_30_id_addon { get; set; }
         public float addons_30_probability_addon { get; set; }
-        public int addons_31_id_addon { get; set; }
+        [AddonId] public int addons_31_id_addon { get; set; }
         public float addons_31_probability_addon { get; set; }
-        public int addons_32_id_addon { get; set; }
+        [AddonId] public int addons_32_id_addon { get; set; }
         public float addons_32_probability_addon { get; set; }
-        public int rands_1_id_rand { get; set; }
+        [AddonId] public int rands_1_id_rand { get; set; }
         public float rands_1_probability_rand { get; set; }
-        public int rands_2_id_rand { get; set; }
+        [AddonId] public int rands_2_id_rand { get; set; }
         public float rands_2_probability_rand { get; set; }
-        public int rands_3_id_rand { get; set; }
+        [AddonId] public int rands_3_id_rand { get; set; }
         public float rands_3_probability_rand { get; set; }
-        public int rands_4_id_rand { get; set; }
+        [AddonId] public int rands_4_id_rand { get; set; }
         public float rands_4_probability_rand { get; set; }
-        public int rands_5_id_rand { get; set; }
+        [AddonId] public int rands_5_id_rand { get; set; }
         public float rands_5_probability_rand { get; set; }
-        public int rands_6_id_rand { get; set; }
+        [AddonId] public int rands_6_id_rand { get; set; }
         public float rands_6_probability_rand { get; set; }
-        public int rands_7_id_rand { get; set; }
+        [AddonId] public int rands_7_id_rand { get; set; }
         public float rands_7_probability_rand { get; set; }
-        public int rands_8_id_rand { get; set; }
+        [AddonId] public int rands_8_id_rand { get; set; }
         public float rands_8_probability_rand { get; set; }
-        public int rands_9_id_rand { get; set; }
+        [AddonId] public int rands_9_id_rand { get; set; }
         public float rands_9_probability_rand { get; set; }
-        public int rands_10_id_rand { get; set; }
+        [AddonId] public int rands_10_id_rand { get; set; }
         public float rands_10_probability_rand { get; set; }
-        public int rands_11_id_rand { get; set; }
+        [AddonId] public int rands_11_id_rand { get; set; }
         public float rands_11_probability_rand { get; set; }
-        public int rands_12_id_rand { get; set; }
+        [AddonId] public int rands_12_id_rand { get; set; }
         public float rands_12_probability_rand { get; set; }
-        public int rands_13_id_rand { get; set; }
+        [AddonId] public int rands_13_id_rand { get; set; }
         public float rands_13_probability_rand { get; set; }
-        public int rands_14_id_rand { get; set; }
+        [AddonId] public int rands_14_id_rand { get; set; }
         public float rands_14_probability_rand { get; set; }
-        public int rands_15_id_rand { get; set; }
+        [AddonId] public int rands_15_id_rand { get; set; }
         public float rands_15_probability_rand { get; set; }
-        public int rands_16_id_rand { get; set; }
+        [AddonId] public int rands_16_id_rand { get; set; }
         public float rands_16_probability_rand { get; set; }
-        public int rands_17_id_rand { get; set; }
+        [AddonId] public int rands_17_id_rand { get; set; }
         public float rands_17_probability_rand { get; set; }
-        public int rands_18_id_rand { get; set; }
+        [AddonId] public int rands_18_id_rand { get; set; }
         public float rands_18_probability_rand { get; set; }
-        public int rands_19_id_rand { get; set; }
+        [AddonId] public int rands_19_id_rand { get; set; }
         public float rands_19_probability_rand { get; set; }
-        public int rands_20_id_rand { get; set; }
+        [AddonId] public int rands_20_id_rand { get; set; }
         public float rands_20_probability_rand { get; set; }
-        public int rands_21_id_rand { get; set; }
+        [AddonId] public int rands_21_id_rand { get; set; }
         public float rands_21_probability_rand { get; set; }
-        public int rands_22_id_rand { get; set; }
+        [AddonId] public int rands_22_id_rand { get; set; }
         public float rands_22_probability_rand { get; set; }
-        public int rands_23_id_rand { get; set; }
+        [AddonId] public int rands_23_id_rand { get; set; }
         public float rands_23_probability_rand { get; set; }
-        public int rands_24_id_rand { get; set; }
+        [AddonId] public int rands_24_id_rand { get; set; }
         public float rands_24_probability_rand { get; set; }
-        public int rands_25_id_rand { get; set; }
+        [AddonId] public int rands_25_id_rand { get; set; }
         public float rands_25_probability_rand { get; set; }
-        public int rands_26_id_rand { get; set; }
+        [AddonId] public int rands_26_id_rand { get; set; }
         public float rands_26_probability_rand { get; set; }
-        public int rands_27_id_rand { get; set; }
+        [AddonId] public int rands_27_id_rand { get; set; }
         public float rands_27_probability_rand { get; set; }
-        public int rands_28_id_rand { get; set; }
+        [AddonId] public int rands_28_id_rand { get; set; }
         public float rands_28_probability_rand { get; set; }
-        public int rands_29_id_rand { get; set; }
+        [AddonId] public int rands_29_id_rand { get; set; }
         public float rands_29_probability_rand { get; set; }
-        public int rands_30_id_rand { get; set; }
+        [AddonId] public int rands_30_id_rand { get; set; }
         public float rands_30_probability_rand { get; set; }
-        public int rands_31_id_rand { get; set; }
+        [AddonId] public int rands_31_id_rand { get; set; }
         public float rands_31_probability_rand { get; set; }
-        public int rands_32_id_rand { get; set; }
+        [AddonId] public int rands_32_id_rand { get; set; }
         public float rands_32_probability_rand { get; set; }
-        public int uniques_1_id_unique { get; set; }
+        [AddonId] public int uniques_1_id_unique { get; set; }
         public float uniques_1_probability_unique { get; set; }
-        public int uniques_2_id_unique { get; set; }
+        [AddonId] public int uniques_2_id_unique { get; set; }
         public float uniques_2_probability_unique { get; set; }
-        public int uniques_3_id_unique { get; set; }
+        [AddonId] public int uniques_3_id_unique { get; set; }
         public float uniques_3_probability_unique { get; set; }
-        public int uniques_4_id_unique { get; set; }
+        [AddonId] public int uniques_4_id_unique { get; set; }
         public float uniques_4_probability_unique { get; set; }
-        public int uniques_5_id_unique { get; set; }
+        [AddonId] public int uniques_5_id_unique { get; set; }
         public float uniques_5_probability_unique { get; set; }
-        public int uniques_6_id_unique { get; set; }
+        [AddonId] public int uniques_6_id_unique { get; set; }
         public float uniques_6_probability_unique { get; set; }
-        public int uniques_7_id_unique { get; set; }
+        [AddonId] public int uniques_7_id_unique { get; set; }
         public float uniques_7_probability_unique { get; set; }
-        public int uniques_8_id_unique { get; set; }
+        [AddonId] public int uniques_8_id_unique { get; set; }
         public float uniques_8_probability_unique { get; set; }
-        public int uniques_9_id_unique { get; set; }
+        [AddonId] public int uniques_9_id_unique { get; set; }
         public float uniques_9_probability_unique { get; set; }
-        public int uniques_10_id_unique { get; set; }
+        [AddonId] public int uniques_10_id_unique { get; set; }
         public float uniques_10_probability_unique { get; set; }
-        public int uniques_11_id_unique { get; set; }
+        [AddonId] public int uniques_11_id_unique { get; set; }
         public float uniques_11_probability_unique { get; set; }
-        public int uniques_12_id_unique { get; set; }
+        [AddonId] public int uniques_12_id_unique { get; set; }
         public float uniques_12_probability_unique { get; set; }
-        public int uniques_13_id_unique { get; set; }
+        [AddonId] public int uniques_13_id_unique { get; set; }
         public float uniques_13_probability_unique { get; set; }
-        public int uniques_14_id_unique { get; set; }
+        [AddonId] public int uniques_14_id_unique { get; set; }
         public float uniques_14_probability_unique { get; set; }
-        public int uniques_15_id_unique { get; set; }
+        [AddonId] public int uniques_15_id_unique { get; set; }
         public float uniques_15_probability_unique { get; set; }
-        public int uniques_16_id_unique { get; set; }
+        [AddonId] public int uniques_16_id_unique { get; set; }
         public float uniques_16_probability_unique { get; set; }
+
         public int durability_drop_min { get; set; }
         public int durability_drop_max { get; set; }
         public int decompose_price { get; set; }
@@ -2205,100 +2207,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_1_require_contrib { get; set; }
         public int pages_1_require_force { get; set; }
         public int pages_1_require_force_reputation { get; set; }
-        public uint pages_1_goods_1_id { get; set; }
+        [ItemId] public int pages_1_goods_1_id { get; set; }
         public int pages_1_goods_1_contrib_cost { get; set; }
         public int pages_1_goods_1_force_contribution_cost { get; set; }
-        public uint pages_1_goods_2_id { get; set; }
+        [ItemId] public int pages_1_goods_2_id { get; set; }
         public int pages_1_goods_2_contrib_cost { get; set; }
         public int pages_1_goods_2_force_contribution_cost { get; set; }
-        public uint pages_1_goods_3_id { get; set; }
+        [ItemId] public int pages_1_goods_3_id { get; set; }
         public int pages_1_goods_3_contrib_cost { get; set; }
         public int pages_1_goods_3_force_contribution_cost { get; set; }
-        public uint pages_1_goods_4_id { get; set; }
+        [ItemId] public int pages_1_goods_4_id { get; set; }
         public int pages_1_goods_4_contrib_cost { get; set; }
         public int pages_1_goods_4_force_contribution_cost { get; set; }
-        public uint pages_1_goods_5_id { get; set; }
+        [ItemId] public int pages_1_goods_5_id { get; set; }
         public int pages_1_goods_5_contrib_cost { get; set; }
         public int pages_1_goods_5_force_contribution_cost { get; set; }
-        public uint pages_1_goods_6_id { get; set; }
+        [ItemId] public int pages_1_goods_6_id { get; set; }
         public int pages_1_goods_6_contrib_cost { get; set; }
         public int pages_1_goods_6_force_contribution_cost { get; set; }
-        public uint pages_1_goods_7_id { get; set; }
+        [ItemId] public int pages_1_goods_7_id { get; set; }
         public int pages_1_goods_7_contrib_cost { get; set; }
         public int pages_1_goods_7_force_contribution_cost { get; set; }
-        public uint pages_1_goods_8_id { get; set; }
+        [ItemId] public int pages_1_goods_8_id { get; set; }
         public int pages_1_goods_8_contrib_cost { get; set; }
         public int pages_1_goods_8_force_contribution_cost { get; set; }
-        public uint pages_1_goods_9_id { get; set; }
+        [ItemId] public int pages_1_goods_9_id { get; set; }
         public int pages_1_goods_9_contrib_cost { get; set; }
         public int pages_1_goods_9_force_contribution_cost { get; set; }
-        public uint pages_1_goods_10_id { get; set; }
+        [ItemId] public int pages_1_goods_10_id { get; set; }
         public int pages_1_goods_10_contrib_cost { get; set; }
         public int pages_1_goods_10_force_contribution_cost { get; set; }
-        public uint pages_1_goods_11_id { get; set; }
+        [ItemId] public int pages_1_goods_11_id { get; set; }
         public int pages_1_goods_11_contrib_cost { get; set; }
         public int pages_1_goods_11_force_contribution_cost { get; set; }
-        public uint pages_1_goods_12_id { get; set; }
+        [ItemId] public int pages_1_goods_12_id { get; set; }
         public int pages_1_goods_12_contrib_cost { get; set; }
         public int pages_1_goods_12_force_contribution_cost { get; set; }
-        public uint pages_1_goods_13_id { get; set; }
+        [ItemId] public int pages_1_goods_13_id { get; set; }
         public int pages_1_goods_13_contrib_cost { get; set; }
         public int pages_1_goods_13_force_contribution_cost { get; set; }
-        public uint pages_1_goods_14_id { get; set; }
+        [ItemId] public int pages_1_goods_14_id { get; set; }
         public int pages_1_goods_14_contrib_cost { get; set; }
         public int pages_1_goods_14_force_contribution_cost { get; set; }
-        public uint pages_1_goods_15_id { get; set; }
+        [ItemId] public int pages_1_goods_15_id { get; set; }
         public int pages_1_goods_15_contrib_cost { get; set; }
         public int pages_1_goods_15_force_contribution_cost { get; set; }
-        public uint pages_1_goods_16_id { get; set; }
+        [ItemId] public int pages_1_goods_16_id { get; set; }
         public int pages_1_goods_16_contrib_cost { get; set; }
         public int pages_1_goods_16_force_contribution_cost { get; set; }
-        public uint pages_1_goods_17_id { get; set; }
+        [ItemId] public int pages_1_goods_17_id { get; set; }
         public int pages_1_goods_17_contrib_cost { get; set; }
         public int pages_1_goods_17_force_contribution_cost { get; set; }
-        public uint pages_1_goods_18_id { get; set; }
+        [ItemId] public int pages_1_goods_18_id { get; set; }
         public int pages_1_goods_18_contrib_cost { get; set; }
         public int pages_1_goods_18_force_contribution_cost { get; set; }
-        public uint pages_1_goods_19_id { get; set; }
+        [ItemId] public int pages_1_goods_19_id { get; set; }
         public int pages_1_goods_19_contrib_cost { get; set; }
         public int pages_1_goods_19_force_contribution_cost { get; set; }
-        public uint pages_1_goods_20_id { get; set; }
+        [ItemId] public int pages_1_goods_20_id { get; set; }
         public int pages_1_goods_20_contrib_cost { get; set; }
         public int pages_1_goods_20_force_contribution_cost { get; set; }
-        public uint pages_1_goods_21_id { get; set; }
+        [ItemId] public int pages_1_goods_21_id { get; set; }
         public int pages_1_goods_21_contrib_cost { get; set; }
         public int pages_1_goods_21_force_contribution_cost { get; set; }
-        public uint pages_1_goods_22_id { get; set; }
+        [ItemId] public int pages_1_goods_22_id { get; set; }
         public int pages_1_goods_22_contrib_cost { get; set; }
         public int pages_1_goods_22_force_contribution_cost { get; set; }
-        public uint pages_1_goods_23_id { get; set; }
+        [ItemId] public int pages_1_goods_23_id { get; set; }
         public int pages_1_goods_23_contrib_cost { get; set; }
         public int pages_1_goods_23_force_contribution_cost { get; set; }
-        public uint pages_1_goods_24_id { get; set; }
+        [ItemId] public int pages_1_goods_24_id { get; set; }
         public int pages_1_goods_24_contrib_cost { get; set; }
         public int pages_1_goods_24_force_contribution_cost { get; set; }
-        public uint pages_1_goods_25_id { get; set; }
+        [ItemId] public int pages_1_goods_25_id { get; set; }
         public int pages_1_goods_25_contrib_cost { get; set; }
         public int pages_1_goods_25_force_contribution_cost { get; set; }
-        public uint pages_1_goods_26_id { get; set; }
+        [ItemId] public int pages_1_goods_26_id { get; set; }
         public int pages_1_goods_26_contrib_cost { get; set; }
         public int pages_1_goods_26_force_contribution_cost { get; set; }
-        public uint pages_1_goods_27_id { get; set; }
+        [ItemId] public int pages_1_goods_27_id { get; set; }
         public int pages_1_goods_27_contrib_cost { get; set; }
         public int pages_1_goods_27_force_contribution_cost { get; set; }
-        public uint pages_1_goods_28_id { get; set; }
+        [ItemId] public int pages_1_goods_28_id { get; set; }
         public int pages_1_goods_28_contrib_cost { get; set; }
         public int pages_1_goods_28_force_contribution_cost { get; set; }
-        public uint pages_1_goods_29_id { get; set; }
+        [ItemId] public int pages_1_goods_29_id { get; set; }
         public int pages_1_goods_29_contrib_cost { get; set; }
         public int pages_1_goods_29_force_contribution_cost { get; set; }
-        public uint pages_1_goods_30_id { get; set; }
+        [ItemId] public int pages_1_goods_30_id { get; set; }
         public int pages_1_goods_30_contrib_cost { get; set; }
         public int pages_1_goods_30_force_contribution_cost { get; set; }
-        public uint pages_1_goods_31_id { get; set; }
+        [ItemId] public int pages_1_goods_31_id { get; set; }
         public int pages_1_goods_31_contrib_cost { get; set; }
         public int pages_1_goods_31_force_contribution_cost { get; set; }
-        public uint pages_1_goods_32_id { get; set; }
+        [ItemId] public int pages_1_goods_32_id { get; set; }
         public int pages_1_goods_32_contrib_cost { get; set; }
         public int pages_1_goods_32_force_contribution_cost { get; set; }
 
@@ -2314,100 +2316,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_2_require_contrib { get; set; }
         public int pages_2_require_force { get; set; }
         public int pages_2_require_force_reputation { get; set; }
-        public uint pages_2_goods_1_id { get; set; }
+        [ItemId] public int pages_2_goods_1_id { get; set; }
         public int pages_2_goods_1_contrib_cost { get; set; }
         public int pages_2_goods_1_force_contribution_cost { get; set; }
-        public uint pages_2_goods_2_id { get; set; }
+        [ItemId] public int pages_2_goods_2_id { get; set; }
         public int pages_2_goods_2_contrib_cost { get; set; }
         public int pages_2_goods_2_force_contribution_cost { get; set; }
-        public uint pages_2_goods_3_id { get; set; }
+        [ItemId] public int pages_2_goods_3_id { get; set; }
         public int pages_2_goods_3_contrib_cost { get; set; }
         public int pages_2_goods_3_force_contribution_cost { get; set; }
-        public uint pages_2_goods_4_id { get; set; }
+        [ItemId] public int pages_2_goods_4_id { get; set; }
         public int pages_2_goods_4_contrib_cost { get; set; }
         public int pages_2_goods_4_force_contribution_cost { get; set; }
-        public uint pages_2_goods_5_id { get; set; }
+        [ItemId] public int pages_2_goods_5_id { get; set; }
         public int pages_2_goods_5_contrib_cost { get; set; }
         public int pages_2_goods_5_force_contribution_cost { get; set; }
-        public uint pages_2_goods_6_id { get; set; }
+        [ItemId] public int pages_2_goods_6_id { get; set; }
         public int pages_2_goods_6_contrib_cost { get; set; }
         public int pages_2_goods_6_force_contribution_cost { get; set; }
-        public uint pages_2_goods_7_id { get; set; }
+        [ItemId] public int pages_2_goods_7_id { get; set; }
         public int pages_2_goods_7_contrib_cost { get; set; }
         public int pages_2_goods_7_force_contribution_cost { get; set; }
-        public uint pages_2_goods_8_id { get; set; }
+        [ItemId] public int pages_2_goods_8_id { get; set; }
         public int pages_2_goods_8_contrib_cost { get; set; }
         public int pages_2_goods_8_force_contribution_cost { get; set; }
-        public uint pages_2_goods_9_id { get; set; }
+        [ItemId] public int pages_2_goods_9_id { get; set; }
         public int pages_2_goods_9_contrib_cost { get; set; }
         public int pages_2_goods_9_force_contribution_cost { get; set; }
-        public uint pages_2_goods_10_id { get; set; }
+        [ItemId] public int pages_2_goods_10_id { get; set; }
         public int pages_2_goods_10_contrib_cost { get; set; }
         public int pages_2_goods_10_force_contribution_cost { get; set; }
-        public uint pages_2_goods_11_id { get; set; }
+        [ItemId] public int pages_2_goods_11_id { get; set; }
         public int pages_2_goods_11_contrib_cost { get; set; }
         public int pages_2_goods_11_force_contribution_cost { get; set; }
-        public uint pages_2_goods_12_id { get; set; }
+        [ItemId] public int pages_2_goods_12_id { get; set; }
         public int pages_2_goods_12_contrib_cost { get; set; }
         public int pages_2_goods_12_force_contribution_cost { get; set; }
-        public uint pages_2_goods_13_id { get; set; }
+        [ItemId] public int pages_2_goods_13_id { get; set; }
         public int pages_2_goods_13_contrib_cost { get; set; }
         public int pages_2_goods_13_force_contribution_cost { get; set; }
-        public uint pages_2_goods_14_id { get; set; }
+        [ItemId] public int pages_2_goods_14_id { get; set; }
         public int pages_2_goods_14_contrib_cost { get; set; }
         public int pages_2_goods_14_force_contribution_cost { get; set; }
-        public uint pages_2_goods_15_id { get; set; }
+        [ItemId] public int pages_2_goods_15_id { get; set; }
         public int pages_2_goods_15_contrib_cost { get; set; }
         public int pages_2_goods_15_force_contribution_cost { get; set; }
-        public uint pages_2_goods_16_id { get; set; }
+        [ItemId] public int pages_2_goods_16_id { get; set; }
         public int pages_2_goods_16_contrib_cost { get; set; }
         public int pages_2_goods_16_force_contribution_cost { get; set; }
-        public uint pages_2_goods_17_id { get; set; }
+        [ItemId] public int pages_2_goods_17_id { get; set; }
         public int pages_2_goods_17_contrib_cost { get; set; }
         public int pages_2_goods_17_force_contribution_cost { get; set; }
-        public uint pages_2_goods_18_id { get; set; }
+        [ItemId] public int pages_2_goods_18_id { get; set; }
         public int pages_2_goods_18_contrib_cost { get; set; }
         public int pages_2_goods_18_force_contribution_cost { get; set; }
-        public uint pages_2_goods_19_id { get; set; }
+        [ItemId] public int pages_2_goods_19_id { get; set; }
         public int pages_2_goods_19_contrib_cost { get; set; }
         public int pages_2_goods_19_force_contribution_cost { get; set; }
-        public uint pages_2_goods_20_id { get; set; }
+        [ItemId] public int pages_2_goods_20_id { get; set; }
         public int pages_2_goods_20_contrib_cost { get; set; }
         public int pages_2_goods_20_force_contribution_cost { get; set; }
-        public uint pages_2_goods_21_id { get; set; }
+        [ItemId] public int pages_2_goods_21_id { get; set; }
         public int pages_2_goods_21_contrib_cost { get; set; }
         public int pages_2_goods_21_force_contribution_cost { get; set; }
-        public uint pages_2_goods_22_id { get; set; }
+        [ItemId] public int pages_2_goods_22_id { get; set; }
         public int pages_2_goods_22_contrib_cost { get; set; }
         public int pages_2_goods_22_force_contribution_cost { get; set; }
-        public uint pages_2_goods_23_id { get; set; }
+        [ItemId] public int pages_2_goods_23_id { get; set; }
         public int pages_2_goods_23_contrib_cost { get; set; }
         public int pages_2_goods_23_force_contribution_cost { get; set; }
-        public uint pages_2_goods_24_id { get; set; }
+        [ItemId] public int pages_2_goods_24_id { get; set; }
         public int pages_2_goods_24_contrib_cost { get; set; }
         public int pages_2_goods_24_force_contribution_cost { get; set; }
-        public uint pages_2_goods_25_id { get; set; }
+        [ItemId] public int pages_2_goods_25_id { get; set; }
         public int pages_2_goods_25_contrib_cost { get; set; }
         public int pages_2_goods_25_force_contribution_cost { get; set; }
-        public uint pages_2_goods_26_id { get; set; }
+        [ItemId] public int pages_2_goods_26_id { get; set; }
         public int pages_2_goods_26_contrib_cost { get; set; }
         public int pages_2_goods_26_force_contribution_cost { get; set; }
-        public uint pages_2_goods_27_id { get; set; }
+        [ItemId] public int pages_2_goods_27_id { get; set; }
         public int pages_2_goods_27_contrib_cost { get; set; }
         public int pages_2_goods_27_force_contribution_cost { get; set; }
-        public uint pages_2_goods_28_id { get; set; }
+        [ItemId] public int pages_2_goods_28_id { get; set; }
         public int pages_2_goods_28_contrib_cost { get; set; }
         public int pages_2_goods_28_force_contribution_cost { get; set; }
-        public uint pages_2_goods_29_id { get; set; }
+        [ItemId] public int pages_2_goods_29_id { get; set; }
         public int pages_2_goods_29_contrib_cost { get; set; }
         public int pages_2_goods_29_force_contribution_cost { get; set; }
-        public uint pages_2_goods_30_id { get; set; }
+        [ItemId] public int pages_2_goods_30_id { get; set; }
         public int pages_2_goods_30_contrib_cost { get; set; }
         public int pages_2_goods_30_force_contribution_cost { get; set; }
-        public uint pages_2_goods_31_id { get; set; }
+        [ItemId] public int pages_2_goods_31_id { get; set; }
         public int pages_2_goods_31_contrib_cost { get; set; }
         public int pages_2_goods_31_force_contribution_cost { get; set; }
-        public uint pages_2_goods_32_id { get; set; }
+        [ItemId] public int pages_2_goods_32_id { get; set; }
         public int pages_2_goods_32_contrib_cost { get; set; }
         public int pages_2_goods_32_force_contribution_cost { get; set; }
 
@@ -2423,100 +2425,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_3_require_contrib { get; set; }
         public int pages_3_require_force { get; set; }
         public int pages_3_require_force_reputation { get; set; }
-        public uint pages_3_goods_1_id { get; set; }
+        [ItemId] public int pages_3_goods_1_id { get; set; }
         public int pages_3_goods_1_contrib_cost { get; set; }
         public int pages_3_goods_1_force_contribution_cost { get; set; }
-        public uint pages_3_goods_2_id { get; set; }
+        [ItemId] public int pages_3_goods_2_id { get; set; }
         public int pages_3_goods_2_contrib_cost { get; set; }
         public int pages_3_goods_2_force_contribution_cost { get; set; }
-        public uint pages_3_goods_3_id { get; set; }
+        [ItemId] public int pages_3_goods_3_id { get; set; }
         public int pages_3_goods_3_contrib_cost { get; set; }
         public int pages_3_goods_3_force_contribution_cost { get; set; }
-        public uint pages_3_goods_4_id { get; set; }
+        [ItemId] public int pages_3_goods_4_id { get; set; }
         public int pages_3_goods_4_contrib_cost { get; set; }
         public int pages_3_goods_4_force_contribution_cost { get; set; }
-        public uint pages_3_goods_5_id { get; set; }
+        [ItemId] public int pages_3_goods_5_id { get; set; }
         public int pages_3_goods_5_contrib_cost { get; set; }
         public int pages_3_goods_5_force_contribution_cost { get; set; }
-        public uint pages_3_goods_6_id { get; set; }
+        [ItemId] public int pages_3_goods_6_id { get; set; }
         public int pages_3_goods_6_contrib_cost { get; set; }
         public int pages_3_goods_6_force_contribution_cost { get; set; }
-        public uint pages_3_goods_7_id { get; set; }
+        [ItemId] public int pages_3_goods_7_id { get; set; }
         public int pages_3_goods_7_contrib_cost { get; set; }
         public int pages_3_goods_7_force_contribution_cost { get; set; }
-        public uint pages_3_goods_8_id { get; set; }
+        [ItemId] public int pages_3_goods_8_id { get; set; }
         public int pages_3_goods_8_contrib_cost { get; set; }
         public int pages_3_goods_8_force_contribution_cost { get; set; }
-        public uint pages_3_goods_9_id { get; set; }
+        [ItemId] public int pages_3_goods_9_id { get; set; }
         public int pages_3_goods_9_contrib_cost { get; set; }
         public int pages_3_goods_9_force_contribution_cost { get; set; }
-        public uint pages_3_goods_10_id { get; set; }
+        [ItemId] public int pages_3_goods_10_id { get; set; }
         public int pages_3_goods_10_contrib_cost { get; set; }
         public int pages_3_goods_10_force_contribution_cost { get; set; }
-        public uint pages_3_goods_11_id { get; set; }
+        [ItemId] public int pages_3_goods_11_id { get; set; }
         public int pages_3_goods_11_contrib_cost { get; set; }
         public int pages_3_goods_11_force_contribution_cost { get; set; }
-        public uint pages_3_goods_12_id { get; set; }
+        [ItemId] public int pages_3_goods_12_id { get; set; }
         public int pages_3_goods_12_contrib_cost { get; set; }
         public int pages_3_goods_12_force_contribution_cost { get; set; }
-        public uint pages_3_goods_13_id { get; set; }
+        [ItemId] public int pages_3_goods_13_id { get; set; }
         public int pages_3_goods_13_contrib_cost { get; set; }
         public int pages_3_goods_13_force_contribution_cost { get; set; }
-        public uint pages_3_goods_14_id { get; set; }
+        [ItemId] public int pages_3_goods_14_id { get; set; }
         public int pages_3_goods_14_contrib_cost { get; set; }
         public int pages_3_goods_14_force_contribution_cost { get; set; }
-        public uint pages_3_goods_15_id { get; set; }
+        [ItemId] public int pages_3_goods_15_id { get; set; }
         public int pages_3_goods_15_contrib_cost { get; set; }
         public int pages_3_goods_15_force_contribution_cost { get; set; }
-        public uint pages_3_goods_16_id { get; set; }
+        [ItemId] public int pages_3_goods_16_id { get; set; }
         public int pages_3_goods_16_contrib_cost { get; set; }
         public int pages_3_goods_16_force_contribution_cost { get; set; }
-        public uint pages_3_goods_17_id { get; set; }
+        [ItemId] public int pages_3_goods_17_id { get; set; }
         public int pages_3_goods_17_contrib_cost { get; set; }
         public int pages_3_goods_17_force_contribution_cost { get; set; }
-        public uint pages_3_goods_18_id { get; set; }
+        [ItemId] public int pages_3_goods_18_id { get; set; }
         public int pages_3_goods_18_contrib_cost { get; set; }
         public int pages_3_goods_18_force_contribution_cost { get; set; }
-        public uint pages_3_goods_19_id { get; set; }
+        [ItemId] public int pages_3_goods_19_id { get; set; }
         public int pages_3_goods_19_contrib_cost { get; set; }
         public int pages_3_goods_19_force_contribution_cost { get; set; }
-        public uint pages_3_goods_20_id { get; set; }
+        [ItemId] public int pages_3_goods_20_id { get; set; }
         public int pages_3_goods_20_contrib_cost { get; set; }
         public int pages_3_goods_20_force_contribution_cost { get; set; }
-        public uint pages_3_goods_21_id { get; set; }
+        [ItemId] public int pages_3_goods_21_id { get; set; }
         public int pages_3_goods_21_contrib_cost { get; set; }
         public int pages_3_goods_21_force_contribution_cost { get; set; }
-        public uint pages_3_goods_22_id { get; set; }
+        [ItemId] public int pages_3_goods_22_id { get; set; }
         public int pages_3_goods_22_contrib_cost { get; set; }
         public int pages_3_goods_22_force_contribution_cost { get; set; }
-        public uint pages_3_goods_23_id { get; set; }
+        [ItemId] public int pages_3_goods_23_id { get; set; }
         public int pages_3_goods_23_contrib_cost { get; set; }
         public int pages_3_goods_23_force_contribution_cost { get; set; }
-        public uint pages_3_goods_24_id { get; set; }
+        [ItemId] public int pages_3_goods_24_id { get; set; }
         public int pages_3_goods_24_contrib_cost { get; set; }
         public int pages_3_goods_24_force_contribution_cost { get; set; }
-        public uint pages_3_goods_25_id { get; set; }
+        [ItemId] public int pages_3_goods_25_id { get; set; }
         public int pages_3_goods_25_contrib_cost { get; set; }
         public int pages_3_goods_25_force_contribution_cost { get; set; }
-        public uint pages_3_goods_26_id { get; set; }
+        [ItemId] public int pages_3_goods_26_id { get; set; }
         public int pages_3_goods_26_contrib_cost { get; set; }
         public int pages_3_goods_26_force_contribution_cost { get; set; }
-        public uint pages_3_goods_27_id { get; set; }
+        [ItemId] public int pages_3_goods_27_id { get; set; }
         public int pages_3_goods_27_contrib_cost { get; set; }
         public int pages_3_goods_27_force_contribution_cost { get; set; }
-        public uint pages_3_goods_28_id { get; set; }
+        [ItemId] public int pages_3_goods_28_id { get; set; }
         public int pages_3_goods_28_contrib_cost { get; set; }
         public int pages_3_goods_28_force_contribution_cost { get; set; }
-        public uint pages_3_goods_29_id { get; set; }
+        [ItemId] public int pages_3_goods_29_id { get; set; }
         public int pages_3_goods_29_contrib_cost { get; set; }
         public int pages_3_goods_29_force_contribution_cost { get; set; }
-        public uint pages_3_goods_30_id { get; set; }
+        [ItemId] public int pages_3_goods_30_id { get; set; }
         public int pages_3_goods_30_contrib_cost { get; set; }
         public int pages_3_goods_30_force_contribution_cost { get; set; }
-        public uint pages_3_goods_31_id { get; set; }
+        [ItemId] public int pages_3_goods_31_id { get; set; }
         public int pages_3_goods_31_contrib_cost { get; set; }
         public int pages_3_goods_31_force_contribution_cost { get; set; }
-        public uint pages_3_goods_32_id { get; set; }
+        [ItemId] public int pages_3_goods_32_id { get; set; }
         public int pages_3_goods_32_contrib_cost { get; set; }
         public int pages_3_goods_32_force_contribution_cost { get; set; }
 
@@ -2532,100 +2534,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_4_require_contrib { get; set; }
         public int pages_4_require_force { get; set; }
         public int pages_4_require_force_reputation { get; set; }
-        public uint pages_4_goods_1_id { get; set; }
+        [ItemId] public int pages_4_goods_1_id { get; set; }
         public int pages_4_goods_1_contrib_cost { get; set; }
         public int pages_4_goods_1_force_contribution_cost { get; set; }
-        public uint pages_4_goods_2_id { get; set; }
+        [ItemId] public int pages_4_goods_2_id { get; set; }
         public int pages_4_goods_2_contrib_cost { get; set; }
         public int pages_4_goods_2_force_contribution_cost { get; set; }
-        public uint pages_4_goods_3_id { get; set; }
+        [ItemId] public int pages_4_goods_3_id { get; set; }
         public int pages_4_goods_3_contrib_cost { get; set; }
         public int pages_4_goods_3_force_contribution_cost { get; set; }
-        public uint pages_4_goods_4_id { get; set; }
+        [ItemId] public int pages_4_goods_4_id { get; set; }
         public int pages_4_goods_4_contrib_cost { get; set; }
         public int pages_4_goods_4_force_contribution_cost { get; set; }
-        public uint pages_4_goods_5_id { get; set; }
+        [ItemId] public int pages_4_goods_5_id { get; set; }
         public int pages_4_goods_5_contrib_cost { get; set; }
         public int pages_4_goods_5_force_contribution_cost { get; set; }
-        public uint pages_4_goods_6_id { get; set; }
+        [ItemId] public int pages_4_goods_6_id { get; set; }
         public int pages_4_goods_6_contrib_cost { get; set; }
         public int pages_4_goods_6_force_contribution_cost { get; set; }
-        public uint pages_4_goods_7_id { get; set; }
+        [ItemId] public int pages_4_goods_7_id { get; set; }
         public int pages_4_goods_7_contrib_cost { get; set; }
         public int pages_4_goods_7_force_contribution_cost { get; set; }
-        public uint pages_4_goods_8_id { get; set; }
+        [ItemId] public int pages_4_goods_8_id { get; set; }
         public int pages_4_goods_8_contrib_cost { get; set; }
         public int pages_4_goods_8_force_contribution_cost { get; set; }
-        public uint pages_4_goods_9_id { get; set; }
+        [ItemId] public int pages_4_goods_9_id { get; set; }
         public int pages_4_goods_9_contrib_cost { get; set; }
         public int pages_4_goods_9_force_contribution_cost { get; set; }
-        public uint pages_4_goods_10_id { get; set; }
+        [ItemId] public int pages_4_goods_10_id { get; set; }
         public int pages_4_goods_10_contrib_cost { get; set; }
         public int pages_4_goods_10_force_contribution_cost { get; set; }
-        public uint pages_4_goods_11_id { get; set; }
+        [ItemId] public int pages_4_goods_11_id { get; set; }
         public int pages_4_goods_11_contrib_cost { get; set; }
         public int pages_4_goods_11_force_contribution_cost { get; set; }
-        public uint pages_4_goods_12_id { get; set; }
+        [ItemId] public int pages_4_goods_12_id { get; set; }
         public int pages_4_goods_12_contrib_cost { get; set; }
         public int pages_4_goods_12_force_contribution_cost { get; set; }
-        public uint pages_4_goods_13_id { get; set; }
+        [ItemId] public int pages_4_goods_13_id { get; set; }
         public int pages_4_goods_13_contrib_cost { get; set; }
         public int pages_4_goods_13_force_contribution_cost { get; set; }
-        public uint pages_4_goods_14_id { get; set; }
+        [ItemId] public int pages_4_goods_14_id { get; set; }
         public int pages_4_goods_14_contrib_cost { get; set; }
         public int pages_4_goods_14_force_contribution_cost { get; set; }
-        public uint pages_4_goods_15_id { get; set; }
+        [ItemId] public int pages_4_goods_15_id { get; set; }
         public int pages_4_goods_15_contrib_cost { get; set; }
         public int pages_4_goods_15_force_contribution_cost { get; set; }
-        public uint pages_4_goods_16_id { get; set; }
+        [ItemId] public int pages_4_goods_16_id { get; set; }
         public int pages_4_goods_16_contrib_cost { get; set; }
         public int pages_4_goods_16_force_contribution_cost { get; set; }
-        public uint pages_4_goods_17_id { get; set; }
+        [ItemId] public int pages_4_goods_17_id { get; set; }
         public int pages_4_goods_17_contrib_cost { get; set; }
         public int pages_4_goods_17_force_contribution_cost { get; set; }
-        public uint pages_4_goods_18_id { get; set; }
+        [ItemId] public int pages_4_goods_18_id { get; set; }
         public int pages_4_goods_18_contrib_cost { get; set; }
         public int pages_4_goods_18_force_contribution_cost { get; set; }
-        public uint pages_4_goods_19_id { get; set; }
+        [ItemId] public int pages_4_goods_19_id { get; set; }
         public int pages_4_goods_19_contrib_cost { get; set; }
         public int pages_4_goods_19_force_contribution_cost { get; set; }
-        public uint pages_4_goods_20_id { get; set; }
+        [ItemId] public int pages_4_goods_20_id { get; set; }
         public int pages_4_goods_20_contrib_cost { get; set; }
         public int pages_4_goods_20_force_contribution_cost { get; set; }
-        public uint pages_4_goods_21_id { get; set; }
+        [ItemId] public int pages_4_goods_21_id { get; set; }
         public int pages_4_goods_21_contrib_cost { get; set; }
         public int pages_4_goods_21_force_contribution_cost { get; set; }
-        public uint pages_4_goods_22_id { get; set; }
+        [ItemId] public int pages_4_goods_22_id { get; set; }
         public int pages_4_goods_22_contrib_cost { get; set; }
         public int pages_4_goods_22_force_contribution_cost { get; set; }
-        public uint pages_4_goods_23_id { get; set; }
+        [ItemId] public int pages_4_goods_23_id { get; set; }
         public int pages_4_goods_23_contrib_cost { get; set; }
         public int pages_4_goods_23_force_contribution_cost { get; set; }
-        public uint pages_4_goods_24_id { get; set; }
+        [ItemId] public int pages_4_goods_24_id { get; set; }
         public int pages_4_goods_24_contrib_cost { get; set; }
         public int pages_4_goods_24_force_contribution_cost { get; set; }
-        public uint pages_4_goods_25_id { get; set; }
+        [ItemId] public int pages_4_goods_25_id { get; set; }
         public int pages_4_goods_25_contrib_cost { get; set; }
         public int pages_4_goods_25_force_contribution_cost { get; set; }
-        public uint pages_4_goods_26_id { get; set; }
+        [ItemId] public int pages_4_goods_26_id { get; set; }
         public int pages_4_goods_26_contrib_cost { get; set; }
         public int pages_4_goods_26_force_contribution_cost { get; set; }
-        public uint pages_4_goods_27_id { get; set; }
+        [ItemId] public int pages_4_goods_27_id { get; set; }
         public int pages_4_goods_27_contrib_cost { get; set; }
         public int pages_4_goods_27_force_contribution_cost { get; set; }
-        public uint pages_4_goods_28_id { get; set; }
+        [ItemId] public int pages_4_goods_28_id { get; set; }
         public int pages_4_goods_28_contrib_cost { get; set; }
         public int pages_4_goods_28_force_contribution_cost { get; set; }
-        public uint pages_4_goods_29_id { get; set; }
+        [ItemId] public int pages_4_goods_29_id { get; set; }
         public int pages_4_goods_29_contrib_cost { get; set; }
         public int pages_4_goods_29_force_contribution_cost { get; set; }
-        public uint pages_4_goods_30_id { get; set; }
+        [ItemId] public int pages_4_goods_30_id { get; set; }
         public int pages_4_goods_30_contrib_cost { get; set; }
         public int pages_4_goods_30_force_contribution_cost { get; set; }
-        public uint pages_4_goods_31_id { get; set; }
+        [ItemId] public int pages_4_goods_31_id { get; set; }
         public int pages_4_goods_31_contrib_cost { get; set; }
         public int pages_4_goods_31_force_contribution_cost { get; set; }
-        public uint pages_4_goods_32_id { get; set; }
+        [ItemId] public int pages_4_goods_32_id { get; set; }
         public int pages_4_goods_32_contrib_cost { get; set; }
         public int pages_4_goods_32_force_contribution_cost { get; set; }
 
@@ -2641,100 +2643,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_5_require_contrib { get; set; }
         public int pages_5_require_force { get; set; }
         public int pages_5_require_force_reputation { get; set; }
-        public uint pages_5_goods_1_id { get; set; }
+        [ItemId] public int pages_5_goods_1_id { get; set; }
         public int pages_5_goods_1_contrib_cost { get; set; }
         public int pages_5_goods_1_force_contribution_cost { get; set; }
-        public uint pages_5_goods_2_id { get; set; }
+        [ItemId] public int pages_5_goods_2_id { get; set; }
         public int pages_5_goods_2_contrib_cost { get; set; }
         public int pages_5_goods_2_force_contribution_cost { get; set; }
-        public uint pages_5_goods_3_id { get; set; }
+        [ItemId] public int pages_5_goods_3_id { get; set; }
         public int pages_5_goods_3_contrib_cost { get; set; }
         public int pages_5_goods_3_force_contribution_cost { get; set; }
-        public uint pages_5_goods_4_id { get; set; }
+        [ItemId] public int pages_5_goods_4_id { get; set; }
         public int pages_5_goods_4_contrib_cost { get; set; }
         public int pages_5_goods_4_force_contribution_cost { get; set; }
-        public uint pages_5_goods_5_id { get; set; }
+        [ItemId] public int pages_5_goods_5_id { get; set; }
         public int pages_5_goods_5_contrib_cost { get; set; }
         public int pages_5_goods_5_force_contribution_cost { get; set; }
-        public uint pages_5_goods_6_id { get; set; }
+        [ItemId] public int pages_5_goods_6_id { get; set; }
         public int pages_5_goods_6_contrib_cost { get; set; }
         public int pages_5_goods_6_force_contribution_cost { get; set; }
-        public uint pages_5_goods_7_id { get; set; }
+        [ItemId] public int pages_5_goods_7_id { get; set; }
         public int pages_5_goods_7_contrib_cost { get; set; }
         public int pages_5_goods_7_force_contribution_cost { get; set; }
-        public uint pages_5_goods_8_id { get; set; }
+        [ItemId] public int pages_5_goods_8_id { get; set; }
         public int pages_5_goods_8_contrib_cost { get; set; }
         public int pages_5_goods_8_force_contribution_cost { get; set; }
-        public uint pages_5_goods_9_id { get; set; }
+        [ItemId] public int pages_5_goods_9_id { get; set; }
         public int pages_5_goods_9_contrib_cost { get; set; }
         public int pages_5_goods_9_force_contribution_cost { get; set; }
-        public uint pages_5_goods_10_id { get; set; }
+        [ItemId] public int pages_5_goods_10_id { get; set; }
         public int pages_5_goods_10_contrib_cost { get; set; }
         public int pages_5_goods_10_force_contribution_cost { get; set; }
-        public uint pages_5_goods_11_id { get; set; }
+        [ItemId] public int pages_5_goods_11_id { get; set; }
         public int pages_5_goods_11_contrib_cost { get; set; }
         public int pages_5_goods_11_force_contribution_cost { get; set; }
-        public uint pages_5_goods_12_id { get; set; }
+        [ItemId] public int pages_5_goods_12_id { get; set; }
         public int pages_5_goods_12_contrib_cost { get; set; }
         public int pages_5_goods_12_force_contribution_cost { get; set; }
-        public uint pages_5_goods_13_id { get; set; }
+        [ItemId] public int pages_5_goods_13_id { get; set; }
         public int pages_5_goods_13_contrib_cost { get; set; }
         public int pages_5_goods_13_force_contribution_cost { get; set; }
-        public uint pages_5_goods_14_id { get; set; }
+        [ItemId] public int pages_5_goods_14_id { get; set; }
         public int pages_5_goods_14_contrib_cost { get; set; }
         public int pages_5_goods_14_force_contribution_cost { get; set; }
-        public uint pages_5_goods_15_id { get; set; }
+        [ItemId] public int pages_5_goods_15_id { get; set; }
         public int pages_5_goods_15_contrib_cost { get; set; }
         public int pages_5_goods_15_force_contribution_cost { get; set; }
-        public uint pages_5_goods_16_id { get; set; }
+        [ItemId] public int pages_5_goods_16_id { get; set; }
         public int pages_5_goods_16_contrib_cost { get; set; }
         public int pages_5_goods_16_force_contribution_cost { get; set; }
-        public uint pages_5_goods_17_id { get; set; }
+        [ItemId] public int pages_5_goods_17_id { get; set; }
         public int pages_5_goods_17_contrib_cost { get; set; }
         public int pages_5_goods_17_force_contribution_cost { get; set; }
-        public uint pages_5_goods_18_id { get; set; }
+        [ItemId] public int pages_5_goods_18_id { get; set; }
         public int pages_5_goods_18_contrib_cost { get; set; }
         public int pages_5_goods_18_force_contribution_cost { get; set; }
-        public uint pages_5_goods_19_id { get; set; }
+        [ItemId] public int pages_5_goods_19_id { get; set; }
         public int pages_5_goods_19_contrib_cost { get; set; }
         public int pages_5_goods_19_force_contribution_cost { get; set; }
-        public uint pages_5_goods_20_id { get; set; }
+        [ItemId] public int pages_5_goods_20_id { get; set; }
         public int pages_5_goods_20_contrib_cost { get; set; }
         public int pages_5_goods_20_force_contribution_cost { get; set; }
-        public uint pages_5_goods_21_id { get; set; }
+        [ItemId] public int pages_5_goods_21_id { get; set; }
         public int pages_5_goods_21_contrib_cost { get; set; }
         public int pages_5_goods_21_force_contribution_cost { get; set; }
-        public uint pages_5_goods_22_id { get; set; }
+        [ItemId] public int pages_5_goods_22_id { get; set; }
         public int pages_5_goods_22_contrib_cost { get; set; }
         public int pages_5_goods_22_force_contribution_cost { get; set; }
-        public uint pages_5_goods_23_id { get; set; }
+        [ItemId] public int pages_5_goods_23_id { get; set; }
         public int pages_5_goods_23_contrib_cost { get; set; }
         public int pages_5_goods_23_force_contribution_cost { get; set; }
-        public uint pages_5_goods_24_id { get; set; }
+        [ItemId] public int pages_5_goods_24_id { get; set; }
         public int pages_5_goods_24_contrib_cost { get; set; }
         public int pages_5_goods_24_force_contribution_cost { get; set; }
-        public uint pages_5_goods_25_id { get; set; }
+        [ItemId] public int pages_5_goods_25_id { get; set; }
         public int pages_5_goods_25_contrib_cost { get; set; }
         public int pages_5_goods_25_force_contribution_cost { get; set; }
-        public uint pages_5_goods_26_id { get; set; }
+        [ItemId] public int pages_5_goods_26_id { get; set; }
         public int pages_5_goods_26_contrib_cost { get; set; }
         public int pages_5_goods_26_force_contribution_cost { get; set; }
-        public uint pages_5_goods_27_id { get; set; }
+        [ItemId] public int pages_5_goods_27_id { get; set; }
         public int pages_5_goods_27_contrib_cost { get; set; }
         public int pages_5_goods_27_force_contribution_cost { get; set; }
-        public uint pages_5_goods_28_id { get; set; }
+        [ItemId] public int pages_5_goods_28_id { get; set; }
         public int pages_5_goods_28_contrib_cost { get; set; }
         public int pages_5_goods_28_force_contribution_cost { get; set; }
-        public uint pages_5_goods_29_id { get; set; }
+        [ItemId] public int pages_5_goods_29_id { get; set; }
         public int pages_5_goods_29_contrib_cost { get; set; }
         public int pages_5_goods_29_force_contribution_cost { get; set; }
-        public uint pages_5_goods_30_id { get; set; }
+        [ItemId] public int pages_5_goods_30_id { get; set; }
         public int pages_5_goods_30_contrib_cost { get; set; }
         public int pages_5_goods_30_force_contribution_cost { get; set; }
-        public uint pages_5_goods_31_id { get; set; }
+        [ItemId] public int pages_5_goods_31_id { get; set; }
         public int pages_5_goods_31_contrib_cost { get; set; }
         public int pages_5_goods_31_force_contribution_cost { get; set; }
-        public uint pages_5_goods_32_id { get; set; }
+        [ItemId] public int pages_5_goods_32_id { get; set; }
         public int pages_5_goods_32_contrib_cost { get; set; }
         public int pages_5_goods_32_force_contribution_cost { get; set; }
 
@@ -2750,100 +2752,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_6_require_contrib { get; set; }
         public int pages_6_require_force { get; set; }
         public int pages_6_require_force_reputation { get; set; }
-        public uint pages_6_goods_1_id { get; set; }
+        [ItemId] public int pages_6_goods_1_id { get; set; }
         public int pages_6_goods_1_contrib_cost { get; set; }
         public int pages_6_goods_1_force_contribution_cost { get; set; }
-        public uint pages_6_goods_2_id { get; set; }
+        [ItemId] public int pages_6_goods_2_id { get; set; }
         public int pages_6_goods_2_contrib_cost { get; set; }
         public int pages_6_goods_2_force_contribution_cost { get; set; }
-        public uint pages_6_goods_3_id { get; set; }
+        [ItemId] public int pages_6_goods_3_id { get; set; }
         public int pages_6_goods_3_contrib_cost { get; set; }
         public int pages_6_goods_3_force_contribution_cost { get; set; }
-        public uint pages_6_goods_4_id { get; set; }
+        [ItemId] public int pages_6_goods_4_id { get; set; }
         public int pages_6_goods_4_contrib_cost { get; set; }
         public int pages_6_goods_4_force_contribution_cost { get; set; }
-        public uint pages_6_goods_5_id { get; set; }
+        [ItemId] public int pages_6_goods_5_id { get; set; }
         public int pages_6_goods_5_contrib_cost { get; set; }
         public int pages_6_goods_5_force_contribution_cost { get; set; }
-        public uint pages_6_goods_6_id { get; set; }
+        [ItemId] public int pages_6_goods_6_id { get; set; }
         public int pages_6_goods_6_contrib_cost { get; set; }
         public int pages_6_goods_6_force_contribution_cost { get; set; }
-        public uint pages_6_goods_7_id { get; set; }
+        [ItemId] public int pages_6_goods_7_id { get; set; }
         public int pages_6_goods_7_contrib_cost { get; set; }
         public int pages_6_goods_7_force_contribution_cost { get; set; }
-        public uint pages_6_goods_8_id { get; set; }
+        [ItemId] public int pages_6_goods_8_id { get; set; }
         public int pages_6_goods_8_contrib_cost { get; set; }
         public int pages_6_goods_8_force_contribution_cost { get; set; }
-        public uint pages_6_goods_9_id { get; set; }
+        [ItemId] public int pages_6_goods_9_id { get; set; }
         public int pages_6_goods_9_contrib_cost { get; set; }
         public int pages_6_goods_9_force_contribution_cost { get; set; }
-        public uint pages_6_goods_10_id { get; set; }
+        [ItemId] public int pages_6_goods_10_id { get; set; }
         public int pages_6_goods_10_contrib_cost { get; set; }
         public int pages_6_goods_10_force_contribution_cost { get; set; }
-        public uint pages_6_goods_11_id { get; set; }
+        [ItemId] public int pages_6_goods_11_id { get; set; }
         public int pages_6_goods_11_contrib_cost { get; set; }
         public int pages_6_goods_11_force_contribution_cost { get; set; }
-        public uint pages_6_goods_12_id { get; set; }
+        [ItemId] public int pages_6_goods_12_id { get; set; }
         public int pages_6_goods_12_contrib_cost { get; set; }
         public int pages_6_goods_12_force_contribution_cost { get; set; }
-        public uint pages_6_goods_13_id { get; set; }
+        [ItemId] public int pages_6_goods_13_id { get; set; }
         public int pages_6_goods_13_contrib_cost { get; set; }
         public int pages_6_goods_13_force_contribution_cost { get; set; }
-        public uint pages_6_goods_14_id { get; set; }
+        [ItemId] public int pages_6_goods_14_id { get; set; }
         public int pages_6_goods_14_contrib_cost { get; set; }
         public int pages_6_goods_14_force_contribution_cost { get; set; }
-        public uint pages_6_goods_15_id { get; set; }
+        [ItemId] public int pages_6_goods_15_id { get; set; }
         public int pages_6_goods_15_contrib_cost { get; set; }
         public int pages_6_goods_15_force_contribution_cost { get; set; }
-        public uint pages_6_goods_16_id { get; set; }
+        [ItemId] public int pages_6_goods_16_id { get; set; }
         public int pages_6_goods_16_contrib_cost { get; set; }
         public int pages_6_goods_16_force_contribution_cost { get; set; }
-        public uint pages_6_goods_17_id { get; set; }
+        [ItemId] public int pages_6_goods_17_id { get; set; }
         public int pages_6_goods_17_contrib_cost { get; set; }
         public int pages_6_goods_17_force_contribution_cost { get; set; }
-        public uint pages_6_goods_18_id { get; set; }
+        [ItemId] public int pages_6_goods_18_id { get; set; }
         public int pages_6_goods_18_contrib_cost { get; set; }
         public int pages_6_goods_18_force_contribution_cost { get; set; }
-        public uint pages_6_goods_19_id { get; set; }
+        [ItemId] public int pages_6_goods_19_id { get; set; }
         public int pages_6_goods_19_contrib_cost { get; set; }
         public int pages_6_goods_19_force_contribution_cost { get; set; }
-        public uint pages_6_goods_20_id { get; set; }
+        [ItemId] public int pages_6_goods_20_id { get; set; }
         public int pages_6_goods_20_contrib_cost { get; set; }
         public int pages_6_goods_20_force_contribution_cost { get; set; }
-        public uint pages_6_goods_21_id { get; set; }
+        [ItemId] public int pages_6_goods_21_id { get; set; }
         public int pages_6_goods_21_contrib_cost { get; set; }
         public int pages_6_goods_21_force_contribution_cost { get; set; }
-        public uint pages_6_goods_22_id { get; set; }
+        [ItemId] public int pages_6_goods_22_id { get; set; }
         public int pages_6_goods_22_contrib_cost { get; set; }
         public int pages_6_goods_22_force_contribution_cost { get; set; }
-        public uint pages_6_goods_23_id { get; set; }
+        [ItemId] public int pages_6_goods_23_id { get; set; }
         public int pages_6_goods_23_contrib_cost { get; set; }
         public int pages_6_goods_23_force_contribution_cost { get; set; }
-        public uint pages_6_goods_24_id { get; set; }
+        [ItemId] public int pages_6_goods_24_id { get; set; }
         public int pages_6_goods_24_contrib_cost { get; set; }
         public int pages_6_goods_24_force_contribution_cost { get; set; }
-        public uint pages_6_goods_25_id { get; set; }
+        [ItemId] public int pages_6_goods_25_id { get; set; }
         public int pages_6_goods_25_contrib_cost { get; set; }
         public int pages_6_goods_25_force_contribution_cost { get; set; }
-        public uint pages_6_goods_26_id { get; set; }
+        [ItemId] public int pages_6_goods_26_id { get; set; }
         public int pages_6_goods_26_contrib_cost { get; set; }
         public int pages_6_goods_26_force_contribution_cost { get; set; }
-        public uint pages_6_goods_27_id { get; set; }
+        [ItemId] public int pages_6_goods_27_id { get; set; }
         public int pages_6_goods_27_contrib_cost { get; set; }
         public int pages_6_goods_27_force_contribution_cost { get; set; }
-        public uint pages_6_goods_28_id { get; set; }
+        [ItemId] public int pages_6_goods_28_id { get; set; }
         public int pages_6_goods_28_contrib_cost { get; set; }
         public int pages_6_goods_28_force_contribution_cost { get; set; }
-        public uint pages_6_goods_29_id { get; set; }
+        [ItemId] public int pages_6_goods_29_id { get; set; }
         public int pages_6_goods_29_contrib_cost { get; set; }
         public int pages_6_goods_29_force_contribution_cost { get; set; }
-        public uint pages_6_goods_30_id { get; set; }
+        [ItemId] public int pages_6_goods_30_id { get; set; }
         public int pages_6_goods_30_contrib_cost { get; set; }
         public int pages_6_goods_30_force_contribution_cost { get; set; }
-        public uint pages_6_goods_31_id { get; set; }
+        [ItemId] public int pages_6_goods_31_id { get; set; }
         public int pages_6_goods_31_contrib_cost { get; set; }
         public int pages_6_goods_31_force_contribution_cost { get; set; }
-        public uint pages_6_goods_32_id { get; set; }
+        [ItemId] public int pages_6_goods_32_id { get; set; }
         public int pages_6_goods_32_contrib_cost { get; set; }
         public int pages_6_goods_32_force_contribution_cost { get; set; }
 
@@ -2859,100 +2861,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_7_require_contrib { get; set; }
         public int pages_7_require_force { get; set; }
         public int pages_7_require_force_reputation { get; set; }
-        public uint pages_7_goods_1_id { get; set; }
+        [ItemId] public int pages_7_goods_1_id { get; set; }
         public int pages_7_goods_1_contrib_cost { get; set; }
         public int pages_7_goods_1_force_contribution_cost { get; set; }
-        public uint pages_7_goods_2_id { get; set; }
+        [ItemId] public int pages_7_goods_2_id { get; set; }
         public int pages_7_goods_2_contrib_cost { get; set; }
         public int pages_7_goods_2_force_contribution_cost { get; set; }
-        public uint pages_7_goods_3_id { get; set; }
+        [ItemId] public int pages_7_goods_3_id { get; set; }
         public int pages_7_goods_3_contrib_cost { get; set; }
         public int pages_7_goods_3_force_contribution_cost { get; set; }
-        public uint pages_7_goods_4_id { get; set; }
+        [ItemId] public int pages_7_goods_4_id { get; set; }
         public int pages_7_goods_4_contrib_cost { get; set; }
         public int pages_7_goods_4_force_contribution_cost { get; set; }
-        public uint pages_7_goods_5_id { get; set; }
+        [ItemId] public int pages_7_goods_5_id { get; set; }
         public int pages_7_goods_5_contrib_cost { get; set; }
         public int pages_7_goods_5_force_contribution_cost { get; set; }
-        public uint pages_7_goods_6_id { get; set; }
+        [ItemId] public int pages_7_goods_6_id { get; set; }
         public int pages_7_goods_6_contrib_cost { get; set; }
         public int pages_7_goods_6_force_contribution_cost { get; set; }
-        public uint pages_7_goods_7_id { get; set; }
+        [ItemId] public int pages_7_goods_7_id { get; set; }
         public int pages_7_goods_7_contrib_cost { get; set; }
         public int pages_7_goods_7_force_contribution_cost { get; set; }
-        public uint pages_7_goods_8_id { get; set; }
+        [ItemId] public int pages_7_goods_8_id { get; set; }
         public int pages_7_goods_8_contrib_cost { get; set; }
         public int pages_7_goods_8_force_contribution_cost { get; set; }
-        public uint pages_7_goods_9_id { get; set; }
+        [ItemId] public int pages_7_goods_9_id { get; set; }
         public int pages_7_goods_9_contrib_cost { get; set; }
         public int pages_7_goods_9_force_contribution_cost { get; set; }
-        public uint pages_7_goods_10_id { get; set; }
+        [ItemId] public int pages_7_goods_10_id { get; set; }
         public int pages_7_goods_10_contrib_cost { get; set; }
         public int pages_7_goods_10_force_contribution_cost { get; set; }
-        public uint pages_7_goods_11_id { get; set; }
+        [ItemId] public int pages_7_goods_11_id { get; set; }
         public int pages_7_goods_11_contrib_cost { get; set; }
         public int pages_7_goods_11_force_contribution_cost { get; set; }
-        public uint pages_7_goods_12_id { get; set; }
+        [ItemId] public int pages_7_goods_12_id { get; set; }
         public int pages_7_goods_12_contrib_cost { get; set; }
         public int pages_7_goods_12_force_contribution_cost { get; set; }
-        public uint pages_7_goods_13_id { get; set; }
+        [ItemId] public int pages_7_goods_13_id { get; set; }
         public int pages_7_goods_13_contrib_cost { get; set; }
         public int pages_7_goods_13_force_contribution_cost { get; set; }
-        public uint pages_7_goods_14_id { get; set; }
+        [ItemId] public int pages_7_goods_14_id { get; set; }
         public int pages_7_goods_14_contrib_cost { get; set; }
         public int pages_7_goods_14_force_contribution_cost { get; set; }
-        public uint pages_7_goods_15_id { get; set; }
+        [ItemId] public int pages_7_goods_15_id { get; set; }
         public int pages_7_goods_15_contrib_cost { get; set; }
         public int pages_7_goods_15_force_contribution_cost { get; set; }
-        public uint pages_7_goods_16_id { get; set; }
+        [ItemId] public int pages_7_goods_16_id { get; set; }
         public int pages_7_goods_16_contrib_cost { get; set; }
         public int pages_7_goods_16_force_contribution_cost { get; set; }
-        public uint pages_7_goods_17_id { get; set; }
+        [ItemId] public int pages_7_goods_17_id { get; set; }
         public int pages_7_goods_17_contrib_cost { get; set; }
         public int pages_7_goods_17_force_contribution_cost { get; set; }
-        public uint pages_7_goods_18_id { get; set; }
+        [ItemId] public int pages_7_goods_18_id { get; set; }
         public int pages_7_goods_18_contrib_cost { get; set; }
         public int pages_7_goods_18_force_contribution_cost { get; set; }
-        public uint pages_7_goods_19_id { get; set; }
+        [ItemId] public int pages_7_goods_19_id { get; set; }
         public int pages_7_goods_19_contrib_cost { get; set; }
         public int pages_7_goods_19_force_contribution_cost { get; set; }
-        public uint pages_7_goods_20_id { get; set; }
+        [ItemId] public int pages_7_goods_20_id { get; set; }
         public int pages_7_goods_20_contrib_cost { get; set; }
         public int pages_7_goods_20_force_contribution_cost { get; set; }
-        public uint pages_7_goods_21_id { get; set; }
+        [ItemId] public int pages_7_goods_21_id { get; set; }
         public int pages_7_goods_21_contrib_cost { get; set; }
         public int pages_7_goods_21_force_contribution_cost { get; set; }
-        public uint pages_7_goods_22_id { get; set; }
+        [ItemId] public int pages_7_goods_22_id { get; set; }
         public int pages_7_goods_22_contrib_cost { get; set; }
         public int pages_7_goods_22_force_contribution_cost { get; set; }
-        public uint pages_7_goods_23_id { get; set; }
+        [ItemId] public int pages_7_goods_23_id { get; set; }
         public int pages_7_goods_23_contrib_cost { get; set; }
         public int pages_7_goods_23_force_contribution_cost { get; set; }
-        public uint pages_7_goods_24_id { get; set; }
+        [ItemId] public int pages_7_goods_24_id { get; set; }
         public int pages_7_goods_24_contrib_cost { get; set; }
         public int pages_7_goods_24_force_contribution_cost { get; set; }
-        public uint pages_7_goods_25_id { get; set; }
+        [ItemId] public int pages_7_goods_25_id { get; set; }
         public int pages_7_goods_25_contrib_cost { get; set; }
         public int pages_7_goods_25_force_contribution_cost { get; set; }
-        public uint pages_7_goods_26_id { get; set; }
+        [ItemId] public int pages_7_goods_26_id { get; set; }
         public int pages_7_goods_26_contrib_cost { get; set; }
         public int pages_7_goods_26_force_contribution_cost { get; set; }
-        public uint pages_7_goods_27_id { get; set; }
+        [ItemId] public int pages_7_goods_27_id { get; set; }
         public int pages_7_goods_27_contrib_cost { get; set; }
         public int pages_7_goods_27_force_contribution_cost { get; set; }
-        public uint pages_7_goods_28_id { get; set; }
+        [ItemId] public int pages_7_goods_28_id { get; set; }
         public int pages_7_goods_28_contrib_cost { get; set; }
         public int pages_7_goods_28_force_contribution_cost { get; set; }
-        public uint pages_7_goods_29_id { get; set; }
+        [ItemId] public int pages_7_goods_29_id { get; set; }
         public int pages_7_goods_29_contrib_cost { get; set; }
         public int pages_7_goods_29_force_contribution_cost { get; set; }
-        public uint pages_7_goods_30_id { get; set; }
+        [ItemId] public int pages_7_goods_30_id { get; set; }
         public int pages_7_goods_30_contrib_cost { get; set; }
         public int pages_7_goods_30_force_contribution_cost { get; set; }
-        public uint pages_7_goods_31_id { get; set; }
+        [ItemId] public int pages_7_goods_31_id { get; set; }
         public int pages_7_goods_31_contrib_cost { get; set; }
         public int pages_7_goods_31_force_contribution_cost { get; set; }
-        public uint pages_7_goods_32_id { get; set; }
+        [ItemId] public int pages_7_goods_32_id { get; set; }
         public int pages_7_goods_32_contrib_cost { get; set; }
         public int pages_7_goods_32_force_contribution_cost { get; set; }
 
@@ -2968,100 +2970,100 @@ namespace PWHelper.Elements.Versions._70
         public int pages_8_require_contrib { get; set; }
         public int pages_8_require_force { get; set; }
         public int pages_8_require_force_reputation { get; set; }
-        public uint pages_8_goods_1_id { get; set; }
+        [ItemId] public int pages_8_goods_1_id { get; set; }
         public int pages_8_goods_1_contrib_cost { get; set; }
         public int pages_8_goods_1_force_contribution_cost { get; set; }
-        public uint pages_8_goods_2_id { get; set; }
+        [ItemId] public int pages_8_goods_2_id { get; set; }
         public int pages_8_goods_2_contrib_cost { get; set; }
         public int pages_8_goods_2_force_contribution_cost { get; set; }
-        public uint pages_8_goods_3_id { get; set; }
+        [ItemId] public int pages_8_goods_3_id { get; set; }
         public int pages_8_goods_3_contrib_cost { get; set; }
         public int pages_8_goods_3_force_contribution_cost { get; set; }
-        public uint pages_8_goods_4_id { get; set; }
+        [ItemId] public int pages_8_goods_4_id { get; set; }
         public int pages_8_goods_4_contrib_cost { get; set; }
         public int pages_8_goods_4_force_contribution_cost { get; set; }
-        public uint pages_8_goods_5_id { get; set; }
+        [ItemId] public int pages_8_goods_5_id { get; set; }
         public int pages_8_goods_5_contrib_cost { get; set; }
         public int pages_8_goods_5_force_contribution_cost { get; set; }
-        public uint pages_8_goods_6_id { get; set; }
+        [ItemId] public int pages_8_goods_6_id { get; set; }
         public int pages_8_goods_6_contrib_cost { get; set; }
         public int pages_8_goods_6_force_contribution_cost { get; set; }
-        public uint pages_8_goods_7_id { get; set; }
+        [ItemId] public int pages_8_goods_7_id { get; set; }
         public int pages_8_goods_7_contrib_cost { get; set; }
         public int pages_8_goods_7_force_contribution_cost { get; set; }
-        public uint pages_8_goods_8_id { get; set; }
+        [ItemId] public int pages_8_goods_8_id { get; set; }
         public int pages_8_goods_8_contrib_cost { get; set; }
         public int pages_8_goods_8_force_contribution_cost { get; set; }
-        public uint pages_8_goods_9_id { get; set; }
+        [ItemId] public int pages_8_goods_9_id { get; set; }
         public int pages_8_goods_9_contrib_cost { get; set; }
         public int pages_8_goods_9_force_contribution_cost { get; set; }
-        public uint pages_8_goods_10_id { get; set; }
+        [ItemId] public int pages_8_goods_10_id { get; set; }
         public int pages_8_goods_10_contrib_cost { get; set; }
         public int pages_8_goods_10_force_contribution_cost { get; set; }
-        public uint pages_8_goods_11_id { get; set; }
+        [ItemId] public int pages_8_goods_11_id { get; set; }
         public int pages_8_goods_11_contrib_cost { get; set; }
         public int pages_8_goods_11_force_contribution_cost { get; set; }
-        public uint pages_8_goods_12_id { get; set; }
+        [ItemId] public int pages_8_goods_12_id { get; set; }
         public int pages_8_goods_12_contrib_cost { get; set; }
         public int pages_8_goods_12_force_contribution_cost { get; set; }
-        public uint pages_8_goods_13_id { get; set; }
+        [ItemId] public int pages_8_goods_13_id { get; set; }
         public int pages_8_goods_13_contrib_cost { get; set; }
         public int pages_8_goods_13_force_contribution_cost { get; set; }
-        public uint pages_8_goods_14_id { get; set; }
+        [ItemId] public int pages_8_goods_14_id { get; set; }
         public int pages_8_goods_14_contrib_cost { get; set; }
         public int pages_8_goods_14_force_contribution_cost { get; set; }
-        public uint pages_8_goods_15_id { get; set; }
+        [ItemId] public int pages_8_goods_15_id { get; set; }
         public int pages_8_goods_15_contrib_cost { get; set; }
         public int pages_8_goods_15_force_contribution_cost { get; set; }
-        public uint pages_8_goods_16_id { get; set; }
+        [ItemId] public int pages_8_goods_16_id { get; set; }
         public int pages_8_goods_16_contrib_cost { get; set; }
         public int pages_8_goods_16_force_contribution_cost { get; set; }
-        public uint pages_8_goods_17_id { get; set; }
+        [ItemId] public int pages_8_goods_17_id { get; set; }
         public int pages_8_goods_17_contrib_cost { get; set; }
         public int pages_8_goods_17_force_contribution_cost { get; set; }
-        public uint pages_8_goods_18_id { get; set; }
+        [ItemId] public int pages_8_goods_18_id { get; set; }
         public int pages_8_goods_18_contrib_cost { get; set; }
         public int pages_8_goods_18_force_contribution_cost { get; set; }
-        public uint pages_8_goods_19_id { get; set; }
+        [ItemId] public int pages_8_goods_19_id { get; set; }
         public int pages_8_goods_19_contrib_cost { get; set; }
         public int pages_8_goods_19_force_contribution_cost { get; set; }
-        public uint pages_8_goods_20_id { get; set; }
+        [ItemId] public int pages_8_goods_20_id { get; set; }
         public int pages_8_goods_20_contrib_cost { get; set; }
         public int pages_8_goods_20_force_contribution_cost { get; set; }
-        public uint pages_8_goods_21_id { get; set; }
+        [ItemId] public int pages_8_goods_21_id { get; set; }
         public int pages_8_goods_21_contrib_cost { get; set; }
         public int pages_8_goods_21_force_contribution_cost { get; set; }
-        public uint pages_8_goods_22_id { get; set; }
+        [ItemId] public int pages_8_goods_22_id { get; set; }
         public int pages_8_goods_22_contrib_cost { get; set; }
         public int pages_8_goods_22_force_contribution_cost { get; set; }
-        public uint pages_8_goods_23_id { get; set; }
+        [ItemId] public int pages_8_goods_23_id { get; set; }
         public int pages_8_goods_23_contrib_cost { get; set; }
         public int pages_8_goods_23_force_contribution_cost { get; set; }
-        public uint pages_8_goods_24_id { get; set; }
+        [ItemId] public int pages_8_goods_24_id { get; set; }
         public int pages_8_goods_24_contrib_cost { get; set; }
         public int pages_8_goods_24_force_contribution_cost { get; set; }
-        public uint pages_8_goods_25_id { get; set; }
+        [ItemId] public int pages_8_goods_25_id { get; set; }
         public int pages_8_goods_25_contrib_cost { get; set; }
         public int pages_8_goods_25_force_contribution_cost { get; set; }
-        public uint pages_8_goods_26_id { get; set; }
+        [ItemId] public int pages_8_goods_26_id { get; set; }
         public int pages_8_goods_26_contrib_cost { get; set; }
         public int pages_8_goods_26_force_contribution_cost { get; set; }
-        public uint pages_8_goods_27_id { get; set; }
+        [ItemId] public int pages_8_goods_27_id { get; set; }
         public int pages_8_goods_27_contrib_cost { get; set; }
         public int pages_8_goods_27_force_contribution_cost { get; set; }
-        public uint pages_8_goods_28_id { get; set; }
+        [ItemId] public int pages_8_goods_28_id { get; set; }
         public int pages_8_goods_28_contrib_cost { get; set; }
         public int pages_8_goods_28_force_contribution_cost { get; set; }
-        public uint pages_8_goods_29_id { get; set; }
+        [ItemId] public int pages_8_goods_29_id { get; set; }
         public int pages_8_goods_29_contrib_cost { get; set; }
         public int pages_8_goods_29_force_contribution_cost { get; set; }
-        public uint pages_8_goods_30_id { get; set; }
+        [ItemId] public int pages_8_goods_30_id { get; set; }
         public int pages_8_goods_30_contrib_cost { get; set; }
         public int pages_8_goods_30_force_contribution_cost { get; set; }
-        public uint pages_8_goods_31_id { get; set; }
+        [ItemId] public int pages_8_goods_31_id { get; set; }
         public int pages_8_goods_31_contrib_cost { get; set; }
         public int pages_8_goods_31_force_contribution_cost { get; set; }
-        public uint pages_8_goods_32_id { get; set; }
+        [ItemId] public int pages_8_goods_32_id { get; set; }
         public int pages_8_goods_32_contrib_cost { get; set; }
         public int pages_8_goods_32_force_contribution_cost { get; set; }
         public int id_dialog { get; set; }
@@ -5109,13 +5111,13 @@ namespace PWHelper.Elements.Versions._70
         public int id_skill { get; set; }
         public int skill_level { get; set; }
         public int bind_type { get; set; }
-        public uint targets_1_id_to_make { get; set; }
+        [ItemId] public int targets_1_id_to_make { get; set; }
         public float targets_1_probability { get; set; }
-        public uint targets_2_id_to_make { get; set; }
+        [ItemId] public int targets_2_id_to_make { get; set; }
         public float targets_2_probability { get; set; }
-        public uint targets_3_id_to_make { get; set; }
+        [ItemId] public int targets_3_id_to_make { get; set; }
         public float targets_3_probability { get; set; }
-        public uint targets_4_id_to_make { get; set; }
+        [ItemId] public int targets_4_id_to_make { get; set; }
         public float targets_4_probability { get; set; }
         public float fail_probability { get; set; }
         public int num_to_make { get; set; }
@@ -5124,69 +5126,69 @@ namespace PWHelper.Elements.Versions._70
         public int exp { get; set; }
         public int skillpoint { get; set; }
 
-        public uint materials_id_1 { get; set; }
+        [ItemId] public int materials_id_1 { get; set; }
         public int materials_1_num { get; set; }
-        public uint materials_id_2 { get; set; }
+        [ItemId] public int materials_id_2 { get; set; }
         public int materials_2_num { get; set; }
-        public uint materials_id_3 { get; set; }
+        [ItemId] public int materials_id_3 { get; set; }
         public int materials_3_num { get; set; }
-        public uint materials_id_4 { get; set; }
+        [ItemId] public int materials_id_4 { get; set; }
         public int materials_4_num { get; set; }
-        public uint materials_id_5 { get; set; }
+        [ItemId] public int materials_id_5 { get; set; }
         public int materials_5_num { get; set; }
-        public uint materials_id_6 { get; set; }
+        [ItemId] public int materials_id_6 { get; set; }
         public int materials_6_num { get; set; }
-        public uint materials_id_7 { get; set; }
+        [ItemId] public int materials_id_7 { get; set; }
         public int materials_7_num { get; set; }
-        public uint materials_id_8 { get; set; }
+        [ItemId] public int materials_id_8 { get; set; }
         public int materials_8_num { get; set; }
-        public uint materials_id_9 { get; set; }
+        [ItemId] public int materials_id_9 { get; set; }
         public int materials_9_num { get; set; }
-        public uint materials_id_10 { get; set; }
+        [ItemId] public int materials_id_10 { get; set; }
         public int materials_10_num { get; set; }
-        public uint materials_id_11 { get; set; }
+        [ItemId] public int materials_id_11 { get; set; }
         public int materials_11_num { get; set; }
-        public uint materials_id_12 { get; set; }
+        [ItemId] public int materials_id_12 { get; set; }
         public int materials_12_num { get; set; }
-        public uint materials_id_13 { get; set; }
+        [ItemId] public int materials_id_13 { get; set; }
         public int materials_13_num { get; set; }
-        public uint materials_id_14 { get; set; }
+        [ItemId] public int materials_id_14 { get; set; }
         public int materials_14_num { get; set; }
-        public uint materials_id_15 { get; set; }
+        [ItemId] public int materials_id_15 { get; set; }
         public int materials_15_num { get; set; }
-        public uint materials_id_16 { get; set; }
+        [ItemId] public int materials_id_16 { get; set; }
         public int materials_16_num { get; set; }
-        public uint materials_id_17 { get; set; }
+        [ItemId] public int materials_id_17 { get; set; }
         public int materials_17_num { get; set; }
-        public uint materials_id_18 { get; set; }
+        [ItemId] public int materials_id_18 { get; set; }
         public int materials_18_num { get; set; }
-        public uint materials_id_19 { get; set; }
+        [ItemId] public int materials_id_19 { get; set; }
         public int materials_19_num { get; set; }
-        public uint materials_id_20 { get; set; }
+        [ItemId] public int materials_id_20 { get; set; }
         public int materials_20_num { get; set; }
-        public uint materials_id_21 { get; set; }
+        [ItemId] public int materials_id_21 { get; set; }
         public int materials_21_num { get; set; }
-        public uint materials_id_22 { get; set; }
+        [ItemId] public int materials_id_22 { get; set; }
         public int materials_22_num { get; set; }
-        public uint materials_id_23 { get; set; }
+        [ItemId] public int materials_id_23 { get; set; }
         public int materials_23_num { get; set; }
-        public uint materials_id_24 { get; set; }
+        [ItemId] public int materials_id_24 { get; set; }
         public int materials_24_num { get; set; }
-        public uint materials_id_25 { get; set; }
+        [ItemId] public int materials_id_25 { get; set; }
         public int materials_25_num { get; set; }
-        public uint materials_id_26 { get; set; }
+        [ItemId] public int materials_id_26 { get; set; }
         public int materials_26_num { get; set; }
-        public uint materials_id_27 { get; set; }
+        [ItemId] public int materials_id_27 { get; set; }
         public int materials_27_num { get; set; }
-        public uint materials_id_28 { get; set; }
+        [ItemId] public int materials_id_28 { get; set; }
         public int materials_28_num { get; set; }
-        public uint materials_id_29 { get; set; }
+        [ItemId] public int materials_id_29 { get; set; }
         public int materials_29_num { get; set; }
-        public uint materials_id_30 { get; set; }
+        [ItemId] public int materials_id_30 { get; set; }
         public int materials_30_num { get; set; }
-        public uint materials_id_31 { get; set; }
+        [ItemId] public int materials_id_31 { get; set; }
         public int materials_31_num { get; set; }
-        public uint materials_id_32 { get; set; }
+        [ItemId] public int materials_id_32 { get; set; }
         public int materials_32_num { get; set; }
 
         public int id_upgrade_equip { get; set; }
