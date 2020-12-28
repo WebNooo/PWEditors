@@ -46,16 +46,20 @@ namespace PWHelper.Elements
         public static long Load(string fileName)
         {
             var s = new Stopwatch();
-            s.Start();
 
             Task.Factory.StartNew(Icons.LoadIcons);
 
-
+            ElementInfo.ListInformation.Clear();
+            Element.Addons.Clear();
+            Element.Essences.Clear();
+            Element.Configs.Clear();
+            Element.Faces.Clear();
+            Element.Talks.Clear();
+            Element.Recipes.Clear();
+            Element.Homes.Clear();
             BinReader.Clear();
             BinReader.Source = File.ReadAllBytes(fileName);
 
-            Element.Items.Clear();
-            ElementInfo.ListInformation.Clear();
 
             ElementInfo.ReadHeader();
 
@@ -65,7 +69,8 @@ namespace PWHelper.Elements
             ElementInfo.Structure = (IStructure) ElementInfo.GetInstance($"{version}.Structure");
 
             var index = 0;
-            Element.Items.DisableNotify();
+
+            s.Start();
             foreach (var value in configLists)
             {
                 if (ElementInfo.Structure.ComputerNameIndex == index) ElementInfo.ReadComputerName();
@@ -74,7 +79,7 @@ namespace PWHelper.Elements
                 index++;
             }
 
-            Element.Items.EnableNotify();
+            s.Stop();
 
             Element.UnknownIcon = Icons.GetImage(0);
 
@@ -82,41 +87,37 @@ namespace PWHelper.Elements
             {
                 var itemType = typeof(ItemIdAttribute);
                 var addonType = typeof(AddonIdAttribute);
-                Element.Items.All(n =>
-                {
-
-                    if (n.Type.Name == "EQUIPMENT_ADDON")
-                    {
-                        SetLink(n.Fields.GetType().GetProperties(), n, "Аддоны", addonType, LinksAddon);
-                    }
-
-                    if (n.Type.Name == "RECIPE_ESSENCE")
-                    {
-                        SetLink(n.Fields.GetType().GetProperties(), n, "Рецепт", itemType, LinksEssence);
-                    }
-
-                    if (n.Type.Name == "NPC_SELL_SERVICE")
-                    {
-                        SetLink(n.Fields.GetType().GetProperties(), n, "Торговля", itemType, LinksEssence);
-                    }
-
-                    return true;
-                });
-
-
+                // Element.Items.All(n =>
+                // {
+                //
+                //     if (n.Type.Name == "EQUIPMENT_ADDON")
+                //     {
+                //         SetLink(n.Fields.GetType().GetProperties(), n, "Аддоны", addonType, LinksAddon);
+                //     }
+                //
+                //     if (n.Type.Name == "RECIPE_ESSENCE")
+                //     {
+                //         SetLink(n.Fields.GetType().GetProperties(), n, "Рецепт", itemType, LinksEssence);
+                //     }
+                //
+                //     if (n.Type.Name == "NPC_SELL_SERVICE")
+                //     {
+                //         SetLink(n.Fields.GetType().GetProperties(), n, "Торговля", itemType, LinksEssence);
+                //     }
+                //
+                //     return true;
+                // });
             }).Start();
 
-           
-            s.Stop();
 
             return s.ElapsedMilliseconds;
         }
 
-        public static void SetLink(PropertyInfo[] fields, Element.Item item, string name, Type attributeType, Dictionary<int, List<link>> list)
+        public static void SetLink(PropertyInfo[] fields, Element.Item item, string name, Type attributeType,
+            Dictionary<int, List<link>> list)
         {
             fields.All(x =>
             {
-
                 // if (Attribute.GetCustomAttribute(x, typeof(AddonIdAttribute), false) != null)
                 // {
                 //     Console.WriteLine(x);
@@ -129,11 +130,11 @@ namespace PWHelper.Elements
                     {
                         if (list.ContainsKey(t))
                         {
-                            list[t].Add(new link { item = item, type = name });
+                            list[t].Add(new link {item = item, type = name});
                         }
                         else
                         {
-                            list.Add(t, new List<link> { new link { item = item, type = name } });
+                            list.Add(t, new List<link> {new link {item = item, type = name}});
                         }
                     }
                 }

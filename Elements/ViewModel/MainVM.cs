@@ -9,10 +9,10 @@ using System.Reflection;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
 using Elements.ViewModel.Lists;
@@ -22,6 +22,7 @@ using PWHelper;
 using PWHelper.Elements;
 using PWHelper.Elements.Versions;
 using ReactiveUI;
+using MessageBox = System.Windows.MessageBox;
 
 namespace Elements.ViewModel
 {
@@ -42,24 +43,33 @@ namespace Elements.ViewModel
             return SelectedList.Name switch
             {
                 "TALK_PROC" => new TalkProc(),
+                "NPC_MAKE_SERVICE" => new NpcMake(),
                 _ => new Default()
             };
         }
 
-        #region Vars
+        public void GetItemPage(ICollectionView itemsView, Element.Item[] _selectedItems)
+        {
+            EditorPage.DataContext = SelectedList.Name switch
+            {
+                "TALK_PROC" => new TalkProcVM(itemsView, _selectedItems),
+                "NPC_MAKE_SERVICE" => new NpcMakeVM(itemsView, _selectedItems),
+                _ => new DefaultVM(itemsView, _selectedItems)
+            };
+        }
 
-        private Element.Item[] DataSearch { get; set; }
+        #region Vars
         private Element.Item[] _selectedItems;
         private string _oldSearch = "";
         private int _indexSearch;
         private Type _selectedList;
         private Element.Item _selectedSearchItem;
         private Data.link _selectedLink;
-        private Element.Item _foundItem;
+        private KeyValuePair<int, Element.Item> _foundItem;
 
         public long ReadTime { get; set; }
         public Page EditorPage { get; set; }
-        public ICollectionView ItemsView { get; set; } = CollectionViewSource.GetDefaultView(Element.Items);
+        public ICollectionView ItemsView { get; set; }
         public ICollectionView LinksView { get; set; }
         public ICollectionView SearchView { get; set; }
         public List<Element.ListInfo> Lists { get; set; }
@@ -69,16 +79,15 @@ namespace Elements.ViewModel
         public int SelectedPanelIndex { get; set; }
 
 
-
-        public Element.Item FoundItem
+        public KeyValuePair<int, Element.Item> FoundItem
         {
             get => _foundItem;
             set
             {
                 _foundItem = value;
-                if (_foundItem != null)
+                if (_foundItem.Value!= null)
                 {
-                    addHistory(new History {Item = _foundItem, List = _foundItem.Type, Type = HistoryType.CHANGE_ITEM});
+                    addHistory(new History {Item = _foundItem, List = _foundItem.Value.Type, Type = HistoryType.CHANGE_ITEM});
                 }
             }
         }
@@ -98,6 +107,8 @@ namespace Elements.ViewModel
             set => _indexSearch = value;
         }
 
+        public int MaxId { get; set; }
+
         public Type SelectedList
         {
             get => _selectedList;
@@ -106,9 +117,13 @@ namespace Elements.ViewModel
                 _selectedList = value;
                 //addHistory(new History { Item = null, List = _selectedList, Type = HistoryType.CHANGE_LIST });
                 if (_selectedList == null) return;
+                var items = Element.GetItems(_selectedList.Name);
+                ItemsView = CollectionViewSource.GetDefaultView(items);
+                MaxId = items.Keys.Max();
                 ItemsView.Filter = n =>
                 {
-                    if (n is Element.Item item)
+                    dynamic b = n;
+                    if (b.Value is Element.Item item)
                     {
                         if (item.Type == _selectedList)
                         {
@@ -118,6 +133,7 @@ namespace Elements.ViewModel
 
                     return false;
                 };
+
                 EditorPage = GetListPage();
             }
         }
@@ -131,10 +147,9 @@ namespace Elements.ViewModel
                 if (_selectedLink != null)
                 {
                     SelectedList = _selectedLink.item.Type;
-                    FoundItem = _selectedLink.item;
+                    // FoundItem = _selectedLink.item;
                     SelectedPanelIndex = 0;
                 }
-
             }
         }
 
@@ -166,7 +181,7 @@ namespace Elements.ViewModel
                 }
             }
 
-            public Element.Item Item { get; set; }
+            public KeyValuePair<int, Element.Item> Item { get; set; }
             public Type List { get; set; }
             public int SelectedItemRow { get; set; }
             public HistoryType Type { get; set; }
@@ -186,7 +201,6 @@ namespace Elements.ViewModel
 
         public Element.Item SelectedSearchItem
         {
-
             get => _selectedSearchItem;
             set
             {
@@ -194,10 +208,9 @@ namespace Elements.ViewModel
                 if (_selectedSearchItem != null)
                 {
                     SelectedList = _selectedSearchItem.Type;
-                    FoundItem = _selectedSearchItem;
+                    // FoundItem = _selectedSearchItem;
                     //addHistory(new History{Item = _selectedSearchItem, List = _selectedSearchItem.Type, Type = HistoryType.SEARCH});
                 }
-
             }
         }
 
@@ -230,17 +243,16 @@ namespace Elements.ViewModel
             }
 
             isHistory = false;
-
         });
 
         public ICommand HistoryNext => ReactiveCommand.Create(() =>
         {
             isHistory = true;
             GetHI++;
-            // if (GetHI > Histories.Count)
-            // {
-            //     GetHI = Histories.Count;
-            // }
+             if (GetHI > Histories.Count)
+             {
+                 GetHI = Histories.Count;
+             }
 
             if (Histories.Count > 0)
             {
@@ -264,6 +276,9 @@ namespace Elements.ViewModel
 
         #region Commands
 
+        public List<KeyValuePair<int, Element.Item>> DataSearch = new List<KeyValuePair<int, Element.Item>>();
+
+        //SEARCH ITEMS WORK
         public ICommand Search =>
             ReactiveCommand.Create(() =>
             {
@@ -271,23 +286,44 @@ namespace Elements.ViewModel
                 {
                     if (_oldSearch != SearchText.ToLower())
                     {
+                        DataSearch.Clear();
+                        SearchView?.Refresh();
+
                         _oldSearch = SearchText.ToLower();
-                        DataSearch = Element.Items.Where(n =>
-                            n.Fields.id.ToString().Contains(_oldSearch) ||
-                            n.Fields.Name.ToLower().Contains(_oldSearch)).ToArray();
-                        SearchItemsCount = DataSearch.Length;
+
+                        DataSearch.AddRange(Element.Addons.Where(n =>
+                            n.Value.Id.ToString().Contains(SearchText) ||
+                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                        DataSearch.AddRange(Element.Essences.Where(n =>
+                            n.Value.Id.ToString().Contains(SearchText) ||
+                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                        DataSearch.AddRange(Element.Configs.Where(n =>
+                            n.Value.Id.ToString().Contains(SearchText) ||
+                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                        DataSearch.AddRange(Element.Faces.Where(n =>
+                            n.Value.Id.ToString().Contains(SearchText) ||
+                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                        DataSearch.AddRange(Element.Recipes.Where(n =>
+                            n.Value.Id.ToString().Contains(SearchText) ||
+                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                        DataSearch.AddRange(Element.Talks.Where(n =>
+                            n.Value.Id.ToString().Contains(SearchText) ||
+                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                        DataSearch.AddRange(Element.Homes.Where(n =>
+                            n.Value.Id.ToString().Contains(SearchText) ||
+                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+
+                        SearchItemsCount = DataSearch.Count;
                         SearchView = CollectionViewSource.GetDefaultView(DataSearch);
+
                         _indexSearch = 0;
                     }
 
-                    if (DataSearch != null && DataSearch.Length > _indexSearch)
+                    if (DataSearch != null && DataSearch.Count > _indexSearch)
                     {
-                        SelectedList = DataSearch[_indexSearch].Type;
+                        SelectedList = DataSearch[_indexSearch].Value.Type;
                         FoundItem = DataSearch[_indexSearch];
-                        if (DataSearch.Length - 1 == _indexSearch)
-                            _indexSearch = 0;
-                        else
-                            _indexSearch++;
+                        _indexSearch = (DataSearch.Count - 1 == _indexSearch) ? 0 : _historyIndex++;
                     }
                 }
             });
@@ -299,7 +335,7 @@ namespace Elements.ViewModel
                 {
                     SelectedItems = Data.ElementInfo.Add(_selectedItems);
                     //addHistory(new History { Item = _selectedItems[0], List = _selectedItems[0].Type, Type = HistoryType.ADD });
-                    ItemsCount = Element.Items.Count;
+                    //ItemsCount = Element.Items.Count;
                     ItemsView.Refresh();
                 }
                 else
@@ -311,21 +347,32 @@ namespace Elements.ViewModel
             {
                 if (_selectedItems != null && _selectedItems.Length > 0)
                 {
-                    Element.Items.RemoveRange(_selectedItems);
+                    //Element.Items.RemoveRange(_selectedItems);
                     //addHistory(new History { Item = _selectedItems[0], List = _selectedItems[0].Type, Type = HistoryType.REMOVE });
-                    ItemsCount = Element.Items.Count;
+                   // ItemsCount = Element.Items.Count;
                 }
                 else
                     MessageBox.Show("Удаление невозможно! Выберете предмет в списке.");
-
             });
 
         public ICommand Open => ReactiveCommand.Create(() =>
         {
-            ItemsView.Refresh();
-            ReadTime = Data.Load("elements.data");
-            Lists = new List<Element.ListInfo>(Data.ElementInfo.ListInformation);
-            SelectedList = Data.ElementInfo.ListInformation.Count > 0 ? Data.ElementInfo.ListInformation[0].Type : null;
+
+            var dialog = new OpenFileDialog
+            {
+                Filter = "Elements.data|*elements*.data|Data files (*.data)|*.data|All Files (*.*)|*.*"
+            };
+            var dialogResult = dialog.ShowDialog();
+
+            if (dialogResult == DialogResult.OK)
+            {
+                ReadTime = Data.Load(dialog.FileName);
+                Lists = new List<Element.ListInfo>(Data.ElementInfo.ListInformation);
+                SelectedList = Data.ElementInfo.ListInformation.Count > 0 ? Data.ElementInfo.ListInformation[0].Type : null;
+            }
+
+
+            
         });
 
         public ICommand Save => ReactiveCommand.Create(() =>
@@ -343,19 +390,20 @@ namespace Elements.ViewModel
                 SelectItemsCount = _selectedItems.Length;
 
                 for (var i = 0; i < _selectedItems.Length; i++)
-                    _selectedItems[i] = (Element.Item) obj[i];
+                    _selectedItems[i] = (Element.Item) ((dynamic) obj[i])?.Value;
 
                 //addHistory(new History { Item = _selectedItems[0], List = _selectedItems[0].Type, Type = HistoryType.CHANGE_ITEM });
 
-                if (_selectedItems[0].Space == Element.ID_SPACE.ESSENCE && Data.LinksEssence.ContainsKey(_selectedItems[0].Id))
+                if (_selectedItems[0].Space == Element.ID_SPACE.ESSENCE &&
+                    Data.LinksEssence.ContainsKey(_selectedItems[0].Id))
                 {
                     var items = Data.LinksEssence[_selectedItems[0].Id];
                     LinksCount = items.Count;
                     LinksView = CollectionViewSource.GetDefaultView(items);
                     LinksView?.Refresh();
-
                 }
-                else if (_selectedItems[0].Space == Element.ID_SPACE.ADDON && Data.LinksAddon.ContainsKey(_selectedItems[0].Id))
+                else if (_selectedItems[0].Space == Element.ID_SPACE.ADDON &&
+                         Data.LinksAddon.ContainsKey(_selectedItems[0].Id))
                 {
                     var items = Data.LinksAddon[_selectedItems[0].Id];
                     LinksCount = items.Count;
@@ -368,22 +416,21 @@ namespace Elements.ViewModel
                     LinksView = null;
                 }
 
-                EditorPage.DataContext = new DefaultVM(ItemsView, _selectedItems);
+                GetItemPage(ItemsView, _selectedItems);
+               // EditorPage.DataContext = new DefaultVM(ItemsView, _selectedItems);
             }
         });
 
         #endregion
 
 
-
         public ICommand Opens => ReactiveCommand.Create(() =>
         {
-            ItemsView.Refresh();
+            //ItemsView.Refresh();
             ReadTime = Data.Load("elements70.data");
-            ItemsCount = Element.Items.Count;
+            //ItemsCount = Element.Items.Count;
             Lists = new List<Element.ListInfo>(Data.ElementInfo.ListInformation);
             SelectedList = Data.ElementInfo.ListInformation.Count > 0 ? Data.ElementInfo.ListInformation[0].Type : null;
         });
-
     }
 }

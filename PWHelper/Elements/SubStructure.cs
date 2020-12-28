@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using System.Text;
+using PWHelper.Elements.Versions;
 
 namespace PWHelper.Elements
 {
     class SubStructure
     {
-        
+        public static readonly Encoding Gbk = Encoding.GetEncoding("GBK");
+        public static readonly Encoding Unicode = Encoding.GetEncoding("Unicode");
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -52,4 +54,20 @@ namespace PWHelper.Elements
         public int id_matter_4;
         public int num_matter_4;
     };
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MakePage
+    {
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)] public byte[] title;
+        public string Title { get => SubStructure.Unicode.GetString(title); set => title = BinReader.FillArray(SubStructure.Unicode.GetBytes(value), 16); }
+
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+        public MakePageItem[] Recipes;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public struct MakePageItem
+    {
+       [RecipeId] public int id { get; set; }
+    }
 }

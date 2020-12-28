@@ -114,7 +114,7 @@ namespace PWHelper.Elements
             {ID_SPACE.UNKNOWN, 0},
         };
 
-        public Dictionary<string, ID_SPACE> spaces = new Dictionary<string, ID_SPACE>
+        public static Dictionary<string, ID_SPACE> Spaces = new Dictionary<string, ID_SPACE>
         {
             {"EQUIPMENT_ADDON", ID_SPACE.ADDON},
             {"WEAPON_MAJOR_TYPE", ID_SPACE.ESSENCE},
@@ -411,7 +411,6 @@ namespace PWHelper.Elements
                     }
 
 
-
                     // }
                     // catch (Exception e)
                     // {
@@ -456,6 +455,7 @@ namespace PWHelper.Elements
         public class ListInfo
         {
             public Type Type { get; set; }
+            public ID_SPACE Space { get; set; }
             public string Name { get; set; }
 
             public int Count
@@ -481,15 +481,13 @@ namespace PWHelper.Elements
         public List<ListInfo> ListInformation = new List<ListInfo>();
         public Dictionary<Type, object[]> Lists { get; set; } = new Dictionary<Type, object[]>();
 
-        public static RangeObservableCollection<Item> Items = new RangeObservableCollection<Item>();
-
-        public static Dictionary<int, Item> Essences = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> Addons = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> Talks = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> Faces = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> Recipes = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> Configs = new Dictionary<int, Item>();
-        public static Dictionary<int, Item> Homes = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Essences { get; set; } = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Addons { get; set; } = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Talks { get; set; } = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Faces { get; set; } = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Recipes { get; set; } = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Configs { get; set; } = new Dictionary<int, Item>();
+        public static Dictionary<int, Item> Homes { get; set; } = new Dictionary<int, Item>();
 
 
         public BinaryWriter Bw;
@@ -556,29 +554,29 @@ namespace PWHelper.Elements
             }
             else
             {
-                var itemsByType = Items.Where(n => n.Type == type).ToArray();
-                var size = Marshal.SizeOf(type);
-                var result = new byte[size * itemsByType.Length];
-
-                Bw.Write(itemsByType.Length);
-
-                var ptr = Marshal.AllocHGlobal(size);
-                var pos = 0;
-                try
-                {
-                    foreach (var list in itemsByType)
-                    {
-                        Marshal.StructureToPtr(list.Fields, ptr, true);
-                        Marshal.Copy(ptr, result, pos, size);
-                        pos += size;
-                    }
-                }
-                finally
-                {
-                    Marshal.FreeHGlobal(ptr);
-                }
-
-                Bw.Write(result);
+                // var itemsByType = Items.Where(n => n.Type == type).ToArray();
+                // var size = Marshal.SizeOf(type);
+                // var result = new byte[size * itemsByType.Length];
+                //
+                // Bw.Write(itemsByType.Length);
+                //
+                // var ptr = Marshal.AllocHGlobal(size);
+                // var pos = 0;
+                // try
+                // {
+                //     foreach (var list in itemsByType)
+                //     {
+                //         Marshal.StructureToPtr(list.Fields, ptr, true);
+                //         Marshal.Copy(ptr, result, pos, size);
+                //         pos += size;
+                //     }
+                // }
+                // finally
+                // {
+                //     Marshal.FreeHGlobal(ptr);
+                // }
+                //
+                // Bw.Write(result);
             }
         }
 
@@ -587,28 +585,38 @@ namespace PWHelper.Elements
             for (var i = 0; i < count; i++)
             {
                 Marshal.Copy(BinReader.Source, BinReader.Position, buffer, size);
-                //var space = spaces.ContainsKey(type.Name) ? spaces[type.Name] : ID_SPACE.UNKNOWN;
                 dynamic fields = Marshal.PtrToStructure(buffer, type);
-               // if (space == ID_SPACE.ESSENCE)
-               // {
-                    collection.Add(fields.id, new Item
-                    {
-                        Type = type,
-                        Fields = fields
-                    });
-               // }
-
-                //Items.Add(new Item
-                // {
-                //     Type = type,
-                //     Space = space,
-                //     Fields = fields
-                // });
+                collection.Add(fields.id, new Item {Type = type, Fields = fields});
                 BinReader.Position += size;
             }
         }
 
-        public void Deserialize(Type type)
+        public static Dictionary<int, Item> GetItems(string type)
+        {
+            var space = Spaces[type];
+
+            switch (space)
+            {
+                case ID_SPACE.ESSENCE:
+                    return Essences;
+                case ID_SPACE.ADDON:
+                    return Addons; 
+                case ID_SPACE.TALK:
+                    return Talks;
+                case ID_SPACE.CONFIG:
+                    return Configs;
+                case ID_SPACE.FACE:
+                    return Faces;
+                case ID_SPACE.RECIPE:
+                    return Recipes;
+                case ID_SPACE.HOME:
+                    return Homes;
+            }
+
+            return null;
+        }
+
+        public void Deserialize(Type type, ID_SPACE space)
         {
             if (type.Name == "TALK_PROC")
             {
@@ -622,33 +630,33 @@ namespace PWHelper.Elements
 
             try
             {
-                var space = spaces.ContainsKey(type.Name) ? spaces[type.Name] : ID_SPACE.UNKNOWN;
-                if (space == ID_SPACE.ESSENCE)
-                    ReadItems(count, size, buffer, type, Essences);
-                
-                // for (var i = 0; i < itemsCount; i++)
-                // {
-                //     Marshal.Copy(BinReader.Source, BinReader.Position, buffer, sizeItem);
-                //     
-                //     dynamic fields = Marshal.PtrToStructure(buffer, type);
-                //     if (space == ID_SPACE.ESSENCE)
-                //     {
-                //         Items2.Add(fields.id, new Item
-                //         {
-                //             Type = type,
-                //             Space = space,
-                //             Fields = fields
-                //         });
-                //     }
-                //    
-                //     // Items.Add(new Item
-                //     // {
-                //     //     Type = type,
-                //     //     Space = space,
-                //     //     Fields = fields
-                //     // });
-                //     BinReader.Position += sizeItem;
-                // }
+                switch (space)
+                {
+                    case ID_SPACE.ESSENCE:
+                        ReadItems(count, size, buffer, type, Essences);
+                        break;
+                    case ID_SPACE.ADDON:
+                        ReadItems(count, size, buffer, type, Addons);
+                        break;
+                    case ID_SPACE.CONFIG:
+                        ReadItems(count, size, buffer, type, Configs);
+                        break;
+                    case ID_SPACE.FACE:
+                        ReadItems(count, size, buffer, type, Faces);
+                        break;
+                    case ID_SPACE.RECIPE:
+                        ReadItems(count, size, buffer, type, Recipes);
+                        break;
+                    case ID_SPACE.HOME:
+                        ReadItems(count, size, buffer, type, Homes);
+                        break;
+                    case ID_SPACE.TALK:
+                        break;
+                    case ID_SPACE.UNKNOWN:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(space), space, null);
+                }
             }
             finally
             {
@@ -671,15 +679,16 @@ namespace PWHelper.Elements
 
         public void RegisterStruct(Type type, string name)
         {
-            Deserialize(type);
-            ListInformation.Add(new ListInfo {Type = type, Name = name});
+            var space = Spaces.ContainsKey(type.Name) ? Spaces[type.Name] : ID_SPACE.UNKNOWN;
+            Deserialize(type, space);
+            ListInformation.Add(new ListInfo {Type = type, Name = name, Space = space});
         }
 
         public void Add(Type type, Item item = null)
         {
             if (item != null)
             {
-                Items.Add(item.Clone());
+               // Items.Add(item.Clone());
             }
         }
 
@@ -688,14 +697,14 @@ namespace PWHelper.Elements
             var ttt = new Item[items.Length];
             if (items.Length > 0)
             {
-                Items.DisableNotify();
+               // Items.DisableNotify();
                 for (var index = 0; index < items.Length; index++)
                 {
                     ttt[index] = items[index].Clone();
-                    Items.Add(ttt[index]);
+                 //   Items.Add(ttt[index]);
                 }
 
-                Items.EnableNotify();
+               // Items.EnableNotify();
             }
 
             return ttt;
@@ -703,7 +712,7 @@ namespace PWHelper.Elements
 
         public void Remove(Item item)
         {
-            Items.Remove(item);
+           // Items.Remove(item);
         }
     }
 }

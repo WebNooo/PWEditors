@@ -3,14 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Reactive;
 using System.Reflection;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 using Elements.Interfaces;
 using PropertyChanged;
 using PWHelper.Elements;
+using PWHelper.Elements.Versions;
 using ReactiveUI;
 
 namespace Elements.ViewModel.Lists
@@ -35,28 +43,127 @@ namespace Elements.ViewModel.Lists
             FieldsView = CollectionViewSource.GetDefaultView(getFields());
         }
 
-        public ItemProperty[] getFields()
+        public Button PropertyButton(Type type, PropertyInfo property, object value, Dictionary<int, Element.Item> collection)
         {
-            var properties = Items[0].Fields.GetType().GetProperties();
-            if (properties != null)
+            if (Attribute.GetCustomAttribute(property, type, false) != null)
             {
-                var props = new ItemProperty[properties.Length];
-                for (var j = 0; j < properties.Length; j++)
+                return new Button
                 {
-                    props[j] = new ItemProperty
+                    Content = new TextBlock
                     {
-                        Name = properties[j].Name,
-                        Value = properties[j].GetValue(Items[0].Fields, null),
-                        Type = properties[j]
-                    };
-                }
-                ItemProperty.CurrentItem = Items[0].Fields;
-                return props;
+                        TextDecorations = new TextDecorationCollection { TextDecorations.Underline },
+                        Text = collection.ContainsKey((int)value)
+                            ? collection[(int)value].Fields.Name
+                            : "пусто",
+                    },
 
+                    HorizontalContentAlignment = HorizontalAlignment.Left,
+                };
             }
 
             return null;
+        }
 
+        public ItemProperty[] getFields()
+        {
+            ItemProperty[] props = null;
+            //for (int i = 0; i < Items.Length; i++)
+            // {
+            var properties = Items[0].Fields.GetType().GetProperties();
+            if (properties != null)
+            {
+                props = new ItemProperty[properties.Length];
+                for (var j = 0; j < properties.Length; j++)
+                {
+                    var value = properties[j].GetValue(Items[0].Fields, null);
+
+                    var gg = new ItemProperty
+                    {
+                        Name = properties[j].Name,
+                        Value = value,
+                        Type = properties[j],
+                    };
+
+                    dynamic defaultControl;
+
+                    if (Attribute.GetCustomAttribute(properties[j], typeof(ItemIdAttribute), false) != null)
+                    {
+                        var wp = new WrapPanel();
+                        wp.Children.Add(new Image { Source = Element.Essences.ContainsKey((int)value) ? Element.Essences[(int)value].Icon : Element.UnknownIcon });
+                        wp.Children.Add(new TextBlock
+                        {
+                            TextDecorations = new TextDecorationCollection { TextDecorations.Underline },
+                            Foreground = new SolidColorBrush(Color.FromRgb(0, 100, 255)),
+                            Padding = new Thickness(3, 0, 3, 0),
+                            Text = Element.Essences.ContainsKey((int)value)
+                                ? Element.Essences[(int)value].Fields.Name
+                                : "пусто",
+                        });
+                        var btn = new Button
+                        {
+                            Content = wp,
+                            Background = new SolidColorBrush(Color.FromArgb(0,0,0,0)),
+                            BorderThickness = new Thickness(0),
+                            HorizontalContentAlignment = HorizontalAlignment.Left,
+                        };
+                        btn.Click += (o, e) =>
+                        {
+                            MessageBox.Show(((Button)o).Content.ToString());
+                        };
+
+                        defaultControl = btn;
+                    }
+                    else if (Attribute.GetCustomAttribute(properties[j], typeof(AddonIdAttribute), false) != null)
+                    {
+                        var wp = new WrapPanel();
+                        wp.Children.Add(new Image{Source = Element.Addons.ContainsKey((int)value) ? Element.Addons[(int)value].Icon : Element.UnknownIcon});
+                        wp.Children.Add(new TextBlock
+                        {
+                            TextDecorations = new TextDecorationCollection {TextDecorations.Underline},
+                            Foreground = new SolidColorBrush(Color.FromRgb(0, 100, 255)),
+                            Padding = new Thickness(3, 0, 3, 0),
+                            Text = Element.Addons.ContainsKey((int) value)
+                                ? Element.Addons[(int) value].Fields.Name
+                                : "пусто",
+                        });
+                        var btn = new Button
+                        {
+                            Content = wp,
+                            Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0)),
+                            BorderThickness = new Thickness(0),
+                            HorizontalContentAlignment = HorizontalAlignment.Left,
+                        };
+                        btn.Click += (o, e) =>
+                        {
+                            MessageBox.Show(((Button)o).Content.ToString());
+                        };
+
+                        defaultControl = btn;
+                    }
+                    else {
+                        var fd = new TextBlock
+                        {
+                            Text = value.ToString(),
+                            //VerticalContentAlignment = VerticalAlignment.Center
+                        };
+
+                        // fd.TextChanged += (o, e) =>
+                        // {
+                        //     gg.Value = ((TextBox) o).Text;
+                        // };
+                        fd.LostFocus += (o, e) => { ItemsView.Refresh(); };
+                        defaultControl = fd;
+                    }
+
+                    props[j] = gg;
+                    props[j].Control = defaultControl;
+                }
+
+                ItemProperty.CurrentItem = Items[0].Fields;
+            }
+            //}
+
+            return props;
         }
 
         public ItemProperty SelectItem { get; set; }
@@ -73,7 +180,9 @@ namespace Elements.ViewModel.Lists
                 for (var i = 0; i < fieldsProperties.Length; i++)
                 {
                     fieldsName[i] = fieldsProperties[i].Name;
-                        //fieldsProperties[i].Value = value == "" ? fieldsProperties[i].Type.PropertyType.Name == "String" ? "" : "0" : value.ToString();
+                    fieldsProperties[i].Value = value == ""
+                        ? fieldsProperties[i].Type.PropertyType.Name == "String" ? "" : "0"
+                        : value.ToString();
                 }
 
                 foreach (var item in items)
@@ -84,8 +193,11 @@ namespace Elements.ViewModel.Lists
                     {
                         if (fieldsName.Contains(propertyInfo.Name))
                         {
-                            propertyInfo.SetValue(item.Fields, 
-                                ItemProperty.GetTypeValue(propertyInfo.PropertyType.Name, value == "" ? propertyInfo.PropertyType.Name == "String" ? "" : "0" : value.ToString()));
+                            propertyInfo.SetValue(item.Fields,
+                                ItemProperty.GetTypeValue(propertyInfo.PropertyType.Name,
+                                    value == ""
+                                        ? propertyInfo.PropertyType.Name == "String" ? "" : "0"
+                                        : value.ToString()));
                         }
                     }
                 }
@@ -152,9 +264,6 @@ namespace Elements.ViewModel.Lists
 
 
         public ICommand ChangeItem =>
-            ReactiveCommand.Create(() =>
-            {
-                ItemsView.Refresh();
-            });
+            ReactiveCommand.Create(() => { ItemsView.Refresh(); });
     }
 }

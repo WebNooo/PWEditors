@@ -12,6 +12,7 @@ namespace PWHelper.Elements
 
         private object _value;
         public string Name { get; set; }
+        public dynamic Control { get; set; }
 
         public object Value
         {

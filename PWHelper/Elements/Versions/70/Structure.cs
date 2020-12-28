@@ -93,8 +93,8 @@ namespace PWHelper.Elements.Versions._70
     public class WEAPON_ESSENCE
     {
         public int id { get; set; }
-        public int id_major_type { get; set; }
-        public int id_sub_type { get; set; }
+        [MajorType] public int id_major_type { get; set; }
+        [SubType] public int id_sub_type { get; set; }
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public byte[] name;
@@ -137,7 +137,7 @@ namespace PWHelper.Elements.Versions._70
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] file_icon;
 
-        public string File_icon
+        [Icon] public string File_icon
         {
             get => Structure.Gbk.GetString(file_icon);
             set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
@@ -147,11 +147,11 @@ namespace PWHelper.Elements.Versions._70
         public int require_agility { get; set; }
         public int require_energy { get; set; }
         public int require_tili { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int require_level { get; set; }
         public int require_reputation { get; set; }
         public int level { get; set; }
-        public int fixed_props { get; set; }
+        [FixedProps] public int fixed_props { get; set; }
         public int damage_low { get; set; }
         public int damage_high_min { get; set; }
         public int damage_high_max { get; set; }
@@ -162,7 +162,7 @@ namespace PWHelper.Elements.Versions._70
         public int short_range_mode { get; set; }
         public int durability_min { get; set; }
         public int durability_max { get; set; }
-        public int levelup_addon { get; set; }
+        [AddonId] public int levelup_addon { get; set; }
         public int material_need { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -351,7 +351,7 @@ namespace PWHelper.Elements.Versions._70
         public int num_drop_after_damaged { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -435,10 +435,10 @@ namespace PWHelper.Elements.Versions._70
         public int require_agility { get; set; }
         public int require_energy { get; set; }
         public int require_tili { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int require_level { get; set; }
         public int require_reputation { get; set; }
-        public int fixed_props { get; set; }
+        [FixedProps] public int fixed_props { get; set; }
         public int defence_low { get; set; }
         public int defence_high { get; set; }
         public int magic_defences_1_low { get; set; }
@@ -555,7 +555,7 @@ namespace PWHelper.Elements.Versions._70
         public int id_hair_texture { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
         public int force_all_magic_defences { get; set; }
     }
 
@@ -639,10 +639,10 @@ namespace PWHelper.Elements.Versions._70
         public int require_agility { get; set; }
         public int require_energy { get; set; }
         public int require_tili { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int require_level { get; set; }
         public int require_reputation { get; set; }
-        public int fixed_props { get; set; }
+        [FixedProps] public int fixed_props { get; set; }
         public int damage_low { get; set; }
         public int damage_high { get; set; }
         public int magic_damage_low { get; set; }
@@ -810,7 +810,7 @@ namespace PWHelper.Elements.Versions._70
         public int num_drop_after_damaged { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -887,7 +887,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -962,7 +962,7 @@ namespace PWHelper.Elements.Versions._70
         public int element_num { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1021,7 +1021,7 @@ namespace PWHelper.Elements.Versions._70
         public int damage_increased { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1099,7 +1099,7 @@ namespace PWHelper.Elements.Versions._70
         public int damage_reduce_time { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1154,7 +1154,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1210,12 +1210,12 @@ namespace PWHelper.Elements.Versions._70
         public float time_max_max { get; set; }
         public float time_increase_per_element { get; set; }
         public int fly_mode { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int id_drop_after_damaged { get; set; }
         public int num_drop_after_damaged { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1267,7 +1267,7 @@ namespace PWHelper.Elements.Versions._70
         public int mp_per_second { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1307,7 +1307,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1347,7 +1347,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1388,7 +1388,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1428,7 +1428,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1456,7 +1456,7 @@ namespace PWHelper.Elements.Versions._70
 
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1539,7 +1539,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1638,7 +1638,7 @@ namespace PWHelper.Elements.Versions._70
         public int id_addon3 { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -1771,7 +1771,7 @@ namespace PWHelper.Elements.Versions._70
 
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -4309,350 +4309,12 @@ namespace PWHelper.Elements.Versions._70
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
         public byte[] name;
 
-        public string Name
-        {
-            get => Structure.Unicode.GetString(name);
-            set { name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 64); }
-        }
+        public string Name { get => Structure.Unicode.GetString(name); set { name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 64); } }
 
         public int id_make_skill { get; set; }
         public int produce_type { get; set; }
 
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_1_page_title;
-
-        public string Pages_1_page_title
-        {
-            get => Structure.Unicode.GetString(pages_1_page_title);
-            set { pages_1_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_1_id_goods_1 { get; set; }
-        public int pages_1_id_goods_2 { get; set; }
-        public int pages_1_id_goods_3 { get; set; }
-        public int pages_1_id_goods_4 { get; set; }
-        public int pages_1_id_goods_5 { get; set; }
-        public int pages_1_id_goods_6 { get; set; }
-        public int pages_1_id_goods_7 { get; set; }
-        public int pages_1_id_goods_8 { get; set; }
-        public int pages_1_id_goods_9 { get; set; }
-        public int pages_1_id_goods_10 { get; set; }
-        public int pages_1_id_goods_11 { get; set; }
-        public int pages_1_id_goods_12 { get; set; }
-        public int pages_1_id_goods_13 { get; set; }
-        public int pages_1_id_goods_14 { get; set; }
-        public int pages_1_id_goods_15 { get; set; }
-        public int pages_1_id_goods_16 { get; set; }
-        public int pages_1_id_goods_17 { get; set; }
-        public int pages_1_id_goods_18 { get; set; }
-        public int pages_1_id_goods_19 { get; set; }
-        public int pages_1_id_goods_20 { get; set; }
-        public int pages_1_id_goods_21 { get; set; }
-        public int pages_1_id_goods_22 { get; set; }
-        public int pages_1_id_goods_23 { get; set; }
-        public int pages_1_id_goods_24 { get; set; }
-        public int pages_1_id_goods_25 { get; set; }
-        public int pages_1_id_goods_26 { get; set; }
-        public int pages_1_id_goods_27 { get; set; }
-        public int pages_1_id_goods_28 { get; set; }
-        public int pages_1_id_goods_29 { get; set; }
-        public int pages_1_id_goods_30 { get; set; }
-        public int pages_1_id_goods_31 { get; set; }
-        public int pages_1_id_goods_32 { get; set; }
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_2_page_title;
-
-        public string Pages_2_page_title
-        {
-            get => Structure.Unicode.GetString(pages_2_page_title);
-            set { pages_2_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_2_id_goods_1 { get; set; }
-        public int pages_2_id_goods_2 { get; set; }
-        public int pages_2_id_goods_3 { get; set; }
-        public int pages_2_id_goods_4 { get; set; }
-        public int pages_2_id_goods_5 { get; set; }
-        public int pages_2_id_goods_6 { get; set; }
-        public int pages_2_id_goods_7 { get; set; }
-        public int pages_2_id_goods_8 { get; set; }
-        public int pages_2_id_goods_9 { get; set; }
-        public int pages_2_id_goods_10 { get; set; }
-        public int pages_2_id_goods_11 { get; set; }
-        public int pages_2_id_goods_12 { get; set; }
-        public int pages_2_id_goods_13 { get; set; }
-        public int pages_2_id_goods_14 { get; set; }
-        public int pages_2_id_goods_15 { get; set; }
-        public int pages_2_id_goods_16 { get; set; }
-        public int pages_2_id_goods_17 { get; set; }
-        public int pages_2_id_goods_18 { get; set; }
-        public int pages_2_id_goods_19 { get; set; }
-        public int pages_2_id_goods_20 { get; set; }
-        public int pages_2_id_goods_21 { get; set; }
-        public int pages_2_id_goods_22 { get; set; }
-        public int pages_2_id_goods_23 { get; set; }
-        public int pages_2_id_goods_24 { get; set; }
-        public int pages_2_id_goods_25 { get; set; }
-        public int pages_2_id_goods_26 { get; set; }
-        public int pages_2_id_goods_27 { get; set; }
-        public int pages_2_id_goods_28 { get; set; }
-        public int pages_2_id_goods_29 { get; set; }
-        public int pages_2_id_goods_30 { get; set; }
-        public int pages_2_id_goods_31 { get; set; }
-        public int pages_2_id_goods_32 { get; set; }
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_3_page_title;
-
-        public string Pages_3_page_title
-        {
-            get => Structure.Unicode.GetString(pages_3_page_title);
-            set { pages_3_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_3_id_goods_1 { get; set; }
-        public int pages_3_id_goods_2 { get; set; }
-        public int pages_3_id_goods_3 { get; set; }
-        public int pages_3_id_goods_4 { get; set; }
-        public int pages_3_id_goods_5 { get; set; }
-        public int pages_3_id_goods_6 { get; set; }
-        public int pages_3_id_goods_7 { get; set; }
-        public int pages_3_id_goods_8 { get; set; }
-        public int pages_3_id_goods_9 { get; set; }
-        public int pages_3_id_goods_10 { get; set; }
-        public int pages_3_id_goods_11 { get; set; }
-        public int pages_3_id_goods_12 { get; set; }
-        public int pages_3_id_goods_13 { get; set; }
-        public int pages_3_id_goods_14 { get; set; }
-        public int pages_3_id_goods_15 { get; set; }
-        public int pages_3_id_goods_16 { get; set; }
-        public int pages_3_id_goods_17 { get; set; }
-        public int pages_3_id_goods_18 { get; set; }
-        public int pages_3_id_goods_19 { get; set; }
-        public int pages_3_id_goods_20 { get; set; }
-        public int pages_3_id_goods_21 { get; set; }
-        public int pages_3_id_goods_22 { get; set; }
-        public int pages_3_id_goods_23 { get; set; }
-        public int pages_3_id_goods_24 { get; set; }
-        public int pages_3_id_goods_25 { get; set; }
-        public int pages_3_id_goods_26 { get; set; }
-        public int pages_3_id_goods_27 { get; set; }
-        public int pages_3_id_goods_28 { get; set; }
-        public int pages_3_id_goods_29 { get; set; }
-        public int pages_3_id_goods_30 { get; set; }
-        public int pages_3_id_goods_31 { get; set; }
-        public int pages_3_id_goods_32 { get; set; }
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_4_page_title;
-
-        public string Pages_4_page_title
-        {
-            get => Structure.Unicode.GetString(pages_4_page_title);
-            set { pages_4_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_4_id_goods_1 { get; set; }
-        public int pages_4_id_goods_2 { get; set; }
-        public int pages_4_id_goods_3 { get; set; }
-        public int pages_4_id_goods_4 { get; set; }
-        public int pages_4_id_goods_5 { get; set; }
-        public int pages_4_id_goods_6 { get; set; }
-        public int pages_4_id_goods_7 { get; set; }
-        public int pages_4_id_goods_8 { get; set; }
-        public int pages_4_id_goods_9 { get; set; }
-        public int pages_4_id_goods_10 { get; set; }
-        public int pages_4_id_goods_11 { get; set; }
-        public int pages_4_id_goods_12 { get; set; }
-        public int pages_4_id_goods_13 { get; set; }
-        public int pages_4_id_goods_14 { get; set; }
-        public int pages_4_id_goods_15 { get; set; }
-        public int pages_4_id_goods_16 { get; set; }
-        public int pages_4_id_goods_17 { get; set; }
-        public int pages_4_id_goods_18 { get; set; }
-        public int pages_4_id_goods_19 { get; set; }
-        public int pages_4_id_goods_20 { get; set; }
-        public int pages_4_id_goods_21 { get; set; }
-        public int pages_4_id_goods_22 { get; set; }
-        public int pages_4_id_goods_23 { get; set; }
-        public int pages_4_id_goods_24 { get; set; }
-        public int pages_4_id_goods_25 { get; set; }
-        public int pages_4_id_goods_26 { get; set; }
-        public int pages_4_id_goods_27 { get; set; }
-        public int pages_4_id_goods_28 { get; set; }
-        public int pages_4_id_goods_29 { get; set; }
-        public int pages_4_id_goods_30 { get; set; }
-        public int pages_4_id_goods_31 { get; set; }
-        public int pages_4_id_goods_32 { get; set; }
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_5_page_title;
-
-        public string Pages_5_page_title
-        {
-            get => Structure.Unicode.GetString(pages_5_page_title);
-            set { pages_5_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_5_id_goods_1 { get; set; }
-        public int pages_5_id_goods_2 { get; set; }
-        public int pages_5_id_goods_3 { get; set; }
-        public int pages_5_id_goods_4 { get; set; }
-        public int pages_5_id_goods_5 { get; set; }
-        public int pages_5_id_goods_6 { get; set; }
-        public int pages_5_id_goods_7 { get; set; }
-        public int pages_5_id_goods_8 { get; set; }
-        public int pages_5_id_goods_9 { get; set; }
-        public int pages_5_id_goods_10 { get; set; }
-        public int pages_5_id_goods_11 { get; set; }
-        public int pages_5_id_goods_12 { get; set; }
-        public int pages_5_id_goods_13 { get; set; }
-        public int pages_5_id_goods_14 { get; set; }
-        public int pages_5_id_goods_15 { get; set; }
-        public int pages_5_id_goods_16 { get; set; }
-        public int pages_5_id_goods_17 { get; set; }
-        public int pages_5_id_goods_18 { get; set; }
-        public int pages_5_id_goods_19 { get; set; }
-        public int pages_5_id_goods_20 { get; set; }
-        public int pages_5_id_goods_21 { get; set; }
-        public int pages_5_id_goods_22 { get; set; }
-        public int pages_5_id_goods_23 { get; set; }
-        public int pages_5_id_goods_24 { get; set; }
-        public int pages_5_id_goods_25 { get; set; }
-        public int pages_5_id_goods_26 { get; set; }
-        public int pages_5_id_goods_27 { get; set; }
-        public int pages_5_id_goods_28 { get; set; }
-        public int pages_5_id_goods_29 { get; set; }
-        public int pages_5_id_goods_30 { get; set; }
-        public int pages_5_id_goods_31 { get; set; }
-        public int pages_5_id_goods_32 { get; set; }
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_6_page_title;
-
-        public string Pages_6_page_title
-        {
-            get => Structure.Unicode.GetString(pages_6_page_title);
-            set { pages_6_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_6_id_goods_1 { get; set; }
-        public int pages_6_id_goods_2 { get; set; }
-        public int pages_6_id_goods_3 { get; set; }
-        public int pages_6_id_goods_4 { get; set; }
-        public int pages_6_id_goods_5 { get; set; }
-        public int pages_6_id_goods_6 { get; set; }
-        public int pages_6_id_goods_7 { get; set; }
-        public int pages_6_id_goods_8 { get; set; }
-        public int pages_6_id_goods_9 { get; set; }
-        public int pages_6_id_goods_10 { get; set; }
-        public int pages_6_id_goods_11 { get; set; }
-        public int pages_6_id_goods_12 { get; set; }
-        public int pages_6_id_goods_13 { get; set; }
-        public int pages_6_id_goods_14 { get; set; }
-        public int pages_6_id_goods_15 { get; set; }
-        public int pages_6_id_goods_16 { get; set; }
-        public int pages_6_id_goods_17 { get; set; }
-        public int pages_6_id_goods_18 { get; set; }
-        public int pages_6_id_goods_19 { get; set; }
-        public int pages_6_id_goods_20 { get; set; }
-        public int pages_6_id_goods_21 { get; set; }
-        public int pages_6_id_goods_22 { get; set; }
-        public int pages_6_id_goods_23 { get; set; }
-        public int pages_6_id_goods_24 { get; set; }
-        public int pages_6_id_goods_25 { get; set; }
-        public int pages_6_id_goods_26 { get; set; }
-        public int pages_6_id_goods_27 { get; set; }
-        public int pages_6_id_goods_28 { get; set; }
-        public int pages_6_id_goods_29 { get; set; }
-        public int pages_6_id_goods_30 { get; set; }
-        public int pages_6_id_goods_31 { get; set; }
-        public int pages_6_id_goods_32 { get; set; }
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_7_page_title;
-
-        public string Pages_7_page_title
-        {
-            get => Structure.Unicode.GetString(pages_7_page_title);
-            set { pages_7_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_7_id_goods_1 { get; set; }
-        public int pages_7_id_goods_2 { get; set; }
-        public int pages_7_id_goods_3 { get; set; }
-        public int pages_7_id_goods_4 { get; set; }
-        public int pages_7_id_goods_5 { get; set; }
-        public int pages_7_id_goods_6 { get; set; }
-        public int pages_7_id_goods_7 { get; set; }
-        public int pages_7_id_goods_8 { get; set; }
-        public int pages_7_id_goods_9 { get; set; }
-        public int pages_7_id_goods_10 { get; set; }
-        public int pages_7_id_goods_11 { get; set; }
-        public int pages_7_id_goods_12 { get; set; }
-        public int pages_7_id_goods_13 { get; set; }
-        public int pages_7_id_goods_14 { get; set; }
-        public int pages_7_id_goods_15 { get; set; }
-        public int pages_7_id_goods_16 { get; set; }
-        public int pages_7_id_goods_17 { get; set; }
-        public int pages_7_id_goods_18 { get; set; }
-        public int pages_7_id_goods_19 { get; set; }
-        public int pages_7_id_goods_20 { get; set; }
-        public int pages_7_id_goods_21 { get; set; }
-        public int pages_7_id_goods_22 { get; set; }
-        public int pages_7_id_goods_23 { get; set; }
-        public int pages_7_id_goods_24 { get; set; }
-        public int pages_7_id_goods_25 { get; set; }
-        public int pages_7_id_goods_26 { get; set; }
-        public int pages_7_id_goods_27 { get; set; }
-        public int pages_7_id_goods_28 { get; set; }
-        public int pages_7_id_goods_29 { get; set; }
-        public int pages_7_id_goods_30 { get; set; }
-        public int pages_7_id_goods_31 { get; set; }
-        public int pages_7_id_goods_32 { get; set; }
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)]
-        public byte[] pages_8_page_title;
-
-        public string Pages_8_page_title
-        {
-            get => Structure.Unicode.GetString(pages_8_page_title);
-            set { pages_8_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
-        }
-
-        public int pages_8_id_goods_1 { get; set; }
-        public int pages_8_id_goods_2 { get; set; }
-        public int pages_8_id_goods_3 { get; set; }
-        public int pages_8_id_goods_4 { get; set; }
-        public int pages_8_id_goods_5 { get; set; }
-        public int pages_8_id_goods_6 { get; set; }
-        public int pages_8_id_goods_7 { get; set; }
-        public int pages_8_id_goods_8 { get; set; }
-        public int pages_8_id_goods_9 { get; set; }
-        public int pages_8_id_goods_10 { get; set; }
-        public int pages_8_id_goods_11 { get; set; }
-        public int pages_8_id_goods_12 { get; set; }
-        public int pages_8_id_goods_13 { get; set; }
-        public int pages_8_id_goods_14 { get; set; }
-        public int pages_8_id_goods_15 { get; set; }
-        public int pages_8_id_goods_16 { get; set; }
-        public int pages_8_id_goods_17 { get; set; }
-        public int pages_8_id_goods_18 { get; set; }
-        public int pages_8_id_goods_19 { get; set; }
-        public int pages_8_id_goods_20 { get; set; }
-        public int pages_8_id_goods_21 { get; set; }
-        public int pages_8_id_goods_22 { get; set; }
-        public int pages_8_id_goods_23 { get; set; }
-        public int pages_8_id_goods_24 { get; set; }
-        public int pages_8_id_goods_25 { get; set; }
-        public int pages_8_id_goods_26 { get; set; }
-        public int pages_8_id_goods_27 { get; set; }
-        public int pages_8_id_goods_28 { get; set; }
-        public int pages_8_id_goods_29 { get; set; }
-        public int pages_8_id_goods_30 { get; set; }
-        public int pages_8_id_goods_31 { get; set; }
-        public int pages_8_id_goods_32 { get; set; }
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)] public MakePage[] Pages;
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -4811,7 +4473,7 @@ namespace PWHelper.Elements.Versions._70
         }
 
         public int tex_part_id { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
         public int user_data { get; set; }
@@ -4852,7 +4514,7 @@ namespace PWHelper.Elements.Versions._70
         }
 
         public int shape_part_id { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
         public int user_data { get; set; }
@@ -4915,7 +4577,7 @@ namespace PWHelper.Elements.Versions._70
             set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
         }
 
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int emotion_id { get; set; }
     }
@@ -4961,7 +4623,7 @@ namespace PWHelper.Elements.Versions._70
             set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
         }
 
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
         public int facepill_only { get; set; }
@@ -5000,7 +4662,7 @@ namespace PWHelper.Elements.Versions._70
             set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
         }
 
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
         public int facepill_only { get; set; }
@@ -5030,7 +4692,7 @@ namespace PWHelper.Elements.Versions._70
         }
 
         public int color_part_id { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
     }
 
@@ -5057,7 +4719,7 @@ namespace PWHelper.Elements.Versions._70
             set { file_data = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
         }
 
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
     }
 
@@ -5193,7 +4855,7 @@ namespace PWHelper.Elements.Versions._70
 
         public int id_upgrade_equip { get; set; }
         public float upgrade_rate { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -5668,7 +5330,7 @@ namespace PWHelper.Elements.Versions._70
         public int use_on_pick { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
         public int no_use_in_combat { get; set; }
     }
 
@@ -5708,7 +5370,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -5743,7 +5405,7 @@ namespace PWHelper.Elements.Versions._70
             set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
         }
 
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
         public int facepill_only { get; set; }
@@ -6127,7 +5789,7 @@ namespace PWHelper.Elements.Versions._70
         public int id_hair_texture { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
         public byte[] wear_action;
@@ -6219,7 +5881,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6288,7 +5950,7 @@ namespace PWHelper.Elements.Versions._70
 
         public int duration { get; set; }
         public float camera_scale { get; set; }
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] pllfiles_1_file;
@@ -6474,7 +6136,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6492,29 +6154,29 @@ namespace PWHelper.Elements.Versions._70
         }
 
         public int max_equips { get; set; }
-        public int equipments_1_id { get; set; }
-        public int equipments_2_id { get; set; }
-        public int equipments_3_id { get; set; }
-        public int equipments_4_id { get; set; }
-        public int equipments_5_id { get; set; }
-        public int equipments_6_id { get; set; }
-        public int equipments_7_id { get; set; }
-        public int equipments_8_id { get; set; }
-        public int equipments_9_id { get; set; }
-        public int equipments_10_id { get; set; }
-        public int equipments_11_id { get; set; }
-        public int equipments_12_id { get; set; }
-        public int addons_1_id { get; set; }
-        public int addons_2_id { get; set; }
-        public int addons_3_id { get; set; }
-        public int addons_4_id { get; set; }
-        public int addons_5_id { get; set; }
-        public int addons_6_id { get; set; }
-        public int addons_7_id { get; set; }
-        public int addons_8_id { get; set; }
-        public int addons_9_id { get; set; }
-        public int addons_10_id { get; set; }
-        public int addons_11_id { get; set; }
+       [ItemId] public int equipments_1_id { get; set; }
+        [ItemId] public int equipments_2_id { get; set; }
+        [ItemId] public int equipments_3_id { get; set; }
+        [ItemId] public int equipments_4_id { get; set; }
+        [ItemId] public int equipments_5_id { get; set; }
+        [ItemId] public int equipments_6_id { get; set; }
+        [ItemId] public int equipments_7_id { get; set; }
+        [ItemId] public int equipments_8_id { get; set; }
+        [ItemId] public int equipments_9_id { get; set; }
+        [ItemId] public int equipments_10_id { get; set; }
+        [ItemId] public int equipments_11_id { get; set; }
+        [ItemId] public int equipments_12_id { get; set; }
+        [AddonId] public int addons_1_id { get; set; }
+        [AddonId] public int addons_2_id { get; set; }
+        [AddonId] public int addons_3_id { get; set; }
+        [AddonId] public int addons_4_id { get; set; }
+        [AddonId] public int addons_5_id { get; set; }
+        [AddonId] public int addons_6_id { get; set; }
+        [AddonId] public int addons_7_id { get; set; }
+        [AddonId] public int addons_8_id { get; set; }
+        [AddonId] public int addons_9_id { get; set; }
+        [AddonId] public int addons_10_id { get; set; }
+        [AddonId] public int addons_11_id { get; set; }
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
         public byte[] file_gfx;
@@ -6577,7 +6239,7 @@ namespace PWHelper.Elements.Versions._70
         public int id_object { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6628,7 +6290,7 @@ namespace PWHelper.Elements.Versions._70
             set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
         }
 
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int level_max { get; set; }
         public int level_require { get; set; }
         public int pet_snd_type { get; set; }
@@ -6784,7 +6446,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6827,7 +6489,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6866,7 +6528,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6916,7 +6578,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -6955,7 +6617,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7577,7 +7239,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7642,7 +7304,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7681,7 +7343,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7790,7 +7452,7 @@ namespace PWHelper.Elements.Versions._70
         public int num_drop_after_damaged { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7830,7 +7492,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7872,7 +7534,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7914,7 +7576,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7954,7 +7616,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -7993,7 +7655,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -8038,7 +7700,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -8169,7 +7831,7 @@ namespace PWHelper.Elements.Versions._70
         public float rand_prop_10_rand_rate { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -8235,7 +7897,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -8276,7 +7938,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -8327,7 +7989,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -8381,7 +8043,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -8420,7 +8082,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -9546,7 +9208,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -10106,7 +9768,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -10145,7 +9807,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -10191,7 +9853,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -10226,7 +9888,7 @@ namespace PWHelper.Elements.Versions._70
             set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
         }
 
-        public int character_combo_id { get; set; }
+        [CharacterCombo] public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int facepill_only { get; set; }
     }
@@ -10824,7 +10486,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -10896,7 +10558,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -12641,7 +12303,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -12970,7 +12632,7 @@ namespace PWHelper.Elements.Versions._70
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
-        public int proc_type { get; set; }
+        [ProcType] public int proc_type { get; set; }
     }
 
     [StructLayout(LayoutKind.Sequential)]

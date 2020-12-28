@@ -1,0 +1,57 @@
+﻿<Page x:Class="Elements.Views.Lists.NpcMake"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Elements.Views.Lists"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="NpcMake">
+
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="0">
+            <WrapPanel>
+                <TextBlock Text="Id Make service" Width="100" />
+                <TextBox Width="100" Height="25" Text="{Binding IdMakeSkill}"/>
+            </WrapPanel>
+            <WrapPanel>
+                <TextBlock Text="Produce type" Width="100"  />
+                <TextBox Width="100" Height="25" Text="{Binding ProduceType}"/></WrapPanel>
+        </StackPanel>
+
+        <WrapPanel Grid.Row="1" VerticalAlignment="Center">
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab1Name}" Command="{Binding ChangeTabIndex}" CommandParameter="0"/>
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab2Name}" Command="{Binding ChangeTabIndex}" CommandParameter="1"/>
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab3Name}" Command="{Binding ChangeTabIndex}" CommandParameter="2"/>
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab4Name}" Command="{Binding ChangeTabIndex}" CommandParameter="3"/>
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab5Name}" Command="{Binding ChangeTabIndex}" CommandParameter="4"/>
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab6Name}" Command="{Binding ChangeTabIndex}" CommandParameter="5"/>
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab7Name}" Command="{Binding ChangeTabIndex}" CommandParameter="6"/>
+            <Button Width="80" Height="25" FontSize="10" Margin="2,0" Content="{Binding Tab8Name}" Command="{Binding ChangeTabIndex}" CommandParameter="7"/>
+        </WrapPanel>
+
+        <DataGrid Grid.Row="2" ItemsSource="{Binding PageItems}" AutoGenerateColumns="False" HeadersVisibility="None">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <!-- <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*" /> -->
+                <DataGridTemplateColumn  Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentControl Content="{Binding Control}"></ContentControl>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <!-- <DataGridTemplateColumn></DataGridTemplateColumn> -->
+        </DataGrid>
+
+    </Grid>
+</Page>

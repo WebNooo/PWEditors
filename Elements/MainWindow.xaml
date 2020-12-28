@@ -145,7 +145,9 @@
                     <!-- u:SelectingItemAttachedProperty.SelectingItem="{Binding FoundItem}" -->
                     <!-- u:DgAttachedProperty.SelectItems="{Binding SelectItems}" -->
                     <DataGrid x:Name="ItemsList"
-                                 ItemsSource="{Binding ItemsView}" 
+                                 ItemsSource="{Binding ItemsView, IsAsync=True}" 
+                                 HeadersVisibility="Column"
+                                 SelectionUnit="FullRow"
                                  SelectionMode="Extended"
                                  AutoGenerateColumns="False" 
                                  CanUserResizeRows="False"
@@ -159,18 +161,18 @@
                                  
                     >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Path=Fields.id}" />
-                            <DataGridTemplateColumn Header="Name" Width="*">
+                            <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Path=Value.Fields.id}" IsReadOnly="True" />
+                            <DataGridTemplateColumn Header="Name" Width="*" IsReadOnly="True">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <WrapPanel>
-                                            <Image Source="{Binding Path=Icon}" Width="24" Height="24" />
-                                            <TextBlock Padding="5,0,0,0" Text="{Binding Path=Fields.Name}" VerticalAlignment="Center" />
+                                            <Image Source="{Binding Path=Value.Icon}" Width="24" Height="24" />
+                                            <TextBlock Padding="5,0,0,0" Text="{Binding Path=Value.Fields.Name}" VerticalAlignment="Center" />
                                         </WrapPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTextColumn Header="Links" Width="30" IsReadOnly="True" Binding="{Binding Path=Links}" />
+                            <DataGridTextColumn Header="Links" Width="30" IsReadOnly="True" Binding="{Binding Path=Value.Links}" />
                         </DataGrid.Columns>
                         <DataGrid.InputBindings>
                             <KeyBinding Key="Delete" Command="{Binding RemoveItem}" />
@@ -205,9 +207,12 @@
                 </Grid.RowDefinitions>
 
                 <TabControl Grid.Row="1" SelectedIndex="{Binding SelectedPanelIndex}">
+                    <!-- EDIT -->
                     <TabItem Header="Редактирование" >
                         <Frame Content="{Binding EditorPage}" NavigationUIVisibility="Hidden" />
                     </TabItem>
+                   
+                    <!-- LINKS -->
                     <TabItem>
 
                         <TabItem.Header>
@@ -242,11 +247,14 @@
 
 
                     </TabItem>
+                 
+                    <!-- SEARCH -->
                     <TabItem>
                         <TabItem.Header>
                             <TextBlock Text="{Binding SearchItemsCount, StringFormat='Поиск: ({0})'}"></TextBlock>
                         </TabItem.Header>
 
+                        <!-- SelectedItem="{Binding SelectedSearchItem}" -->
                         <DataGrid ItemsSource="{Binding SearchView}"
                                   AutoGenerateColumns="False" 
                                   CanUserResizeRows="False"
@@ -255,16 +263,16 @@
                                   CanUserDeleteRows="False"
                                   CanUserReorderColumns="False"
                                   SelectionMode="Single"
-                                  SelectedItem="{Binding SelectedSearchItem}"
+                                  
                         >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" Binding="{Binding Fields.id}" Width="70"/>
+                                <DataGridTextColumn Header="ID" Binding="{Binding Value.Id}" Width="70"/>
                                 <DataGridTemplateColumn Header="Name" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <WrapPanel>
-                                                <Image Source="{Binding Path=Icon}" Width="24" Height="24" />
-                                                <TextBlock Padding="5,0,0,0" Text="{Binding Path=Fields.Name}" VerticalAlignment="Center" />
+                                                <Image Source="{Binding Value.Icon}" Width="24" Height="24" />
+                                                <TextBlock Padding="5,0,0,0" Text="{Binding Value.Fields.Name}" VerticalAlignment="Center" />
                                             </WrapPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -280,11 +288,16 @@
         </Grid>
 
         <WrapPanel Grid.Row="2" VerticalAlignment="Center">
+            <ProgressBar Value="{Binding ProgressValue}" Maximum="{Binding ProgressMax}" Width="100" />
             <TextBlock Margin="5 0 0 0" Text="{Binding ItemsCount, StringFormat='Всего предметов: {0}'}"></TextBlock>
             <Border BorderThickness="1 0 0 0" BorderBrush="Silver" Margin="5 2"></Border>
             <TextBlock Text="{Binding SelectItemsCount, StringFormat='Выделено предметов: {0}'}"></TextBlock>
             <Border BorderThickness="1 0 0 0" BorderBrush="Silver" Margin="5 2"></Border>
             <TextBlock Text="{Binding GetHI,  StringFormat='Найдено предметов: {0} '}" />
+            <Border BorderThickness="1 0 0 0" BorderBrush="Silver" Margin="5 2"></Border>
+            <TextBlock Text="{Binding ReadTime,  StringFormat='Время чтения: {0} '}"></TextBlock>
+<Border BorderThickness="1 0 0 0" BorderBrush="Silver" Margin="5 2"></Border>
+            <TextBlock Text="{Binding MaxId,  StringFormat='макс id: {0} '}"></TextBlock>
 
         </WrapPanel>
 

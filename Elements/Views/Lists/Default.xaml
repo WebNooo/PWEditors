@@ -12,7 +12,9 @@
 
     <Grid>
 
-        <DataGrid Name="Editor" ItemsSource="{Binding FieldsView}" 
+        <DataGrid Name="Editor" ItemsSource="{Binding FieldsView, IsAsync=True}" 
+                  HeadersVisibility="None"
+                  SelectionUnit="FullRow"
                   AutoGenerateColumns="False" 
                   CanUserResizeRows="False" 
                   CanUserAddRows="False" 
@@ -20,10 +22,26 @@
                   CanUserSortColumns="False"
                   CanUserResizeColumns="False"
                   SelectionMode="Extended"
-                  >
+                  VirtualizingStackPanel.IsVirtualizing="true" 
+                  EnableRowVirtualization="True"
+                  EnableColumnVirtualization="True"
+        >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="250" IsReadOnly="True" CellStyle="{StaticResource DisableSelection}" />
-                <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="Auto" IsReadOnly="True" CellStyle="{StaticResource DisableSelection}" />
+                <!-- <DataGridTextColumn Header="Value" Binding="{Binding Value}" Width="*"/> -->
+                <DataGridTemplateColumn Header="Value" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ContentPresenter Content="{Binding Control}" />
+                           <!-- <TextBox Text="{Binding Value}"></TextBox> -->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    <!-- <DataGridTemplateColumn.CellEditingTemplate> -->
+                    <!--     <DataTemplate> -->
+                    <!--         <TextBlock Text="{Binding Value}"></TextBlock> -->
+                    <!--     </DataTemplate> -->
+                    <!-- </DataGridTemplateColumn.CellEditingTemplate> -->
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
             <DataGrid.InputBindings>
                 <KeyBinding Key="Delete" Command="{Binding ClearField}" />
