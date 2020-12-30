@@ -42,6 +42,7 @@ namespace PWHelper.Elements
         public static RangeObservableCollection<link> Links { get; set; } = new RangeObservableCollection<link>();
         public static Dictionary<int, List<link>> LinksEssence { get; set; } = new Dictionary<int, List<link>>();
         public static Dictionary<int, List<link>> LinksAddon { get; set; } = new Dictionary<int, List<link>>();
+        public static Dictionary<int, List<link>> LinksRecipe { get; set; } = new Dictionary<int, List<link>>();
 
         public static long Load(string fileName)
         {
@@ -107,6 +108,16 @@ namespace PWHelper.Elements
                 //
                 //     return true;
                 // });
+
+                Element.Recipes.All(n =>
+                {
+                    SetLink(n.Value.Fields.GetType().GetProperties(), n.Value, "tt", itemType, LinksEssence);
+
+                    return true;
+                });
+
+
+
             }).Start();
 
 
@@ -118,11 +129,6 @@ namespace PWHelper.Elements
         {
             fields.All(x =>
             {
-                // if (Attribute.GetCustomAttribute(x, typeof(AddonIdAttribute), false) != null)
-                // {
-                //     Console.WriteLine(x);
-                // }
-
                 if (Attribute.GetCustomAttribute(x, attributeType, false) != null)
                 {
                     int t = x.GetValue(item.Fields, null);

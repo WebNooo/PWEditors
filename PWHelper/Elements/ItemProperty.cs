@@ -9,6 +9,7 @@ namespace PWHelper.Elements
     {
         //public static dynamic CurrentItem;
         public static dynamic CurrentItem;
+        public dynamic Item;
 
         private object _value;
         public string Name { get; set; }
@@ -21,7 +22,7 @@ namespace PWHelper.Elements
             {
                 if (Type != null && _value != value)
                 {
-                    Type.SetValue(CurrentItem, GetTypeValue(Type.PropertyType.Name, value));
+                    Type.SetValue(Item, GetTypeValue(Type.PropertyType.Name, value));
                 }
 
                 _value = value;
@@ -32,6 +33,7 @@ namespace PWHelper.Elements
 
         public static object GetTypeValue(string type, object value)
         {
+            value = value.ToString()?.Replace("\0", "");
             var numberValue = value == null || value == "" ? "0" : value;
             
             return type switch

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -9,7 +10,8 @@ namespace Elements.Interfaces
 {
     public interface IListPage
     {
-        public ICollectionView ItemsView { get; set; }
-        public ItemProperty[] Fields { get; set; }
+        public void SetSelectedItem(IList items);
+        //public void SetSelectedField(int index);
+        public int SelectedFieldIndex { get; set; }
     }
 }

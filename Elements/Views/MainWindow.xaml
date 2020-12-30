@@ -4,10 +4,9 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
-        xmlns:local="clr-namespace:Elements"
         xmlns:u="clr-namespace:Elements.Utils"
         mc:Ignorable="d"
-        Title="ElementsData Editor by Nooo" Height="720" Width="1280">
+        Title="ElementsData Editor by Nooo" Height="720" Width="1280" Closed="MainWindow_OnClosed">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"></RowDefinition>
@@ -119,6 +118,7 @@
 
                 <Grid Row="0">
                     <ComboBox ItemsSource="{Binding Lists}"
+                              SelectedIndex="{Binding SelectedListIndex}"
                               SelectedValuePath="Type"
                               SelectedValue="{Binding SelectedList}">
                         <ComboBox.ItemTemplate>
@@ -156,18 +156,19 @@
                                  CanUserDeleteRows="False"
                                  CanUserReorderColumns="False"
                                  SelectedItem="{Binding FoundItem}"
+                                 SelectedIndex="{Binding SelectedIndex}"
                                  u:DgAttachedProperty.SelectedItems="{Binding SelectedItems}"
                                  u:DgAttachedProperty.SelectingItem="{Binding FoundItem}"
                                  
                     >
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Path=Value.Fields.id}" IsReadOnly="True" />
+                            <DataGridTextColumn Header="ID" Width="50" Binding="{Binding Path=Value.Id}" IsReadOnly="True" />
                             <DataGridTemplateColumn Header="Name" Width="*" IsReadOnly="True">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <WrapPanel>
                                             <Image Source="{Binding Path=Value.Icon}" Width="24" Height="24" />
-                                            <TextBlock Padding="5,0,0,0" Text="{Binding Path=Value.Fields.Name}" VerticalAlignment="Center" />
+                                            <TextBlock Padding="5,0,0,0" Text="{Binding Path=Value.Name}" VerticalAlignment="Center" />
                                         </WrapPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -192,10 +193,11 @@
                         </DataGrid.ContextMenu>
                     </DataGrid>
                 </Grid>
-                <Grid Row="3">
-                    <Button Width="174" HorizontalAlignment="Left" Content="Добавить" Command="{Binding AddItem}"></Button>
-                    <Button Width="174" HorizontalAlignment="Right" Content="Удалить" Command="{Binding RemoveItem}"></Button>
-                </Grid>
+                <WrapPanel Grid.Row="3" VerticalAlignment="Center">
+                    <Button Width="100" HorizontalAlignment="Left" Margin="5 0" Content="Добавить" Command="{Binding AddItem}"></Button>
+                    <Button Width="100" HorizontalAlignment="Left" Margin="5 0"  Content="Удалить" Command="{Binding RemoveItem}"></Button>
+                    <CheckBox VerticalContentAlignment="Center" Margin="5 0" IsChecked="{Binding CheckRows}" Content="Сравнивать строки?"></CheckBox>
+                </WrapPanel>
 
             </Grid>
 
@@ -206,12 +208,21 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
+
+                <Grid>
+                    <Border BorderThickness="1" Background="#E1E1E1" Width="34" Height="34" HorizontalAlignment="Left" Margin="15 5">
+                        <Image Source="{Binding SelectedItem.Value.Icon}" Width="30" Height="30"></Image>
+                    </Border>
+                    <TextBox Text="{Binding SelectedItem.Value.Id}" VerticalContentAlignment="Center" Width="70" Height="23" HorizontalAlignment="Left" Margin="64,11,0,10"></TextBox>
+                    <TextBox Text="{Binding SelectedItem.Value.Name}" VerticalContentAlignment="Center" Height="23" HorizontalContentAlignment="Stretch" Margin="140,11,0,10" HorizontalAlignment="Left" Width="730"/>
+                </Grid>
+
                 <TabControl Grid.Row="1" SelectedIndex="{Binding SelectedPanelIndex}">
                     <!-- EDIT -->
                     <TabItem Header="Редактирование" >
                         <Frame Content="{Binding EditorPage}" NavigationUIVisibility="Hidden" />
                     </TabItem>
-                   
+
                     <!-- LINKS -->
                     <TabItem>
 
@@ -237,7 +248,7 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <WrapPanel>
-                                                <TextBlock Padding="5,0,0,0" Text="{Binding item.Fields.Name}" VerticalAlignment="Center" />
+                                                <TextBlock Padding="5,0,0,0" Text="{Binding item.Name}" VerticalAlignment="Center" />
                                             </WrapPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -247,7 +258,7 @@
 
 
                     </TabItem>
-                 
+
                     <!-- SEARCH -->
                     <TabItem>
                         <TabItem.Header>
@@ -272,7 +283,7 @@
                                         <DataTemplate>
                                             <WrapPanel>
                                                 <Image Source="{Binding Value.Icon}" Width="24" Height="24" />
-                                                <TextBlock Padding="5,0,0,0" Text="{Binding Value.Fields.Name}" VerticalAlignment="Center" />
+                                                <TextBlock Padding="5,0,0,0" Text="{Binding Value.Name}" VerticalAlignment="Center" />
                                             </WrapPanel>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -296,7 +307,7 @@
             <TextBlock Text="{Binding GetHI,  StringFormat='Найдено предметов: {0} '}" />
             <Border BorderThickness="1 0 0 0" BorderBrush="Silver" Margin="5 2"></Border>
             <TextBlock Text="{Binding ReadTime,  StringFormat='Время чтения: {0} '}"></TextBlock>
-<Border BorderThickness="1 0 0 0" BorderBrush="Silver" Margin="5 2"></Border>
+            <Border BorderThickness="1 0 0 0" BorderBrush="Silver" Margin="5 2"></Border>
             <TextBlock Text="{Binding MaxId,  StringFormat='макс id: {0} '}"></TextBlock>
 
         </WrapPanel>

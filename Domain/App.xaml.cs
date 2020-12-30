@@ -5,18 +5,20 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using Elements.Utils;
 
-namespace Elements
+namespace Domain
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
-        public App()
+        MainVM mainVM = new MainVM();
+
+        protected override void OnStartup(StartupEventArgs e)
         {
-            Settings.Load();
+            base.OnStartup(e);
+            new MainWindow() { DataContext = mainVM }.Show();
         }
     }
 }

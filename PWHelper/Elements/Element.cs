@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Documents;
@@ -18,6 +19,12 @@ namespace PWHelper.Elements
 {
     public class Element
     {
+
+        public static bool CheckRows { get; set; }
+
+        public static readonly Encoding Gbk = Encoding.GetEncoding("GBK");
+        public static readonly Encoding Unicode = Encoding.GetEncoding("Unicode");
+
         public static ImageSource UnknownIcon;
 
         public enum ID_SPACE
@@ -385,6 +392,12 @@ namespace PWHelper.Elements
                 set => Fields.id = value;
             }
 
+            public string Name
+            {
+                get => Unicode.GetString(Fields.name);
+                set => Fields.name = BinReader.FillArray(Unicode.GetBytes(value), 64);
+            }
+
             public int Links
             {
                 get
@@ -397,6 +410,15 @@ namespace PWHelper.Elements
                         if (Data.LinksEssence.ContainsKey(Fields.id))
                         {
                             List<Data.link> v = Data.LinksEssence[Fields.id];
+                            return v.Count;
+                        }
+                    }
+
+                    if (Space == ID_SPACE.RECIPE)
+                    {
+                        if (Data.LinksRecipe.ContainsKey(Fields.id))
+                        {
+                            List<Data.link> v = Data.LinksRecipe[Fields.id];
                             return v.Count;
                         }
                     }
@@ -458,10 +480,7 @@ namespace PWHelper.Elements
             public ID_SPACE Space { get; set; }
             public string Name { get; set; }
 
-            public int Count
-            {
-                get { return 0; }
-            }
+            public int Count { get; set; }
         }
 
         public short Version;
@@ -479,7 +498,6 @@ namespace PWHelper.Elements
         public IStructure Structure;
 
         public List<ListInfo> ListInformation = new List<ListInfo>();
-        public Dictionary<Type, object[]> Lists { get; set; } = new Dictionary<Type, object[]>();
 
         public static Dictionary<int, Item> Essences { get; set; } = new Dictionary<int, Item>();
         public static Dictionary<int, Item> Addons { get; set; } = new Dictionary<int, Item>();
@@ -489,6 +507,7 @@ namespace PWHelper.Elements
         public static Dictionary<int, Item> Configs { get; set; } = new Dictionary<int, Item>();
         public static Dictionary<int, Item> Homes { get; set; } = new Dictionary<int, Item>();
 
+        public static Item[] SelectedItems;
 
         public BinaryWriter Bw;
 
@@ -546,6 +565,7 @@ namespace PWHelper.Elements
 
         #endregion
 
+        //NOT WORK
         public void Serialize(Type type)
         {
             if (type.Name == "TALK_PROC")
@@ -616,12 +636,11 @@ namespace PWHelper.Elements
             return null;
         }
 
-        public void Deserialize(Type type, ID_SPACE space)
+        public int Deserialize(Type type, ID_SPACE space)
         {
             if (type.Name == "TALK_PROC")
             {
-                Conversations.Load(type);
-                return;
+                return Conversations.Load(type).Length;
             }
 
             var count = BinReader.ReadInt32();
@@ -662,6 +681,8 @@ namespace PWHelper.Elements
             {
                 Marshal.FreeHGlobal(buffer);
             }
+
+            return count;
         }
 
         public IEnumerable<string> GetStructureTypes(string nameSpace)
@@ -672,16 +693,14 @@ namespace PWHelper.Elements
                 .Select(type => type.Name);
         }
 
-        public object[] GetData(Type type) => type != null && Lists.ContainsKey(type) ? Lists[type] : new object[] { };
-
         public object GetInstance(string strNamespace) =>
             Activator.CreateInstance(Type.GetType(strNamespace) ?? throw new InvalidOperationException());
 
         public void RegisterStruct(Type type, string name)
         {
             var space = Spaces.ContainsKey(type.Name) ? Spaces[type.Name] : ID_SPACE.UNKNOWN;
-            Deserialize(type, space);
-            ListInformation.Add(new ListInfo {Type = type, Name = name, Space = space});
+            var count =  Deserialize(type, space);
+            ListInformation.Add(new ListInfo {Type = type, Name = name, Space = space, Count = count});
         }
 
         public void Add(Type type, Item item = null)

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reactive;
 using System.Reflection;
@@ -15,6 +16,8 @@ using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Threading;
+using Elements.Interfaces;
+using Elements.Utils;
 using Elements.ViewModel.Lists;
 using Elements.Views.Lists;
 using PropertyChanged;
@@ -33,8 +36,28 @@ namespace Elements.ViewModel
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
             Histories.DisableNotify();
+
+
+            if (!string.IsNullOrEmpty(Settings.App.Files.Element))
+            {
+                if (File.Exists(Settings.App.Files.Element))
+                {
+                    ReadTime = Data.Load(Settings.App.Files.Element);
+                    Lists = new List<Element.ListInfo>(Data.ElementInfo.ListInformation);
+
+                    if (Settings.App.CurrentList != null)
+                    {
+                        SelectedList = Settings.App.CurrentList;
+                    }
+
+                    SelectedIndex = Settings.App.SelectedItemIndex;
+                    ((IListPage)EditorPage.DataContext).SelectedFieldIndex = Settings.App.SelectedFieldIndex;
+                }
+            }
         }
 
+
+        public bool CheckRows { get => Element.CheckRows; set => Element.CheckRows = value; }
 
         public Page GetListPage()
         {
@@ -48,17 +71,19 @@ namespace Elements.ViewModel
             };
         }
 
-        public void GetItemPage(ICollectionView itemsView, Element.Item[] _selectedItems)
+        public void GetItemPage(ICollectionView itemsView, IList items)
         {
             EditorPage.DataContext = SelectedList.Name switch
             {
-                "TALK_PROC" => new TalkProcVM(itemsView, _selectedItems),
-                "NPC_MAKE_SERVICE" => new NpcMakeVM(itemsView, _selectedItems),
-                _ => new DefaultVM(itemsView, _selectedItems)
+                "TALK_PROC" => new TalkProcVM(itemsView, items),
+                "NPC_MAKE_SERVICE" => new NpcMakeVm(),
+                _ => new DefaultVm()
             };
+
         }
 
         #region Vars
+
         private Element.Item[] _selectedItems;
         private string _oldSearch = "";
         private int _indexSearch;
@@ -78,6 +103,15 @@ namespace Elements.ViewModel
         public int ItemsCount { get; set; }
         public int SelectedPanelIndex { get; set; }
 
+        public int SelectedIndex
+        {
+            get => _selectedIndex;
+            set
+            {
+                _selectedIndex = value;
+                Settings.App.SelectedItemIndex = _selectedIndex;
+            }
+        }
 
         public KeyValuePair<int, Element.Item> FoundItem
         {
@@ -85,9 +119,10 @@ namespace Elements.ViewModel
             set
             {
                 _foundItem = value;
-                if (_foundItem.Value!= null)
+                if (_foundItem.Value != null)
                 {
-                    addHistory(new History {Item = _foundItem, List = _foundItem.Value.Type, Type = HistoryType.CHANGE_ITEM});
+                    addHistory(new History
+                        {Item = _foundItem, List = _foundItem.Value.Type, Type = HistoryType.CHANGE_ITEM});
                 }
             }
         }
@@ -115,11 +150,14 @@ namespace Elements.ViewModel
             set
             {
                 _selectedList = value;
+                Settings.App.CurrentList = _selectedList;
+                Settings.Save();
                 //addHistory(new History { Item = null, List = _selectedList, Type = HistoryType.CHANGE_LIST });
                 if (_selectedList == null) return;
                 var items = Element.GetItems(_selectedList.Name);
                 ItemsView = CollectionViewSource.GetDefaultView(items);
                 MaxId = items.Keys.Max();
+                var countItems = 0;
                 ItemsView.Filter = n =>
                 {
                     dynamic b = n;
@@ -127,6 +165,7 @@ namespace Elements.ViewModel
                     {
                         if (item.Type == _selectedList)
                         {
+                            countItems++;
                             return true;
                         }
                     }
@@ -134,7 +173,15 @@ namespace Elements.ViewModel
                     return false;
                 };
 
+                
                 EditorPage = GetListPage();
+                GetItemPage(ItemsView, _selectedItems);
+
+                if (countItems > 0)
+                {
+                    SelectedIndex = 0;
+                }
+
             }
         }
 
@@ -174,7 +221,6 @@ namespace Elements.ViewModel
         {
             public History()
             {
-                //
                 if (!isHistory)
                 {
                     GetHI = Histories.Count;
@@ -249,10 +295,10 @@ namespace Elements.ViewModel
         {
             isHistory = true;
             GetHI++;
-             if (GetHI > Histories.Count)
-             {
-                 GetHI = Histories.Count;
-             }
+            if (GetHI > Histories.Count)
+            {
+                GetHI = Histories.Count;
+            }
 
             if (Histories.Count > 0)
             {
@@ -277,6 +323,7 @@ namespace Elements.ViewModel
         #region Commands
 
         public List<KeyValuePair<int, Element.Item>> DataSearch = new List<KeyValuePair<int, Element.Item>>();
+        private int _selectedIndex = -1;
 
         //SEARCH ITEMS WORK
         public ICommand Search =>
@@ -293,25 +340,25 @@ namespace Elements.ViewModel
 
                         DataSearch.AddRange(Element.Addons.Where(n =>
                             n.Value.Id.ToString().Contains(SearchText) ||
-                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                            n.Value.Name.ToLower().Contains(_oldSearch)).ToArray());
                         DataSearch.AddRange(Element.Essences.Where(n =>
                             n.Value.Id.ToString().Contains(SearchText) ||
-                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                            n.Value.Name.ToLower().Contains(_oldSearch)).ToArray());
                         DataSearch.AddRange(Element.Configs.Where(n =>
                             n.Value.Id.ToString().Contains(SearchText) ||
-                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                            n.Value.Name.ToLower().Contains(_oldSearch)).ToArray());
                         DataSearch.AddRange(Element.Faces.Where(n =>
                             n.Value.Id.ToString().Contains(SearchText) ||
-                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                            n.Value.Name.ToLower().Contains(_oldSearch)).ToArray());
                         DataSearch.AddRange(Element.Recipes.Where(n =>
                             n.Value.Id.ToString().Contains(SearchText) ||
-                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                            n.Value.Name.ToLower().Contains(_oldSearch)).ToArray());
                         DataSearch.AddRange(Element.Talks.Where(n =>
                             n.Value.Id.ToString().Contains(SearchText) ||
-                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                            n.Value.Name.ToLower().Contains(_oldSearch)).ToArray());
                         DataSearch.AddRange(Element.Homes.Where(n =>
                             n.Value.Id.ToString().Contains(SearchText) ||
-                            n.Value.Fields.Name.ToLower().Contains(_oldSearch)).ToArray());
+                            n.Value.Name.ToLower().Contains(_oldSearch)).ToArray());
 
                         SearchItemsCount = DataSearch.Count;
                         SearchView = CollectionViewSource.GetDefaultView(DataSearch);
@@ -349,7 +396,7 @@ namespace Elements.ViewModel
                 {
                     //Element.Items.RemoveRange(_selectedItems);
                     //addHistory(new History { Item = _selectedItems[0], List = _selectedItems[0].Type, Type = HistoryType.REMOVE });
-                   // ItemsCount = Element.Items.Count;
+                    // ItemsCount = Element.Items.Count;
                 }
                 else
                     MessageBox.Show("Удаление невозможно! Выберете предмет в списке.");
@@ -357,7 +404,6 @@ namespace Elements.ViewModel
 
         public ICommand Open => ReactiveCommand.Create(() =>
         {
-
             var dialog = new OpenFileDialog
             {
                 Filter = "Elements.data|*elements*.data|Data files (*.data)|*.data|All Files (*.*)|*.*"
@@ -367,12 +413,14 @@ namespace Elements.ViewModel
             if (dialogResult == DialogResult.OK)
             {
                 ReadTime = Data.Load(dialog.FileName);
+                Settings.App.Files.Element = dialog.FileName;
                 Lists = new List<Element.ListInfo>(Data.ElementInfo.ListInformation);
-                SelectedList = Data.ElementInfo.ListInformation.Count > 0 ? Data.ElementInfo.ListInformation[0].Type : null;
+                SelectedList = Data.ElementInfo.ListInformation.Count > 0
+                    ? Data.ElementInfo.ListInformation[0].Type
+                    : null;
+
+                Settings.Save();
             }
-
-
-            
         });
 
         public ICommand Save => ReactiveCommand.Create(() =>
@@ -381,45 +429,67 @@ namespace Elements.ViewModel
             MessageBox.Show("Save");
         });
 
+        public int SelectedListIndex { get; set; }
+
 
         public ReactiveCommand<IList, Unit> SelectedItemsCommand => ReactiveCommand.Create<IList>(obj =>
         {
             if (obj != null && obj.Count > 0)
             {
-                _selectedItems = new Element.Item[obj.Count];
-                SelectItemsCount = _selectedItems.Length;
+               // _selectedItems = new Element.Item[obj.Count];
+                SelectItemsCount = obj.Count;
+                //  for (var i = 0; i < _selectedItems.Length; i++)
+              //      _selectedItems[i] = (Element.Item) ((dynamic) obj[i])?.Value;
 
-                for (var i = 0; i < _selectedItems.Length; i++)
-                    _selectedItems[i] = (Element.Item) ((dynamic) obj[i])?.Value;
+                ((IListPage) EditorPage.DataContext).SetSelectedItem(obj);
+                ((IListPage) EditorPage.DataContext).SelectedFieldIndex = 0;
 
-                //addHistory(new History { Item = _selectedItems[0], List = _selectedItems[0].Type, Type = HistoryType.CHANGE_ITEM });
+                SelectedItem = (KeyValuePair<int, Element.Item>)obj[^1];
 
-                if (_selectedItems[0].Space == Element.ID_SPACE.ESSENCE &&
-                    Data.LinksEssence.ContainsKey(_selectedItems[0].Id))
+                //EditorPage.DataContext = new DefaultVm(ItemsView, obj);
+                //GetItemPage(ItemsView, obj);
+
+                //var space = ;
+
+                if (Lists[SelectedListIndex].Space == Element.ID_SPACE.ESSENCE && Data.LinksEssence.ContainsKey(SelectedItem.Key))
                 {
-                    var items = Data.LinksEssence[_selectedItems[0].Id];
+                    var items = Data.LinksEssence[SelectedItem.Key];
                     LinksCount = items.Count;
                     LinksView = CollectionViewSource.GetDefaultView(items);
                     LinksView?.Refresh();
                 }
-                else if (_selectedItems[0].Space == Element.ID_SPACE.ADDON &&
-                         Data.LinksAddon.ContainsKey(_selectedItems[0].Id))
-                {
-                    var items = Data.LinksAddon[_selectedItems[0].Id];
-                    LinksCount = items.Count;
-                    LinksView = CollectionViewSource.GetDefaultView(items);
-                    LinksView?.Refresh();
-                }
-                else
-                {
-                    LinksCount = 0;
-                    LinksView = null;
-                }
 
-                GetItemPage(ItemsView, _selectedItems);
-               // EditorPage.DataContext = new DefaultVM(ItemsView, _selectedItems);
+
+                //
+                // //addHistory(new History { Item = _selectedItems[0], List = _selectedItems[0].Type, Type = HistoryType.CHANGE_ITEM });
+                //
+                // if (_selectedItems[0].Space == Element.ID_SPACE.ESSENCE &&
+                //     Data.LinksEssence.ContainsKey(_selectedItems[0].Id))
+                // {
+                //     var items = Data.LinksEssence[_selectedItems[0].Id];
+                //     LinksCount = items.Count;
+                //     LinksView = CollectionViewSource.GetDefaultView(items);
+                //     LinksView?.Refresh();
+                // }
+                // else if (_selectedItems[0].Space == Element.ID_SPACE.ADDON &&
+                //          Data.LinksAddon.ContainsKey(_selectedItems[0].Id))
+                // {
+                //     var items = Data.LinksAddon[_selectedItems[0].Id];
+                //     LinksCount = items.Count;
+                //     LinksView = CollectionViewSource.GetDefaultView(items);
+                //     LinksView?.Refresh();
+                // }
+                // else
+                // {
+                //     LinksCount = 0;
+                //     LinksView = null;
+                // }
+                //
+                // GetItemPage(ItemsView, _selectedItems);
             }
         });
+
+        public KeyValuePair<int, Element.Item> SelectedItem { get; set; }
 
         #endregion
 

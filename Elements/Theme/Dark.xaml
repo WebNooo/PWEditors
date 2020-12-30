@@ -7,7 +7,7 @@
     <!-- DataGrid Disable column selected effect -->
     <Style x:Key="DisableSelection" TargetType="DataGridCell">
         <Setter Property="Focusable" Value="False" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="#F9F9F9" />
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
         <Setter Property="BorderBrush" Value="Transparent" />
     </Style>
@@ -50,9 +50,10 @@
                         </Trigger>
                     </Style.Triggers>
                     <!-- Add some padding around the contents of a cell -->
-                    <Setter Property="Height" Value="25" />
+                    
                     <Setter Property="VerticalContentAlignment" Value="Center" />
-                    <Setter Property="Padding" Value="5 0 0 0" />
+                    <Setter Property="Margin" Value="0 0 0 0" />
+                    <Setter Property="Padding" Value="0 0 0 0" />
                     <Setter Property="BorderBrush" Value="Transparent" />
                     <Setter Property="BorderThickness" Value="0" />
                     <Setter Property="Template">
