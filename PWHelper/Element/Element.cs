@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,20 +15,31 @@ namespace PWHelper.Element
 {
     public class ElementNew
     {
+        
+        private readonly ElementHeader header = new ElementHeader();
+        private readonly ElementComputerName computerName = new ElementComputerName();
+        private readonly ElementHardInfo hardInfo = new ElementHardInfo();
 
-        public short Version { get; set; }
-        public short Signature { get; set; }
-        public int Timestamp { get; set; }
 
-        private RangeObservableCollection<ElementList> Lists = new();
-        private Dictionary<ID_SPACE, ObservableDictionary<int, ElementItem>> Items = new();
+        private readonly ObservableCollection<ElementList> Lists = new ObservableCollection<ElementList>();
+        private readonly Dictionary<ID_SPACE, Dictionary<int, ElementItem>> Items = 
+            new Dictionary<ID_SPACE, Dictionary<int, ElementItem>>();
 
         public void Open(string filepath)
         {
             try 
             {
-                Binary.ReadFile(null);
+                Binary.ReadFile(filepath);
+                header.Load();
+                LoadLists();
 
+                var nameSpace = $"PWHelper.Element.Versions";
+
+                var lists = Assembly
+                    .GetExecutingAssembly()
+                    .GetTypes()
+                    .Where((x) => x.Namespace == nameSpace && x.Name != $"V{header.Version}")
+                    .Select(type => type.Name); 
             }
             catch(HelperError ex)
             {
@@ -35,7 +49,9 @@ namespace PWHelper.Element
 
         public void Save(string? filepath) 
         {
-                
+            using BinaryWriter bw = new BinaryWriter(null);
+            header.Timestamp = new DateTime().Millisecond;
+            header.Save(bw);
         }
 
         public void Export()
@@ -68,9 +84,27 @@ namespace PWHelper.Element
 
         }
 
-        private int ReadItems()
+        private int LoadItems()
         {
             return 0;
+        }
+
+        private void LoadLists()
+        {
+            try
+            {
+                var count = Binary.ReadInt32();
+
+                //foreach (var list in )
+                //{
+                //    LoadItems();
+                //}
+
+            }
+            catch(HelperError ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -36,8 +36,8 @@ namespace Elements.Utils
                 Save();
             }
 
-            var settingsFile = File.ReadAllText(FilePath);
-            App = JsonConvert.DeserializeObject<AppSettings>(settingsFile);
+          //  var settingsFile = File.ReadAllText(FilePath);
+           // App = JsonConvert.DeserializeObject<AppSettings>(settingsFile);
         }
 
         public static void Save()

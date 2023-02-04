@@ -1,10 +1,6 @@
 ﻿using PWHelper.Tools.Errors;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PWHelper.Tools
 {
@@ -48,23 +44,32 @@ namespace PWHelper.Tools
         {
             var size = sizeof(short);
 
-            if(Position + size > Source.Length)
-            {
-                return BitConverter.ToInt16(Source, Position);
+            if(Position + size < Source.Length)
+            { 
+                var value = BitConverter.ToInt16(Source, Position);
+                Position += size;
+                return value;
             }
             else
             {
-                throw new HelperError(ErrorCode.);
+                throw new HelperError(ErrorCode.POSITION_OUT_RANGE, "1");
             }
-
-            return 0;
         }
 
         public static int ReadInt32()
         {
             var size = sizeof(int);
 
-            return 0;
+            if (Position + size < Source.Length)
+            {
+                var value = BitConverter.ToInt32(Source, Position);
+                Position += size;
+                return value;
+            }
+            else
+            {
+                throw new HelperError(ErrorCode.POSITION_OUT_RANGE, "1");
+            }
         }
 
         public static string ReadString()

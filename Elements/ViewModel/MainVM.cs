@@ -1,29 +1,22 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reactive;
-using System.Reflection;
-using System.Security.Policy;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Threading;
 using Elements.Interfaces;
 using Elements.Utils;
 using Elements.ViewModel.Lists;
 using Elements.Views.Lists;
 using PropertyChanged;
-using PWHelper;
+using PWHelper.Element;
 using PWHelper.Elements;
-using PWHelper.Elements.Versions;
 using ReactiveUI;
 using MessageBox = System.Windows.MessageBox;
 
@@ -35,7 +28,12 @@ namespace Elements.ViewModel
         public MainVM()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-            Histories.DisableNotify();
+           // Histories.DisableNotify();
+
+            new ElementNew().Open("E:\\156\\element\\data\\elements.data");
+
+            return;
+
 
 
             if (!string.IsNullOrEmpty(Settings.App.Files.Element))
@@ -223,7 +221,7 @@ namespace Elements.ViewModel
             {
                 if (!isHistory)
                 {
-                    GetHI = Histories.Count;
+                   // GetHI = Histories.Count;
                 }
             }
 
@@ -233,7 +231,7 @@ namespace Elements.ViewModel
             public HistoryType Type { get; set; }
         }
 
-        public static RangeObservableCollection<History> Histories = new RangeObservableCollection<History>();
+      //  public static RangeObservableCollection<History> Histories = new RangeObservableCollection<History>();
 
         public static bool isHistory = false;
 
@@ -241,7 +239,7 @@ namespace Elements.ViewModel
         {
             if (!isHistory)
             {
-                Histories.Add(history);
+               // Histories.Add(history);
             }
         }
 
@@ -272,21 +270,21 @@ namespace Elements.ViewModel
                 GetHI = 0;
             }
 
-            if (Histories.Count > 0)
-            {
-                var history = Histories[GetHI];
-                if (history.Type == HistoryType.CHANGE_ITEM)
-                {
-                    SelectedList = history.List;
-                    FoundItem = history.Item;
-                }
+            //if (Histories.Count > 0)
+            //{
+            //    var history = Histories[GetHI];
+            //    if (history.Type == HistoryType.CHANGE_ITEM)
+            //    {
+            //        SelectedList = history.List;
+            //        FoundItem = history.Item;
+            //    }
 
-                // if (history.Type == HistoryType.CHANGE_LIST)
-                // {
-                //     SelectedList = history.List;
-                //     FoundItem = null;
-                // }
-            }
+            //    // if (history.Type == HistoryType.CHANGE_LIST)
+            //    // {
+            //    //     SelectedList = history.List;
+            //    //     FoundItem = null;
+            //    // }
+            //}
 
             isHistory = false;
         });
@@ -295,26 +293,26 @@ namespace Elements.ViewModel
         {
             isHistory = true;
             GetHI++;
-            if (GetHI > Histories.Count)
-            {
-                GetHI = Histories.Count;
-            }
+            //if (GetHI > Histories.Count)
+            //{
+            //    GetHI = Histories.Count;
+            //}
 
-            if (Histories.Count > 0)
-            {
-                var history = Histories[GetHI];
-                if (history.Type == HistoryType.CHANGE_ITEM)
-                {
-                    SelectedList = history.List;
-                    FoundItem = history.Item;
-                }
+            //if (Histories.Count > 0)
+            //{
+            //    var history = Histories[GetHI];
+            //    if (history.Type == HistoryType.CHANGE_ITEM)
+            //    {
+            //        SelectedList = history.List;
+            //        FoundItem = history.Item;
+            //    }
 
-                // if (history.Type == HistoryType.CHANGE_LIST)
-                // {
-                //     SelectedList = history.List;
-                //     FoundItem = null;
-                // }
-            }
+            //    // if (history.Type == HistoryType.CHANGE_LIST)
+            //    // {
+            //    //     SelectedList = history.List;
+            //    //     FoundItem = null;
+            //    // }
+            //}
 
             isHistory = false;
         });

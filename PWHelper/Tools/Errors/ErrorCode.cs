@@ -10,6 +10,6 @@ namespace PWHelper.Tools.Errors
     {
         PATH_IS_NULL,
         FILE_NOT_FOUND,
-
+        POSITION_OUT_RANGE
     }
 }

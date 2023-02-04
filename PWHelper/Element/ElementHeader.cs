@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PWHelper.Tools;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace PWHelper.Element
 
         public void Load()
         {
-            Version = 0;
-            Signature = 0;
-            Timestamp = 0;
+            Version = Binary.ReadInt16();
+            Signature = Binary.ReadInt16();
+            Timestamp = Binary.ReadInt32();
         }
 
         public void Save(BinaryWriter bw)
@@ -26,5 +27,11 @@ namespace PWHelper.Element
             bw.Write(Timestamp);
             bw.Write(Timestamp);
         }
+
+        public void GetStructure()
+        {
+
+        }
+
     }
 }
