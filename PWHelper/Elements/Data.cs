@@ -24,13 +24,13 @@ namespace PWHelper.Elements
 
             ElementInfo.WriteHeader(ElementInfo.Bw);
 
-            for (var index = 0; index < ElementInfo.ListInformation.Count; index++)
-            {
-                if (ElementInfo.Structure.ComputerNameIndex == index) ElementInfo.WriteComputerName(ElementInfo.Bw);
-                if (ElementInfo.Structure.HardInfoIndex == index) ElementInfo.WriteHardInfo(ElementInfo.Bw);
+            //for (var index = 0; index < ElementInfo.ListInformation.Count; index++)
+            //{
+            //    if (ElementInfo.ComputerNameIndex == index) ElementInfo.WriteComputerName(ElementInfo.Bw);
+            //    if (ElementInfo.HardInfoIndex == index) ElementInfo.WriteHardInfo(ElementInfo.Bw);
 
-                ElementInfo.Serialize(ElementInfo.ListInformation[index].Type);
-            }
+            //    ElementInfo.Serialize(ElementInfo.ListInformation[index].Type);
+            //}
         }
 
         public class link
@@ -74,10 +74,10 @@ namespace PWHelper.Elements
             s.Start();
             foreach (var value in configLists)
             {
-                if (ElementInfo.Structure.ComputerNameIndex == index) ElementInfo.ReadComputerName();
-                if (ElementInfo.Structure.HardInfoIndex == index) ElementInfo.ReadHardInfo();
-                ElementInfo.RegisterStruct(Type.GetType($"{version}.{value}", false, true), $"{index + 1} - {value}");
-                index++;
+                //if (ElementInfo.ComputerNameIndex == index) ElementInfo.ReadComputerName();
+                //if (ElementInfo.HardInfoIndex == index) ElementInfo.ReadHardInfo();
+                //ElementInfo.RegisterStruct(Type.GetType($"{version}.{value}", false, true), $"{index + 1} - {value}");
+                //index++;
             }
 
             s.Stop();

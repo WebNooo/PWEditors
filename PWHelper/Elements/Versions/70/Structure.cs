@@ -13,7 +13,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class EQUIPMENT_ADDON
+//    public struct EQUIPMENT_ADDON
 //    {
 //        public int id;
 
@@ -26,7 +26,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WEAPON_MAJOR_TYPE
+//    public struct WEAPON_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -37,7 +37,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WEAPON_SUB_TYPE
+//    public struct WEAPON_SUB_TYPE
 //    {
 //        public int id;
 
@@ -51,8 +51,8 @@
 
 //        public string File_hitgfx
 //        {
-//            get => Structure.Gbk.GetString(file_hitgfx);
-//            set { file_hitgfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hitgfx);
+//            set { file_hitgfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -60,8 +60,8 @@
 
 //        public string File_hitsfx
 //        {
-//            get => Structure.Gbk.GetString(file_hitsfx);
-//            set { file_hitsfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hitsfx);
+//            set { file_hitsfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float probability_fastest { get; set; }
@@ -75,7 +75,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WEAPON_ESSENCE
+//    public struct WEAPON_ESSENCE
 //    {
 //        public int id;
 //        [MajorType] public int id_major_type { get; set; }
@@ -93,8 +93,8 @@
 
 //        public string File_model_right
 //        {
-//            get => Structure.Gbk.GetString(file_model_right);
-//            set { file_model_right = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model_right);
+//            set { file_model_right = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -102,8 +102,8 @@
 
 //        public string File_model_left
 //        {
-//            get => Structure.Gbk.GetString(file_model_left);
-//            set { file_model_left = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model_left);
+//            set { file_model_left = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -111,8 +111,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -121,8 +121,8 @@
 //        [Icon]
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int require_strength { get; set; }
@@ -337,7 +337,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ARMOR_MAJOR_TYPE
+//    public struct ARMOR_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -348,7 +348,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ARMOR_SUB_TYPE
+//    public struct ARMOR_SUB_TYPE
 //    {
 //        public int id;
 
@@ -361,7 +361,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ARMOR_ESSENCE
+//    public struct ARMOR_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -377,8 +377,8 @@
 
 //        public string Realname
 //        {
-//            get => Structure.Gbk.GetString(realname);
-//            set { realname = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(realname);
+//            set { realname = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -386,8 +386,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -395,8 +395,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int equip_location { get; set; }
@@ -530,7 +530,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DECORATION_MAJOR_TYPE
+//    public struct DECORATION_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -541,7 +541,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DECORATION_SUB_TYPE
+//    public struct DECORATION_SUB_TYPE
 //    {
 //        public int id;
 
@@ -554,7 +554,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DECORATION_ESSENCE
+//    public struct DECORATION_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -570,8 +570,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -579,8 +579,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -588,8 +588,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -772,7 +772,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MEDICINE_MAJOR_TYPE
+//    public struct MEDICINE_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -783,7 +783,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MEDICINE_SUB_TYPE
+//    public struct MEDICINE_SUB_TYPE
 //    {
 //        public int id;
 
@@ -794,7 +794,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MEDICINE_ESSENCE
+//    public struct MEDICINE_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -810,8 +810,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -819,8 +819,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int require_level { get; set; }
@@ -837,7 +837,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MATERIAL_MAJOR_TYPE
+//    public struct MATERIAL_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -848,7 +848,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MATERIAL_SUB_TYPE
+//    public struct MATERIAL_SUB_TYPE
 //    {
 //        public int id;
 
@@ -859,7 +859,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MATERIAL_ESSENCE
+//    public struct MATERIAL_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -875,8 +875,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -884,8 +884,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -900,7 +900,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DAMAGERUNE_SUB_TYPE
+//    public struct DAMAGERUNE_SUB_TYPE
 //    {
 //        public int id;
 
@@ -911,7 +911,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DAMAGERUNE_ESSENCE
+//    public struct DAMAGERUNE_ESSENCE
 //    {
 //        public int id;
 //        public int id_sub_type { get; set; }
@@ -926,8 +926,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -935,8 +935,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int damage_type { get; set; }
@@ -951,7 +951,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ARMORRUNE_SUB_TYPE
+//    public struct ARMORRUNE_SUB_TYPE
 //    {
 //        public int id;
 
@@ -962,7 +962,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ARMORRUNE_ESSENCE
+//    public struct ARMORRUNE_ESSENCE
 //    {
 //        public int id;
 //        public int id_sub_type { get; set; }
@@ -977,8 +977,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -986,8 +986,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -995,8 +995,8 @@
 
 //        public string File_gfx
 //        {
-//            get => Structure.Gbk.GetString(file_gfx);
-//            set { file_gfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_gfx);
+//            set { file_gfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1004,8 +1004,8 @@
 
 //        public string File_sfx
 //        {
-//            get => Structure.Gbk.GetString(file_sfx);
-//            set { file_sfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_sfx);
+//            set { file_sfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int damage_type { get; set; }
@@ -1021,7 +1021,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class SKILLTOME_SUB_TYPE
+//    public struct SKILLTOME_SUB_TYPE
 //    {
 //        public int id;
 
@@ -1032,7 +1032,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class SKILLTOME_ESSENCE
+//    public struct SKILLTOME_ESSENCE
 //    {
 //        public int id;
 //        public int id_sub_type { get; set; }
@@ -1047,8 +1047,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1056,8 +1056,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -1068,7 +1068,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FLYSWORD_ESSENCE
+//    public struct FLYSWORD_ESSENCE
 //    {
 //        public int id;
 
@@ -1082,8 +1082,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1091,8 +1091,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1100,8 +1100,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -1125,7 +1125,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WINGMANWING_ESSENCE
+//    public struct WINGMANWING_ESSENCE
 //    {
 //        public int id;
 
@@ -1139,8 +1139,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1148,8 +1148,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1157,8 +1157,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -1173,7 +1173,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TOWNSCROLL_ESSENCE
+//    public struct TOWNSCROLL_ESSENCE
 //    {
 //        public int id;
 
@@ -1187,8 +1187,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1196,8 +1196,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float use_time { get; set; }
@@ -1209,7 +1209,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class UNIONSCROLL_ESSENCE
+//    public struct UNIONSCROLL_ESSENCE
 //    {
 //        public int id;
 
@@ -1223,8 +1223,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1232,8 +1232,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float use_time { get; set; }
@@ -1245,7 +1245,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class REVIVESCROLL_ESSENCE
+//    public struct REVIVESCROLL_ESSENCE
 //    {
 //        public int id;
 
@@ -1259,8 +1259,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1268,8 +1268,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float use_time { get; set; }
@@ -1282,7 +1282,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ELEMENT_ESSENCE
+//    public struct ELEMENT_ESSENCE
 //    {
 //        public int id;
 
@@ -1296,8 +1296,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1305,8 +1305,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -1318,7 +1318,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TASKMATTER_ESSENCE
+//    public struct TASKMATTER_ESSENCE
 //    {
 //        public int id;
 
@@ -1332,8 +1332,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int pile_num_max { get; set; }
@@ -1342,7 +1342,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TOSSMATTER_ESSENCE
+//    public struct TOSSMATTER_ESSENCE
 //    {
 //        public int id;
 
@@ -1356,8 +1356,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1365,8 +1365,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1374,8 +1374,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1383,8 +1383,8 @@
 
 //        public string File_firegfx
 //        {
-//            get => Structure.Gbk.GetString(file_firegfx);
-//            set { file_firegfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_firegfx);
+//            set { file_firegfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1392,8 +1392,8 @@
 
 //        public string File_hitgfx
 //        {
-//            get => Structure.Gbk.GetString(file_hitgfx);
-//            set { file_hitgfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hitgfx);
+//            set { file_hitgfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1401,8 +1401,8 @@
 
 //        public string File_hitsfx
 //        {
-//            get => Structure.Gbk.GetString(file_hitsfx);
-//            set { file_hitsfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hitsfx);
+//            set { file_hitsfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int require_strength { get; set; }
@@ -1421,7 +1421,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PROJECTILE_TYPE
+//    public struct PROJECTILE_TYPE
 //    {
 //        public int id;
 
@@ -1432,7 +1432,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PROJECTILE_ESSENCE
+//    public struct PROJECTILE_ESSENCE
 //    {
 //        public int id;
 //        public int type { get; set; }
@@ -1447,8 +1447,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1456,8 +1456,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1465,8 +1465,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1474,8 +1474,8 @@
 
 //        public string File_firegfx
 //        {
-//            get => Structure.Gbk.GetString(file_firegfx);
-//            set { file_firegfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_firegfx);
+//            set { file_firegfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1483,8 +1483,8 @@
 
 //        public string File_hitgfx
 //        {
-//            get => Structure.Gbk.GetString(file_hitgfx);
-//            set { file_hitgfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hitgfx);
+//            set { file_hitgfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1492,8 +1492,8 @@
 
 //        public string File_hitsfx
 //        {
-//            get => Structure.Gbk.GetString(file_hitsfx);
-//            set { file_hitsfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hitsfx);
+//            set { file_hitsfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int require_weapon_level_min { get; set; }
@@ -1512,7 +1512,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class QUIVER_SUB_TYPE
+//    public struct QUIVER_SUB_TYPE
 //    {
 //        public int id;
 
@@ -1523,7 +1523,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class QUIVER_ESSENCE
+//    public struct QUIVER_ESSENCE
 //    {
 //        public int id;
 //        public int id_sub_type { get; set; }
@@ -1538,8 +1538,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1547,8 +1547,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int id_projectile { get; set; }
@@ -1557,7 +1557,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class STONE_SUB_TYPE
+//    public struct STONE_SUB_TYPE
 //    {
 //        public int id;
 
@@ -1568,7 +1568,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class STONE_ESSENCE
+//    public struct STONE_ESSENCE
 //    {
 //        public int id;
 //        public int id_sub_type { get; set; }
@@ -1583,8 +1583,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1592,8 +1592,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -1610,8 +1610,8 @@
 
 //        public string Weapon_desc
 //        {
-//            get => Structure.Unicode.GetString(weapon_desc);
-//            set { weapon_desc = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(weapon_desc);
+//            set { weapon_desc = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -1619,8 +1619,8 @@
 
 //        public string Armor_desc
 //        {
-//            get => Structure.Unicode.GetString(armor_desc);
-//            set { armor_desc = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(armor_desc);
+//            set { armor_desc = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public int pile_num_max { get; set; }
@@ -1629,7 +1629,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MONSTER_ADDON
+//    public struct MONSTER_ADDON
 //    {
 //        public int id;
 
@@ -1645,7 +1645,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MONSTER_TYPE
+//    public struct MONSTER_TYPE
 //    {
 //        public int id;
 
@@ -1689,7 +1689,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MONSTER_ESSENCE
+//    public struct MONSTER_ESSENCE
 //    {
 //        public int id;
 //        public int id_type { get; set; }
@@ -1704,8 +1704,8 @@
 
 //        public string Prop
 //        {
-//            get => Structure.Unicode.GetString(prop);
-//            set { prop = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(prop);
+//            set { prop = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -1713,8 +1713,8 @@
 
 //        public string Desc
 //        {
-//            get => Structure.Unicode.GetString(desc);
-//            set { desc = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(desc);
+//            set { desc = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public int faction { get; set; }
@@ -1725,8 +1725,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1734,8 +1734,8 @@
 
 //        public string File_gfx_short
 //        {
-//            get => Structure.Gbk.GetString(file_gfx_short);
-//            set { file_gfx_short = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_gfx_short);
+//            set { file_gfx_short = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -1743,8 +1743,8 @@
 
 //        public string File_gfx_short_hit
 //        {
-//            get => Structure.Gbk.GetString(file_gfx_short_hit);
-//            set { file_gfx_short_hit = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_gfx_short_hit);
+//            set { file_gfx_short_hit = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float size { get; set; }
@@ -2007,7 +2007,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_TALK_SERVICE
+//    public struct NPC_TALK_SERVICE
 //    {
 //        public int id;
 
@@ -2020,7 +2020,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_SELL_SERVICE
+//    public struct NPC_SELL_SERVICE
 //    {
 //        public int id;
 
@@ -2034,8 +2034,8 @@
 
 //        public string Pages_1_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_1_page_title);
-//            set { pages_1_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_1_page_title);
+//            set { pages_1_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_1_require_contrib { get; set; }
@@ -2143,8 +2143,8 @@
 
 //        public string Pages_2_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_2_page_title);
-//            set { pages_2_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_2_page_title);
+//            set { pages_2_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_2_require_contrib { get; set; }
@@ -2252,8 +2252,8 @@
 
 //        public string Pages_3_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_3_page_title);
-//            set { pages_3_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_3_page_title);
+//            set { pages_3_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_3_require_contrib { get; set; }
@@ -2361,8 +2361,8 @@
 
 //        public string Pages_4_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_4_page_title);
-//            set { pages_4_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_4_page_title);
+//            set { pages_4_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_4_require_contrib { get; set; }
@@ -2470,8 +2470,8 @@
 
 //        public string Pages_5_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_5_page_title);
-//            set { pages_5_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_5_page_title);
+//            set { pages_5_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_5_require_contrib { get; set; }
@@ -2579,8 +2579,8 @@
 
 //        public string Pages_6_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_6_page_title);
-//            set { pages_6_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_6_page_title);
+//            set { pages_6_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_6_require_contrib { get; set; }
@@ -2688,8 +2688,8 @@
 
 //        public string Pages_7_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_7_page_title);
-//            set { pages_7_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_7_page_title);
+//            set { pages_7_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_7_require_contrib { get; set; }
@@ -2797,8 +2797,8 @@
 
 //        public string Pages_8_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_8_page_title);
-//            set { pages_8_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_8_page_title);
+//            set { pages_8_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_8_require_contrib { get; set; }
@@ -2904,7 +2904,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_BUY_SERVICE
+//    public struct NPC_BUY_SERVICE
 //    {
 //        public int id;
 
@@ -2917,7 +2917,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_REPAIR_SERVICE
+//    public struct NPC_REPAIR_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -2926,48 +2926,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_INSTALL_SERVICE
-//    {
-//        public int id;
-//        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
-//        public byte[] name;
-//        public int id_goods_1 { get; set; }
-//        public int id_goods_2 { get; set; }
-//        public int id_goods_3 { get; set; }
-//        public int id_goods_4 { get; set; }
-//        public int id_goods_5 { get; set; }
-//        public int id_goods_6 { get; set; }
-//        public int id_goods_7 { get; set; }
-//        public int id_goods_8 { get; set; }
-//        public int id_goods_9 { get; set; }
-//        public int id_goods_10 { get; set; }
-//        public int id_goods_11 { get; set; }
-//        public int id_goods_12 { get; set; }
-//        public int id_goods_13 { get; set; }
-//        public int id_goods_14 { get; set; }
-//        public int id_goods_15 { get; set; }
-//        public int id_goods_16 { get; set; }
-//        public int id_goods_17 { get; set; }
-//        public int id_goods_18 { get; set; }
-//        public int id_goods_19 { get; set; }
-//        public int id_goods_20 { get; set; }
-//        public int id_goods_21 { get; set; }
-//        public int id_goods_22 { get; set; }
-//        public int id_goods_23 { get; set; }
-//        public int id_goods_24 { get; set; }
-//        public int id_goods_25 { get; set; }
-//        public int id_goods_26 { get; set; }
-//        public int id_goods_27 { get; set; }
-//        public int id_goods_28 { get; set; }
-//        public int id_goods_29 { get; set; }
-//        public int id_goods_30 { get; set; }
-//        public int id_goods_31 { get; set; }
-//        public int id_goods_32 { get; set; }
-//        public int id_dialog { get; set; }
-//    }
-
-//    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_UNINSTALL_SERVICE
+//    public struct NPC_INSTALL_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -3008,7 +2967,48 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_TASK_IN_SERVICE
+//    public struct NPC_UNINSTALL_SERVICE
+//    {
+//        public int id;
+//        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
+//        public byte[] name;
+//        public int id_goods_1 { get; set; }
+//        public int id_goods_2 { get; set; }
+//        public int id_goods_3 { get; set; }
+//        public int id_goods_4 { get; set; }
+//        public int id_goods_5 { get; set; }
+//        public int id_goods_6 { get; set; }
+//        public int id_goods_7 { get; set; }
+//        public int id_goods_8 { get; set; }
+//        public int id_goods_9 { get; set; }
+//        public int id_goods_10 { get; set; }
+//        public int id_goods_11 { get; set; }
+//        public int id_goods_12 { get; set; }
+//        public int id_goods_13 { get; set; }
+//        public int id_goods_14 { get; set; }
+//        public int id_goods_15 { get; set; }
+//        public int id_goods_16 { get; set; }
+//        public int id_goods_17 { get; set; }
+//        public int id_goods_18 { get; set; }
+//        public int id_goods_19 { get; set; }
+//        public int id_goods_20 { get; set; }
+//        public int id_goods_21 { get; set; }
+//        public int id_goods_22 { get; set; }
+//        public int id_goods_23 { get; set; }
+//        public int id_goods_24 { get; set; }
+//        public int id_goods_25 { get; set; }
+//        public int id_goods_26 { get; set; }
+//        public int id_goods_27 { get; set; }
+//        public int id_goods_28 { get; set; }
+//        public int id_goods_29 { get; set; }
+//        public int id_goods_30 { get; set; }
+//        public int id_goods_31 { get; set; }
+//        public int id_goods_32 { get; set; }
+//        public int id_dialog { get; set; }
+//    }
+
+//    [StructLayout(LayoutKind.Sequential)]
+//    public struct NPC_TASK_IN_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -3272,7 +3272,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_TASK_OUT_SERVICE
+//    public struct NPC_TASK_OUT_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -3543,7 +3543,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_TASK_MATTER_SERVICE
+//    public struct NPC_TASK_MATTER_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -3695,7 +3695,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_SKILL_SERVICE
+//    public struct NPC_SKILL_SERVICE
 //    {
 //        public int id;
 
@@ -3836,7 +3836,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_HEAL_SERVICE
+//    public struct NPC_HEAL_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -3845,7 +3845,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_TRANSMIT_SERVICE
+//    public struct NPC_TRANSMIT_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -3951,7 +3951,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_TRANSPORT_SERVICE
+//    public struct NPC_TRANSPORT_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -4024,7 +4024,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_PROXY_SERVICE
+//    public struct NPC_PROXY_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -4033,7 +4033,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_STORAGE_SERVICE
+//    public struct NPC_STORAGE_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -4041,7 +4041,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_MAKE_SERVICE
+//    public struct NPC_MAKE_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -4053,7 +4053,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_DECOMPOSE_SERVICE
+//    public struct NPC_DECOMPOSE_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -4062,7 +4062,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_TYPE
+//    public struct NPC_TYPE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -4070,7 +4070,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_ESSENCE
+//    public struct NPC_ESSENCE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -4084,8 +4084,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float tax_rate { get; set; }
@@ -4096,8 +4096,8 @@
 
 //        public string Hello_msg
 //        {
-//            get => Structure.Unicode.GetString(hello_msg);
-//            set { hello_msg = BinReader.FillArray(Structure.Unicode.GetBytes(value), 512); }
+//            get => Unicode.GetString(hello_msg);
+//            set { hello_msg = BinReader.FillArray(Unicode.GetBytes(value), 512); }
 //        }
 
 //        public int id_to_discover { get; set; }
@@ -4139,12 +4139,12 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TALK_PROC
+//    public struct TALK_PROC
 //    {
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_TEXTURE_ESSENCE
+//    public struct FACE_TEXTURE_ESSENCE
 //    {
 //        public int id;
 
@@ -4158,8 +4158,8 @@
 
 //        public string File_base_tex
 //        {
-//            get => Structure.Gbk.GetString(file_base_tex);
-//            set { file_base_tex = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_base_tex);
+//            set { file_base_tex = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4167,8 +4167,8 @@
 
 //        public string File_high_tex
 //        {
-//            get => Structure.Gbk.GetString(file_high_tex);
-//            set { file_high_tex = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_high_tex);
+//            set { file_high_tex = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4176,8 +4176,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int tex_part_id { get; set; }
@@ -4190,7 +4190,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_SHAPE_ESSENCE
+//    public struct FACE_SHAPE_ESSENCE
 //    {
 //        public int id;
 
@@ -4204,8 +4204,8 @@
 
 //        public string File_shape
 //        {
-//            get => Structure.Gbk.GetString(file_shape);
-//            set { file_shape = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_shape);
+//            set { file_shape = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4213,8 +4213,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int shape_part_id { get; set; }
@@ -4226,7 +4226,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_EMOTION_TYPE
+//    public struct FACE_EMOTION_TYPE
 //    {
 //        public int id;
 
@@ -4240,13 +4240,13 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_EXPRESSION_ESSENCE
+//    public struct FACE_EXPRESSION_ESSENCE
 //    {
 //        public int id;
 
@@ -4260,8 +4260,8 @@
 
 //        public string File_expression
 //        {
-//            get => Structure.Gbk.GetString(file_expression);
-//            set { file_expression = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_expression);
+//            set { file_expression = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4269,8 +4269,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [CharacterCombo] public int character_combo_id { get; set; }
@@ -4279,7 +4279,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_HAIR_ESSENCE
+//    public struct FACE_HAIR_ESSENCE
 //    {
 //        public int id;
 
@@ -4293,8 +4293,8 @@
 
 //        public string File_hair_skin
 //        {
-//            get => Structure.Gbk.GetString(file_hair_skin);
-//            set { file_hair_skin = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hair_skin);
+//            set { file_hair_skin = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4302,8 +4302,8 @@
 
 //        public string File_hair_model
 //        {
-//            get => Structure.Gbk.GetString(file_hair_model);
-//            set { file_hair_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_hair_model);
+//            set { file_hair_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4311,8 +4311,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [CharacterCombo] public int character_combo_id { get; set; }
@@ -4323,7 +4323,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_MOUSTACHE_ESSENCE
+//    public struct FACE_MOUSTACHE_ESSENCE
 //    {
 //        public int id;
 
@@ -4337,8 +4337,8 @@
 
 //        public string File_moustache_skin
 //        {
-//            get => Structure.Gbk.GetString(file_moustache_skin);
-//            set { file_moustache_skin = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_moustache_skin);
+//            set { file_moustache_skin = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4346,8 +4346,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [CharacterCombo] public int character_combo_id { get; set; }
@@ -4357,7 +4357,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class COLORPICKER_ESSENCE
+//    public struct COLORPICKER_ESSENCE
 //    {
 //        public int id;
 
@@ -4371,8 +4371,8 @@
 
 //        public string File_colorpicker
 //        {
-//            get => Structure.Gbk.GetString(file_colorpicker);
-//            set { file_colorpicker = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_colorpicker);
+//            set { file_colorpicker = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int color_part_id { get; set; }
@@ -4381,7 +4381,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class CUSTOMIZEDATA_ESSENCE
+//    public struct CUSTOMIZEDATA_ESSENCE
 //    {
 //        public int id;
 
@@ -4395,8 +4395,8 @@
 
 //        public string File_data
 //        {
-//            get => Structure.Gbk.GetString(file_data);
-//            set { file_data = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_data);
+//            set { file_data = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [CharacterCombo] public int character_combo_id { get; set; }
@@ -4404,7 +4404,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class RECIPE_MAJOR_TYPE
+//    public struct RECIPE_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -4415,7 +4415,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class RECIPE_SUB_TYPE
+//    public struct RECIPE_SUB_TYPE
 //    {
 //        public int id;
 
@@ -4426,7 +4426,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class RECIPE_ESSENCE
+//    public struct RECIPE_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -4522,7 +4522,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ENEMY_FACTION_CONFIG
+//    public struct ENEMY_FACTION_CONFIG
 //    {
 //        public int id;
 
@@ -4563,7 +4563,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class CHARRACTER_CLASS_CONFIG
+//    public struct CHARRACTER_CLASS_CONFIG
 //    {
 //        public int id;
 
@@ -4598,7 +4598,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PARAM_ADJUST_CONFIG
+//    public struct PARAM_ADJUST_CONFIG
 //    {
 //        public int id;
 
@@ -4752,7 +4752,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PLAYER_ACTION_INFO_CONFIG
+//    public struct PLAYER_ACTION_INFO_CONFIG
 //    {
 //        public int id;
 
@@ -4766,8 +4766,8 @@
 
 //        public string Action_name
 //        {
-//            get => Structure.Gbk.GetString(action_name);
-//            set { action_name = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_name);
+//            set { action_name = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4775,8 +4775,8 @@
 
 //        public string Action_prefix
 //        {
-//            get => Structure.Gbk.GetString(action_prefix);
-//            set { action_prefix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_prefix);
+//            set { action_prefix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4784,8 +4784,8 @@
 
 //        public string Action_weapon_suffix_1_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_1_suffix);
-//            set { action_weapon_suffix_1_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_1_suffix);
+//            set { action_weapon_suffix_1_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4793,8 +4793,8 @@
 
 //        public string Action_weapon_suffix_2_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_2_suffix);
-//            set { action_weapon_suffix_2_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_2_suffix);
+//            set { action_weapon_suffix_2_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4802,8 +4802,8 @@
 
 //        public string Action_weapon_suffix_3_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_3_suffix);
-//            set { action_weapon_suffix_3_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_3_suffix);
+//            set { action_weapon_suffix_3_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4811,8 +4811,8 @@
 
 //        public string Action_weapon_suffix_4_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_4_suffix);
-//            set { action_weapon_suffix_4_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_4_suffix);
+//            set { action_weapon_suffix_4_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4820,8 +4820,8 @@
 
 //        public string Action_weapon_suffix_5_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_5_suffix);
-//            set { action_weapon_suffix_5_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_5_suffix);
+//            set { action_weapon_suffix_5_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4829,8 +4829,8 @@
 
 //        public string Action_weapon_suffix_6_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_6_suffix);
-//            set { action_weapon_suffix_6_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_6_suffix);
+//            set { action_weapon_suffix_6_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4838,8 +4838,8 @@
 
 //        public string Action_weapon_suffix_7_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_7_suffix);
-//            set { action_weapon_suffix_7_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_7_suffix);
+//            set { action_weapon_suffix_7_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4847,8 +4847,8 @@
 
 //        public string Action_weapon_suffix_8_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_8_suffix);
-//            set { action_weapon_suffix_8_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_8_suffix);
+//            set { action_weapon_suffix_8_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4856,8 +4856,8 @@
 
 //        public string Action_weapon_suffix_9_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_9_suffix);
-//            set { action_weapon_suffix_9_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_9_suffix);
+//            set { action_weapon_suffix_9_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4865,8 +4865,8 @@
 
 //        public string Action_weapon_suffix_10_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_10_suffix);
-//            set { action_weapon_suffix_10_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_10_suffix);
+//            set { action_weapon_suffix_10_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4874,8 +4874,8 @@
 
 //        public string Action_weapon_suffix_11_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_11_suffix);
-//            set { action_weapon_suffix_11_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_11_suffix);
+//            set { action_weapon_suffix_11_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4883,8 +4883,8 @@
 
 //        public string Action_weapon_suffix_12_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_12_suffix);
-//            set { action_weapon_suffix_12_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_12_suffix);
+//            set { action_weapon_suffix_12_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -4892,15 +4892,15 @@
 
 //        public string Action_weapon_suffix_13_suffix
 //        {
-//            get => Structure.Gbk.GetString(action_weapon_suffix_13_suffix);
-//            set { action_weapon_suffix_13_suffix = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(action_weapon_suffix_13_suffix);
+//            set { action_weapon_suffix_13_suffix = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        public int hide_weapon { get; set; }
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TASKDICE_ESSENCE
+//    public struct TASKDICE_ESSENCE
 //    {
 //        public int id;
 
@@ -4914,8 +4914,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4923,8 +4923,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int task_lists_1_id { get; set; }
@@ -4975,7 +4975,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TASKNORMALMATTER_ESSENCE
+//    public struct TASKNORMALMATTER_ESSENCE
 //    {
 //        public int id;
 
@@ -4989,8 +4989,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -4998,8 +4998,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -5010,7 +5010,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_FALING_ESSENCE
+//    public struct FACE_FALING_ESSENCE
 //    {
 //        public int id;
 
@@ -5024,8 +5024,8 @@
 
 //        public string File_faling_skin
 //        {
-//            get => Structure.Gbk.GetString(file_faling_skin);
-//            set { file_faling_skin = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_faling_skin);
+//            set { file_faling_skin = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5033,8 +5033,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [CharacterCombo] public int character_combo_id { get; set; }
@@ -5044,7 +5044,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PLAYER_LEVELEXP_CONFIG
+//    public struct PLAYER_LEVELEXP_CONFIG
 //    {
 //        public int id;
 
@@ -5206,7 +5206,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MINE_TYPE
+//    public struct MINE_TYPE
 //    {
 //        public int id;
 
@@ -5217,7 +5217,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MINE_ESSENCE
+//    public struct MINE_ESSENCE
 //    {
 //        public int id;
 //        public int id_type { get; set; }
@@ -5241,8 +5241,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int materials_1_id { get; set; }
@@ -5307,7 +5307,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_IDENTIFY_SERVICE
+//    public struct NPC_IDENTIFY_SERVICE
 //    {
 //        public int id;
 
@@ -5320,7 +5320,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FASHION_MAJOR_TYPE
+//    public struct FASHION_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -5331,7 +5331,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FASHION_SUB_TYPE
+//    public struct FASHION_SUB_TYPE
 //    {
 //        public int id;
 
@@ -5344,7 +5344,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FASHION_ESSENCE
+//    public struct FASHION_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -5360,8 +5360,8 @@
 
 //        public string Realname
 //        {
-//            get => Structure.Gbk.GetString(realname);
-//            set { realname = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(realname);
+//            set { realname = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5369,8 +5369,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5378,8 +5378,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int equip_location { get; set; }
@@ -5400,13 +5400,13 @@
 
 //        public string Wear_action
 //        {
-//            get => Structure.Gbk.GetString(wear_action);
-//            set { wear_action = BinReader.FillArray(Structure.Gbk.GetBytes(value), 32); }
+//            get => Gbk.GetString(wear_action);
+//            set { wear_action = BinReader.FillArray(Gbk.GetBytes(value), 32); }
 //        }
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACETICKET_MAJOR_TYPE
+//    public struct FACETICKET_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -5417,7 +5417,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACETICKET_SUB_TYPE
+//    public struct FACETICKET_SUB_TYPE
 //    {
 //        public int id;
 
@@ -5428,7 +5428,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACETICKET_ESSENCE
+//    public struct FACETICKET_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -5444,8 +5444,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5453,8 +5453,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int require_level { get; set; }
@@ -5464,8 +5464,8 @@
 
 //        public string Bound_file
 //        {
-//            get => Structure.Gbk.GetString(bound_file);
-//            set { bound_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(bound_file);
+//            set { bound_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int unsymmetrical { get; set; }
@@ -5477,7 +5477,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACEPILL_MAJOR_TYPE
+//    public struct FACEPILL_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -5488,7 +5488,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACEPILL_SUB_TYPE
+//    public struct FACEPILL_SUB_TYPE
 //    {
 //        public int id;
 
@@ -5499,7 +5499,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACEPILL_ESSENCE
+//    public struct FACEPILL_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -5510,8 +5510,8 @@
 //        public byte[] file_matter;
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5519,8 +5519,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int duration { get; set; }
@@ -5532,8 +5532,8 @@
 
 //        public string Pllfiles_1_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_1_file);
-//            set { pllfiles_1_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_1_file);
+//            set { pllfiles_1_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5541,8 +5541,8 @@
 
 //        public string Pllfiles_2_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_2_file);
-//            set { pllfiles_2_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_2_file);
+//            set { pllfiles_2_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5550,8 +5550,8 @@
 
 //        public string Pllfiles_3_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_3_file);
-//            set { pllfiles_3_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_3_file);
+//            set { pllfiles_3_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5559,8 +5559,8 @@
 
 //        public string Pllfiles_4_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_4_file);
-//            set { pllfiles_4_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_4_file);
+//            set { pllfiles_4_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5568,8 +5568,8 @@
 
 //        public string Pllfiles_5_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_5_file);
-//            set { pllfiles_5_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_5_file);
+//            set { pllfiles_5_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5577,8 +5577,8 @@
 
 //        public string Pllfiles_6_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_6_file);
-//            set { pllfiles_6_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_6_file);
+//            set { pllfiles_6_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5586,8 +5586,8 @@
 
 //        public string Pllfiles_7_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_7_file);
-//            set { pllfiles_7_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_7_file);
+//            set { pllfiles_7_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5595,8 +5595,8 @@
 
 //        public string Pllfiles_8_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_8_file);
-//            set { pllfiles_8_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_8_file);
+//            set { pllfiles_8_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5604,8 +5604,8 @@
 
 //        public string Pllfiles_9_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_9_file);
-//            set { pllfiles_9_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_9_file);
+//            set { pllfiles_9_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5613,8 +5613,8 @@
 
 //        public string Pllfiles_10_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_10_file);
-//            set { pllfiles_10_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_10_file);
+//            set { pllfiles_10_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5622,8 +5622,8 @@
 
 //        public string Pllfiles_11_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_11_file);
-//            set { pllfiles_11_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_11_file);
+//            set { pllfiles_11_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5631,8 +5631,8 @@
 
 //        public string Pllfiles_12_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_12_file);
-//            set { pllfiles_12_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_12_file);
+//            set { pllfiles_12_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5640,8 +5640,8 @@
 
 //        public string Pllfiles_13_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_13_file);
-//            set { pllfiles_13_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_13_file);
+//            set { pllfiles_13_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5649,8 +5649,8 @@
 
 //        public string Pllfiles_14_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_14_file);
-//            set { pllfiles_14_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_14_file);
+//            set { pllfiles_14_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5658,8 +5658,8 @@
 
 //        public string Pllfiles_15_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_15_file);
-//            set { pllfiles_15_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_15_file);
+//            set { pllfiles_15_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5667,8 +5667,8 @@
 
 //        public string Pllfiles_16_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_16_file);
-//            set { pllfiles_16_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_16_file);
+//            set { pllfiles_16_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5676,8 +5676,8 @@
 
 //        public string Pllfiles_17_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_17_file);
-//            set { pllfiles_17_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_17_file);
+//            set { pllfiles_17_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5685,8 +5685,8 @@
 
 //        public string Pllfiles_18_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_18_file);
-//            set { pllfiles_18_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_18_file);
+//            set { pllfiles_18_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5694,8 +5694,8 @@
 
 //        public string Pllfiles_19_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_19_file);
-//            set { pllfiles_19_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_19_file);
+//            set { pllfiles_19_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5703,8 +5703,8 @@
 
 //        public string Pllfiles_20_file
 //        {
-//            get => Structure.Gbk.GetString(pllfiles_20_file);
-//            set { pllfiles_20_file = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(pllfiles_20_file);
+//            set { pllfiles_20_file = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -5715,7 +5715,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class SUITE_ESSENCE
+//    public struct SUITE_ESSENCE
 //    {
 //        public int id;
 
@@ -5754,13 +5754,13 @@
 
 //        public string File_gfx
 //        {
-//            get => Structure.Gbk.GetString(file_gfx);
-//            set { file_gfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_gfx);
+//            set { file_gfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class GM_GENERATOR_TYPE
+//    public struct GM_GENERATOR_TYPE
 //    {
 //        public int id;
 
@@ -5771,7 +5771,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class GM_GENERATOR_ESSENCE
+//    public struct GM_GENERATOR_ESSENCE
 //    {
 //        public int id;
 //        public int id_type { get; set; }
@@ -5786,8 +5786,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5795,8 +5795,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int id_object { get; set; }
@@ -5806,7 +5806,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PET_TYPE
+//    public struct PET_TYPE
 //    {
 //        public int id;
 
@@ -5817,7 +5817,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PET_ESSENCE
+//    public struct PET_ESSENCE
 //    {
 //        public int id;
 //        public int id_type { get; set; }
@@ -5832,8 +5832,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5841,8 +5841,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [CharacterCombo] public int character_combo_id { get; set; }
@@ -5895,7 +5895,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PET_EGG_ESSENCE
+//    public struct PET_EGG_ESSENCE
 //    {
 //        public int id;
 
@@ -5909,8 +5909,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -5918,8 +5918,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int id_pet { get; set; }
@@ -6001,7 +6001,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PET_FOOD_ESSENCE
+//    public struct PET_FOOD_ESSENCE
 //    {
 //        public int id;
 
@@ -6015,8 +6015,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6024,8 +6024,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -6040,7 +6040,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PET_FACETICKET_ESSENCE
+//    public struct PET_FACETICKET_ESSENCE
 //    {
 //        public int id;
 
@@ -6054,8 +6054,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6063,8 +6063,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -6075,7 +6075,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FIREWORKS_ESSENCE
+//    public struct FIREWORKS_ESSENCE
 //    {
 //        public int id;
 
@@ -6089,8 +6089,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6098,8 +6098,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6107,8 +6107,8 @@
 
 //        public string File_fw
 //        {
-//            get => Structure.Gbk.GetString(file_fw);
-//            set { file_fw = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_fw);
+//            set { file_fw = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -6121,7 +6121,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WAR_TANKCALLIN_ESSENCE
+//    public struct WAR_TANKCALLIN_ESSENCE
 //    {
 //        public int id;
 
@@ -6135,8 +6135,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6144,8 +6144,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -6156,7 +6156,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_WAR_TOWERBUILD_SERVICE
+//    public struct NPC_WAR_TOWERBUILD_SERVICE
 //    {
 //        public int id;
 
@@ -6188,7 +6188,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PLAYER_SECONDLEVEL_CONFIG
+//    public struct PLAYER_SECONDLEVEL_CONFIG
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -6452,7 +6452,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_RESETPROP_SERVICE
+//    public struct NPC_RESETPROP_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -6535,7 +6535,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_PETNAME_SERVICE
+//    public struct NPC_PETNAME_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -6545,7 +6545,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_PETLEARNSKILL_SERVICE
+//    public struct NPC_PETLEARNSKILL_SERVICE
 //    {
 //        public int id;
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)]
@@ -6682,7 +6682,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_PETFORGETSKILL_SERVICE
+//    public struct NPC_PETFORGETSKILL_SERVICE
 //    {
 //        public int id;
 
@@ -6696,7 +6696,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class SKILLMATTER_ESSENCE
+//    public struct SKILLMATTER_ESSENCE
 //    {
 //        public int id;
 
@@ -6710,8 +6710,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6719,8 +6719,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level_required { get; set; }
@@ -6734,7 +6734,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class REFINE_TICKET_ESSENCE
+//    public struct REFINE_TICKET_ESSENCE
 //    {
 //        public int id;
 
@@ -6748,8 +6748,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6757,8 +6757,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
@@ -6766,8 +6766,8 @@
 
 //        public string Desc
 //        {
-//            get => Structure.Unicode.GetString(desc);
-//            set { desc = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(desc);
+//            set { desc = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float ext_reserved_prob { get; set; }
@@ -6795,7 +6795,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DESTROYING_ESSENCE
+//    public struct DESTROYING_ESSENCE
 //    {
 //        public int id;
 
@@ -6809,8 +6809,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6818,8 +6818,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -6830,7 +6830,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_EQUIPBIND_SERVICE
+//    public struct NPC_EQUIPBIND_SERVICE
 //    {
 //        public int id;
 
@@ -6848,7 +6848,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_EQUIPDESTROY_SERVICE
+//    public struct NPC_EQUIPDESTROY_SERVICE
 //    {
 //        public int id;
 
@@ -6862,7 +6862,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_EQUIPUNDESTROY_SERVICE
+//    public struct NPC_EQUIPUNDESTROY_SERVICE
 //    {
 //        public int id;
 
@@ -6876,7 +6876,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class BIBLE_ESSENCE
+//    public struct BIBLE_ESSENCE
 //    {
 //        public int id;
 
@@ -6890,8 +6890,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6899,8 +6899,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int id_addons_1 { get; set; }
@@ -6923,7 +6923,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class SPEAKER_ESSENCE
+//    public struct SPEAKER_ESSENCE
 //    {
 //        public int id;
 
@@ -6937,8 +6937,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6946,8 +6946,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int id_icon_set { get; set; }
@@ -6959,7 +6959,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class AUTOHP_ESSENCE
+//    public struct AUTOHP_ESSENCE
 //    {
 //        public int id;
 
@@ -6973,8 +6973,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -6982,8 +6982,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int total_hp { get; set; }
@@ -6997,7 +6997,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class AUTOMP_ESSENCE
+//    public struct AUTOMP_ESSENCE
 //    {
 //        public int id;
 
@@ -7011,8 +7011,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7020,8 +7020,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int total_mp { get; set; }
@@ -7035,7 +7035,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DOUBLE_EXP_ESSENCE
+//    public struct DOUBLE_EXP_ESSENCE
 //    {
 //        public int id;
 
@@ -7049,8 +7049,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7058,8 +7058,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int double_exp_time { get; set; }
@@ -7071,7 +7071,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TRANSMITSCROLL_ESSENCE
+//    public struct TRANSMITSCROLL_ESSENCE
 //    {
 //        public int id;
 
@@ -7085,8 +7085,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7094,8 +7094,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -7106,7 +7106,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DYE_TICKET_ESSENCE
+//    public struct DYE_TICKET_ESSENCE
 //    {
 //        public int id;
 
@@ -7120,8 +7120,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7129,8 +7129,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float h_min { get; set; }
@@ -7147,7 +7147,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class GOBLIN_ESSENCE
+//    public struct GOBLIN_ESSENCE
 //    {
 //        public int id;
 
@@ -7161,8 +7161,8 @@
 
 //        public string File_model1
 //        {
-//            get => Structure.Gbk.GetString(file_model1);
-//            set { file_model1 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model1);
+//            set { file_model1 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7170,8 +7170,8 @@
 
 //        public string File_model2
 //        {
-//            get => Structure.Gbk.GetString(file_model2);
-//            set { file_model2 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model2);
+//            set { file_model2 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7179,8 +7179,8 @@
 
 //        public string File_model3
 //        {
-//            get => Structure.Gbk.GetString(file_model3);
-//            set { file_model3 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model3);
+//            set { file_model3 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7188,8 +7188,8 @@
 
 //        public string File_model4
 //        {
-//            get => Structure.Gbk.GetString(file_model4);
-//            set { file_model4 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model4);
+//            set { file_model4 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7197,8 +7197,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7206,8 +7206,8 @@
 
 //        public string File_icon1
 //        {
-//            get => Structure.Gbk.GetString(file_icon1);
-//            set { file_icon1 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon1);
+//            set { file_icon1 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7215,8 +7215,8 @@
 
 //        public string File_icon2
 //        {
-//            get => Structure.Gbk.GetString(file_icon2);
-//            set { file_icon2 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon2);
+//            set { file_icon2 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7224,8 +7224,8 @@
 
 //        public string File_icon3
 //        {
-//            get => Structure.Gbk.GetString(file_icon3);
-//            set { file_icon3 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon3);
+//            set { file_icon3 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7233,8 +7233,8 @@
 
 //        public string File_icon4
 //        {
-//            get => Structure.Gbk.GetString(file_icon4);
-//            set { file_icon4 = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon4);
+//            set { file_icon4 = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public float exp_factor { get; set; }
@@ -7274,7 +7274,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class GOBLIN_EQUIP_TYPE
+//    public struct GOBLIN_EQUIP_TYPE
 //    {
 //        public int id;
 
@@ -7285,7 +7285,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class GOBLIN_EQUIP_ESSENCE
+//    public struct GOBLIN_EQUIP_ESSENCE
 //    {
 //        public int id;
 //        public int id_type { get; set; }
@@ -7300,8 +7300,8 @@
 
 //        public string File_model
 //        {
-//            get => Structure.Gbk.GetString(file_model);
-//            set { file_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_model);
+//            set { file_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7309,8 +7309,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int equip_type { get; set; }
@@ -7332,7 +7332,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class GOBLIN_EXPPILL_ESSENCE
+//    public struct GOBLIN_EXPPILL_ESSENCE
 //    {
 //        public int id;
 
@@ -7346,8 +7346,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7355,8 +7355,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int exp { get; set; }
@@ -7369,7 +7369,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class SELL_CERTIFICATE_ESSENCE
+//    public struct SELL_CERTIFICATE_ESSENCE
 //    {
 //        public int id;
 
@@ -7383,8 +7383,8 @@
 
 //        public string Show_model
 //        {
-//            get => Structure.Gbk.GetString(show_model);
-//            set { show_model = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(show_model);
+//            set { show_model = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7392,8 +7392,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7401,8 +7401,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int num_sell_item { get; set; }
@@ -7416,7 +7416,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class TARGET_ITEM_ESSENCE
+//    public struct TARGET_ITEM_ESSENCE
 //    {
 //        public int id;
 
@@ -7430,8 +7430,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7439,8 +7439,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int num_use_pertime { get; set; }
@@ -7466,7 +7466,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class LOOK_INFO_ESSENCE
+//    public struct LOOK_INFO_ESSENCE
 //    {
 //        public int id;
 
@@ -7480,8 +7480,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -7489,8 +7489,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -7501,7 +7501,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class UPGRADE_PRODUCTION_CONFIG
+//    public struct UPGRADE_PRODUCTION_CONFIG
 //    {
 //        public int id;
 
@@ -7665,7 +7665,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ACC_STORAGE_BLACKLIST_CONFIG
+//    public struct ACC_STORAGE_BLACKLIST_CONFIG
 //    {
 //        public int id;
 
@@ -8189,7 +8189,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_HAIR_TEXTURE_MAP
+//    public struct FACE_HAIR_TEXTURE_MAP
 //    {
 //        public int id;
 
@@ -8457,7 +8457,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class MULTI_EXP_CONFIG
+//    public struct MULTI_EXP_CONFIG
 //    {
 //        public int id;
 
@@ -8569,7 +8569,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class INC_SKILL_ABILITY_ESSENCE
+//    public struct INC_SKILL_ABILITY_ESSENCE
 //    {
 //        public int id;
 
@@ -8583,8 +8583,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -8592,8 +8592,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int id_skill { get; set; }
@@ -8607,7 +8607,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class GOD_EVIL_CONVERT_CONFIG
+//    public struct GOD_EVIL_CONVERT_CONFIG
 //    {
 //        public int id;
 
@@ -8875,7 +8875,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WEDDING_CONFIG
+//    public struct WEDDING_CONFIG
 //    {
 //        public int id;
 
@@ -8990,8 +8990,8 @@
 
 //        public string Wedding_scene_1_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_1_name);
-//            set { wedding_scene_1_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_1_name);
+//            set { wedding_scene_1_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_1_pos_1 { get; set; }
@@ -9003,8 +9003,8 @@
 
 //        public string Wedding_scene_2_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_2_name);
-//            set { wedding_scene_2_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_2_name);
+//            set { wedding_scene_2_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_2_pos_1 { get; set; }
@@ -9016,8 +9016,8 @@
 
 //        public string Wedding_scene_3_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_3_name);
-//            set { wedding_scene_3_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_3_name);
+//            set { wedding_scene_3_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_3_pos_1 { get; set; }
@@ -9029,8 +9029,8 @@
 
 //        public string Wedding_scene_4_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_4_name);
-//            set { wedding_scene_4_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_4_name);
+//            set { wedding_scene_4_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_4_pos_1 { get; set; }
@@ -9042,8 +9042,8 @@
 
 //        public string Wedding_scene_5_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_5_name);
-//            set { wedding_scene_5_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_5_name);
+//            set { wedding_scene_5_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_5_pos_1 { get; set; }
@@ -9055,8 +9055,8 @@
 
 //        public string Wedding_scene_6_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_6_name);
-//            set { wedding_scene_6_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_6_name);
+//            set { wedding_scene_6_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_6_pos_1 { get; set; }
@@ -9068,8 +9068,8 @@
 
 //        public string Wedding_scene_7_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_7_name);
-//            set { wedding_scene_7_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_7_name);
+//            set { wedding_scene_7_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_7_pos_1 { get; set; }
@@ -9081,8 +9081,8 @@
 
 //        public string Wedding_scene_8_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_8_name);
-//            set { wedding_scene_8_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_8_name);
+//            set { wedding_scene_8_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_8_pos_1 { get; set; }
@@ -9094,8 +9094,8 @@
 
 //        public string Wedding_scene_9_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_9_name);
-//            set { wedding_scene_9_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_9_name);
+//            set { wedding_scene_9_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_9_pos_1 { get; set; }
@@ -9107,8 +9107,8 @@
 
 //        public string Wedding_scene_10_name
 //        {
-//            get => Structure.Unicode.GetString(wedding_scene_10_name);
-//            set { wedding_scene_10_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 32); }
+//            get => Unicode.GetString(wedding_scene_10_name);
+//            set { wedding_scene_10_name = BinReader.FillArray(Unicode.GetBytes(value), 32); }
 //        }
 
 //        public float wedding_scene_10_pos_1 { get; set; }
@@ -9117,7 +9117,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WEDDING_BOOKCARD_ESSENCE
+//    public struct WEDDING_BOOKCARD_ESSENCE
 //    {
 //        public int id;
 
@@ -9131,8 +9131,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -9140,8 +9140,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int year { get; set; }
@@ -9155,7 +9155,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WEDDING_INVITECARD_ESSENCE
+//    public struct WEDDING_INVITECARD_ESSENCE
 //    {
 //        public int id;
 
@@ -9169,8 +9169,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -9178,8 +9178,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int price { get; set; }
@@ -9190,7 +9190,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class SHARPENER_ESSENCE
+//    public struct SHARPENER_ESSENCE
 //    {
 //        public int id;
 
@@ -9204,8 +9204,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -9213,8 +9213,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -9232,7 +9232,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACE_THIRDEYE_ESSENCE
+//    public struct FACE_THIRDEYE_ESSENCE
 //    {
 //        public int id;
 
@@ -9246,8 +9246,8 @@
 
 //        public string File_gfx
 //        {
-//            get => Structure.Gbk.GetString(file_gfx);
-//            set { file_gfx = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_gfx);
+//            set { file_gfx = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -9255,8 +9255,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [CharacterCombo] public int character_combo_id { get; set; }
@@ -9265,7 +9265,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACTION_FORTRESS_CONFIG
+//    public struct FACTION_FORTRESS_CONFIG
 //    {
 //        public int id;
 
@@ -9749,7 +9749,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACTION_BUILDING_SUB_TYPE
+//    public struct FACTION_BUILDING_SUB_TYPE
 //    {
 //        public int id;
 
@@ -9760,7 +9760,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACTION_BUILDING_ESSENCE
+//    public struct FACTION_BUILDING_ESSENCE
 //    {
 //        public int id;
 //        public int id_sub_type { get; set; }
@@ -9775,8 +9775,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -9802,7 +9802,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FACTION_MATERIAL_ESSENCE
+//    public struct FACTION_MATERIAL_ESSENCE
 //    {
 //        public int id;
 
@@ -9816,8 +9816,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -9825,8 +9825,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int material_count_1 { get; set; }
@@ -9845,7 +9845,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class CONGREGATE_ESSENCE
+//    public struct CONGREGATE_ESSENCE
 //    {
 //        public int id;
 
@@ -9859,8 +9859,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -9868,8 +9868,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int congregate_type { get; set; }
@@ -9913,7 +9913,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ENGRAVE_MAJOR_TYPE
+//    public struct ENGRAVE_MAJOR_TYPE
 //    {
 //        public int id;
 
@@ -9924,7 +9924,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ENGRAVE_SUB_TYPE
+//    public struct ENGRAVE_SUB_TYPE
 //    {
 //        public int id;
 
@@ -9935,7 +9935,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ENGRAVE_ESSENCE
+//    public struct ENGRAVE_ESSENCE
 //    {
 //        public int id;
 //        public int id_major_type { get; set; }
@@ -9951,8 +9951,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int level { get; set; }
@@ -10047,7 +10047,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_ENGRAVE_SERVICE
+//    public struct NPC_ENGRAVE_SERVICE
 //    {
 //        public int id;
 
@@ -10075,7 +10075,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_RANDPROP_SERVICE
+//    public struct NPC_RANDPROP_SERVICE
 //    {
 //        public int id;
 
@@ -10089,8 +10089,8 @@
 
 //        public string Pages_1_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_1_page_title);
-//            set { pages_1_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_1_page_title);
+//            set { pages_1_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_1_id_recipe { get; set; }
@@ -10100,8 +10100,8 @@
 
 //        public string Pages_2_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_2_page_title);
-//            set { pages_2_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_2_page_title);
+//            set { pages_2_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_2_id_recipe { get; set; }
@@ -10111,8 +10111,8 @@
 
 //        public string Pages_3_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_3_page_title);
-//            set { pages_3_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_3_page_title);
+//            set { pages_3_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_3_id_recipe { get; set; }
@@ -10122,8 +10122,8 @@
 
 //        public string Pages_4_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_4_page_title);
-//            set { pages_4_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_4_page_title);
+//            set { pages_4_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_4_id_recipe { get; set; }
@@ -10133,8 +10133,8 @@
 
 //        public string Pages_5_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_5_page_title);
-//            set { pages_5_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_5_page_title);
+//            set { pages_5_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_5_id_recipe { get; set; }
@@ -10144,8 +10144,8 @@
 
 //        public string Pages_6_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_6_page_title);
-//            set { pages_6_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_6_page_title);
+//            set { pages_6_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_6_id_recipe { get; set; }
@@ -10155,8 +10155,8 @@
 
 //        public string Pages_7_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_7_page_title);
-//            set { pages_7_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_7_page_title);
+//            set { pages_7_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_7_id_recipe { get; set; }
@@ -10166,15 +10166,15 @@
 
 //        public string Pages_8_page_title
 //        {
-//            get => Structure.Unicode.GetString(pages_8_page_title);
-//            set { pages_8_page_title = BinReader.FillArray(Structure.Unicode.GetBytes(value), 16); }
+//            get => Unicode.GetString(pages_8_page_title);
+//            set { pages_8_page_title = BinReader.FillArray(Unicode.GetBytes(value), 16); }
 //        }
 
 //        public int pages_8_id_recipe { get; set; }
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class RANDPROP_TYPE
+//    public struct RANDPROP_TYPE
 //    {
 //        public int id;
 
@@ -10185,7 +10185,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class RANDPROP_ESSENCE
+//    public struct RANDPROP_ESSENCE
 //    {
 //        public int id;
 //        public int id_type { get; set; }
@@ -10250,7 +10250,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class WIKI_TABOO_CONFIG
+//    public struct WIKI_TABOO_CONFIG
 //    {
 //        public int id;
 
@@ -11542,7 +11542,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FORCE_CONFIG
+//    public struct FORCE_CONFIG
 //    {
 //        public int id;
 
@@ -11556,8 +11556,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int color { get; set; }
@@ -11567,8 +11567,8 @@
 
 //        public string Desc
 //        {
-//            get => Structure.Unicode.GetString(desc);
-//            set { desc = BinReader.FillArray(Structure.Unicode.GetBytes(value), 512); }
+//            get => Unicode.GetString(desc);
+//            set { desc = BinReader.FillArray(Unicode.GetBytes(value), 512); }
 //        }
 
 //        public int reputation_max { get; set; }
@@ -11580,7 +11580,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class FORCE_TOKEN_ESSENCE
+//    public struct FORCE_TOKEN_ESSENCE
 //    {
 //        public int id;
 
@@ -11594,8 +11594,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -11603,8 +11603,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int require_force { get; set; }
@@ -11618,7 +11618,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class NPC_FORCE_SERVICE
+//    public struct NPC_FORCE_SERVICE
 //    {
 //        public int id;
 
@@ -11631,7 +11631,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class PLAYER_DEATH_DROP_CONFIG
+//    public struct PLAYER_DEATH_DROP_CONFIG
 //    {
 //        public int id;
 
@@ -11899,7 +11899,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class DYNSKILLEQUIP_ESSENCE
+//    public struct DYNSKILLEQUIP_ESSENCE
 //    {
 //        public int id;
 
@@ -11913,8 +11913,8 @@
 
 //        public string File_matter
 //        {
-//            get => Structure.Gbk.GetString(file_matter);
-//            set { file_matter = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_matter);
+//            set { file_matter = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -11922,8 +11922,8 @@
 
 //        public string File_icon
 //        {
-//            get => Structure.Gbk.GetString(file_icon);
-//            set { file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(file_icon);
+//            set { file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int id_skill { get; set; }
@@ -11935,7 +11935,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class CONSUME_POINTS_CONFIG
+//    public struct CONSUME_POINTS_CONFIG
 //    {
 //        public int id;
 
@@ -13995,7 +13995,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class ONLINE_AWARDS_CONFIG
+//    public struct ONLINE_AWARDS_CONFIG
 //    {
 //        public int id;
 
@@ -14648,7 +14648,7 @@
 //    }
 
 //    [StructLayout(LayoutKind.Sequential)]
-//    public class COUNTRY_CONFIG
+//    public struct COUNTRY_CONFIG
 //    {
 //        public int id;
 
@@ -14662,8 +14662,8 @@
 
 //        public string Country_1_name
 //        {
-//            get => Structure.Unicode.GetString(country_1_name);
-//            set { country_1_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 64); }
+//            get => Unicode.GetString(country_1_name);
+//            set { country_1_name = BinReader.FillArray(Unicode.GetBytes(value), 64); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -14671,8 +14671,8 @@
 
 //        public string Country_1_file_icon
 //        {
-//            get => Structure.Gbk.GetString(country_1_file_icon);
-//            set { country_1_file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(country_1_file_icon);
+//            set { country_1_file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int country_1_color { get; set; }
@@ -14682,8 +14682,8 @@
 
 //        public string Country_2_name
 //        {
-//            get => Structure.Unicode.GetString(country_2_name);
-//            set { country_2_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 64); }
+//            get => Unicode.GetString(country_2_name);
+//            set { country_2_name = BinReader.FillArray(Unicode.GetBytes(value), 64); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -14691,8 +14691,8 @@
 
 //        public string Country_2_file_icon
 //        {
-//            get => Structure.Gbk.GetString(country_2_file_icon);
-//            set { country_2_file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(country_2_file_icon);
+//            set { country_2_file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int country_2_color { get; set; }
@@ -14702,8 +14702,8 @@
 
 //        public string Country_3_name
 //        {
-//            get => Structure.Unicode.GetString(country_3_name);
-//            set { country_3_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 64); }
+//            get => Unicode.GetString(country_3_name);
+//            set { country_3_name = BinReader.FillArray(Unicode.GetBytes(value), 64); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -14711,8 +14711,8 @@
 
 //        public string Country_3_file_icon
 //        {
-//            get => Structure.Gbk.GetString(country_3_file_icon);
-//            set { country_3_file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(country_3_file_icon);
+//            set { country_3_file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int country_3_color { get; set; }
@@ -14722,8 +14722,8 @@
 
 //        public string Country_4_name
 //        {
-//            get => Structure.Unicode.GetString(country_4_name);
-//            set { country_4_name = BinReader.FillArray(Structure.Unicode.GetBytes(value), 64); }
+//            get => Unicode.GetString(country_4_name);
+//            set { country_4_name = BinReader.FillArray(Unicode.GetBytes(value), 64); }
 //        }
 
 //        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
@@ -14731,8 +14731,8 @@
 
 //        public string Country_4_file_icon
 //        {
-//            get => Structure.Gbk.GetString(country_4_file_icon);
-//            set { country_4_file_icon = BinReader.FillArray(Structure.Gbk.GetBytes(value), 128); }
+//            get => Gbk.GetString(country_4_file_icon);
+//            set { country_4_file_icon = BinReader.FillArray(Gbk.GetBytes(value), 128); }
 //        }
 
 //        public int country_4_color { get; set; }

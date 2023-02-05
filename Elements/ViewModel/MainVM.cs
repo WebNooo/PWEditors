@@ -25,12 +25,16 @@ namespace Elements.ViewModel
     [AddINotifyPropertyChangedInterface]
     public class MainVM
     {
+        private ElementNew element;
+
         public MainVM()
         {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-           // Histories.DisableNotify();
+            // Histories.DisableNotify();
 
-            new ElementNew().Open("E:\\156\\element\\data\\elements.data");
+            element = new ElementNew();
+
+           
 
             return;
 
@@ -410,14 +414,15 @@ namespace Elements.ViewModel
 
             if (dialogResult == DialogResult.OK)
             {
-                ReadTime = Data.Load(dialog.FileName);
-                Settings.App.Files.Element = dialog.FileName;
-                Lists = new List<Element.ListInfo>(Data.ElementInfo.ListInformation);
-                SelectedList = Data.ElementInfo.ListInformation.Count > 0
-                    ? Data.ElementInfo.ListInformation[0].Type
-                    : null;
+                element.Open(dialog.FileName);
+                //ReadTime = Data.Load(dialog.FileName);
+                //Settings.App.Files.Element = dialog.FileName;
+                //Lists = new List<Element.ListInfo>(Data.ElementInfo.ListInformation);
+                //SelectedList = Data.ElementInfo.ListInformation.Count > 0
+                //    ? Data.ElementInfo.ListInformation[0].Type
+                //    : null;
 
-                Settings.Save();
+                //Settings.Save();
             }
         });
 

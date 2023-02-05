@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PWHelper.Tools;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace PWHelper.Element
 
         public void Load()
         {
-            Tag = 0;
-            Length = 0;
-            Buffer = Array.Empty<byte>();
+            Tag = Binary.ReadInt32();
+            Length = Binary.ReadInt32();
+            Buffer = Binary.ReadBytes(Length);
         }
 
         public void Save(BinaryWriter bw)

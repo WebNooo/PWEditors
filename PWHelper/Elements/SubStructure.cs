@@ -13,21 +13,21 @@ namespace PWHelper.Elements
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Addon
+    public class Addon
     {
         public int id;
         public float probability;
     }; 
     
     [StructLayout(LayoutKind.Sequential)]
-    public struct Skill
+    public class Skill
     {
         public int id;
         public float level;
     };
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct PageSell
+    public class PageSell
     {
         public int id;
         public int contrib_cost;
@@ -36,13 +36,13 @@ namespace PWHelper.Elements
     };
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct Ids
+    public class Ids
     {
         public int id;
     };
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct TaskMatters
+    public class TaskMatters
     {
         public int id_task;
         public int id_matter_1;
@@ -56,17 +56,17 @@ namespace PWHelper.Elements
     };
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct MakePage
+    public class MakePage
     {
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 16)] public byte[] title;
-        public string Title { get => SubStructure.Unicode.GetString(title); set => title = BinReader.FillArray(SubStructure.Unicode.GetBytes(value), 16); }
+        //public string Title { get => SubUnicode.GetString(title); set => title = BinReader.FillArray(SubUnicode.GetBytes(value), 16); }
 
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
-        public MakePageItem[] Recipes;
+       // [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)]
+       // public MakePageItem[] Recipes;
     }
 
     [StructLayout(LayoutKind.Sequential)]
-    public struct MakePageItem
+    public class MakePageItem
     {
        [RecipeId] public int id { get; set; }
     }

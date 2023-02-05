@@ -6,41 +6,40 @@ using System.Text;
 namespace PWHelper.Element.Versions
 {
 
-    public class V156
+    public struct V156
     {
+        private static readonly Encoding Gbk = Encoding.GetEncoding("GBK");
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        public class EQUIPMENT_ADDON
+        public struct EQUIPMENT_ADDON
         {
-        public int id;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
-        public int num_params { get; set; }
-        public int param1 { get; set; }
-        public int param2 { get; set; }
-        public int param3 { get; set; }
+            public int id;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
+            public int num_params { get; set; }
+            public int param1 { get; set; }
+            public int param2 { get; set; }
+            public int param3 { get; set; }
 
         }
 
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WEAPON_MAJOR_TYPE
-    {
-        public int id;
-[MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
-        
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        public struct WEAPON_MAJOR_TYPE
+        {
+            public int id;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] 
+            public byte[] name;
+        }
 
-    }
-
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WEAPON_SUB_TYPE
+    public struct WEAPON_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hitgfx;
-        public string File_hitgfx { get => Structure.Gbk.GetString(file_hitgfx); set { file_hitgfx = Structure.Gbk.GetBytes(value); } }
+        public string File_hitgfx { get => Gbk.GetString(file_hitgfx); set { file_hitgfx = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hitsfx;
-        public string File_hitsfx { get => Structure.Gbk.GetString(file_hitsfx); set { file_hitsfx = Structure.Gbk.GetBytes(value); } }
+        public string File_hitsfx { get => Gbk.GetString(file_hitsfx); set { file_hitsfx = Gbk.GetBytes(value); } }
         public float probability_fastest { get; set; }
         public float probability_fast { get; set; }
         public float probability_normal { get; set; }
@@ -53,7 +52,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WEAPON_ESSENCE
+    public struct WEAPON_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -62,13 +61,13 @@ namespace PWHelper.Element.Versions
         
         public int require_projectile { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model_right;
-        public string File_model_right { get => Structure.Gbk.GetString(file_model_right); set { file_model_right = Structure.Gbk.GetBytes(value); } }
+        public string File_model_right { get => Gbk.GetString(file_model_right); set { file_model_right = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model_left;
-        public string File_model_left { get => Structure.Gbk.GetString(file_model_left); set { file_model_left = Structure.Gbk.GetBytes(value); } }
+        public string File_model_left { get => Gbk.GetString(file_model_left); set { file_model_left = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int require_strength { get; set; }
         public int require_agility { get; set; }
         public int require_energy { get; set; }
@@ -314,7 +313,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ARMOR_MAJOR_TYPE
+    public struct ARMOR_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -323,7 +322,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ARMOR_SUB_TYPE
+    public struct ARMOR_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -333,7 +332,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ARMOR_ESSENCE
+    public struct ARMOR_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -341,11 +340,11 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] realname;
-        public string Realname { get => Structure.Gbk.GetString(realname); set { realname = Structure.Gbk.GetBytes(value); } }
+        public string Realname { get => Gbk.GetString(realname); set { realname = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int equip_location { get; set; }
         public int level { get; set; }
         public int require_strength { get; set; }
@@ -542,7 +541,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DECORATION_MAJOR_TYPE
+    public struct DECORATION_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -551,7 +550,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DECORATION_SUB_TYPE
+    public struct DECORATION_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -561,7 +560,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DECORATION_ESSENCE
+    public struct DECORATION_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -569,11 +568,11 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int require_strength { get; set; }
         public int require_agility { get; set; }
@@ -756,7 +755,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MEDICINE_MAJOR_TYPE
+    public struct MEDICINE_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -765,7 +764,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MEDICINE_SUB_TYPE
+    public struct MEDICINE_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -774,7 +773,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MEDICINE_ESSENCE
+    public struct MEDICINE_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -782,9 +781,9 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int require_level { get; set; }
         public int cool_time { get; set; }
         public int hp_add_total { get; set; }
@@ -800,7 +799,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MATERIAL_MAJOR_TYPE
+    public struct MATERIAL_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -809,7 +808,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MATERIAL_SUB_TYPE
+    public struct MATERIAL_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -818,7 +817,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MATERIAL_ESSENCE
+    public struct MATERIAL_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -826,9 +825,9 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int decompose_price { get; set; }
@@ -842,7 +841,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DAMAGERUNE_SUB_TYPE
+    public struct DAMAGERUNE_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -851,16 +850,16 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DAMAGERUNE_ESSENCE
+    public struct DAMAGERUNE_ESSENCE
     {
         public int id;
         public int id_sub_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int damage_type { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -874,7 +873,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ARMORRUNE_SUB_TYPE
+    public struct ARMORRUNE_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -883,20 +882,20 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ARMORRUNE_ESSENCE
+    public struct ARMORRUNE_ESSENCE
     {
         public int id;
         public int id_sub_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_gfx;
-        public string File_gfx { get => Structure.Gbk.GetString(file_gfx); set { file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string File_gfx { get => Gbk.GetString(file_gfx); set { file_gfx = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_sfx;
-        public string File_sfx { get => Structure.Gbk.GetString(file_sfx); set { file_sfx = Structure.Gbk.GetBytes(value); } }
+        public string File_sfx { get => Gbk.GetString(file_sfx); set { file_sfx = Gbk.GetBytes(value); } }
         public int damage_type { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -911,7 +910,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SKILLTOME_SUB_TYPE
+    public struct SKILLTOME_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -920,16 +919,16 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SKILLTOME_ESSENCE
+    public struct SKILLTOME_ESSENCE
     {
         public int id;
         public int id_sub_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -939,19 +938,19 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FLYSWORD_ESSENCE
+    public struct FLYSWORD_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model2;
-        public string File_model2 { get => Structure.Gbk.GetString(file_model2); set { file_model2 = Structure.Gbk.GetBytes(value); } }
+        public string File_model2 { get => Gbk.GetString(file_model2); set { file_model2 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int level { get; set; }
@@ -1005,17 +1004,17 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WINGMANWING_ESSENCE
+    public struct WINGMANWING_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int require_player_level_min { get; set; }
@@ -1029,15 +1028,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TOWNSCROLL_ESSENCE
+    public struct TOWNSCROLL_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public float use_time { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -1048,15 +1047,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class UNIONSCROLL_ESSENCE
+    public struct UNIONSCROLL_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public float use_time { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -1067,15 +1066,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class REVIVESCROLL_ESSENCE
+    public struct REVIVESCROLL_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public float use_time { get; set; }
         public int cool_time { get; set; }
         public int price { get; set; }
@@ -1087,15 +1086,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ELEMENT_ESSENCE
+    public struct ELEMENT_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -1106,13 +1105,13 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TASKMATTER_ESSENCE
+    public struct TASKMATTER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
         public int proc_type { get; set; }
@@ -1120,23 +1119,23 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TOSSMATTER_ESSENCE
+    public struct TOSSMATTER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_firegfx;
-        public string File_firegfx { get => Structure.Gbk.GetString(file_firegfx); set { file_firegfx = Structure.Gbk.GetBytes(value); } }
+        public string File_firegfx { get => Gbk.GetString(file_firegfx); set { file_firegfx = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hitgfx;
-        public string File_hitgfx { get => Structure.Gbk.GetString(file_hitgfx); set { file_hitgfx = Structure.Gbk.GetBytes(value); } }
+        public string File_hitgfx { get => Gbk.GetString(file_hitgfx); set { file_hitgfx = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hitsfx;
-        public string File_hitsfx { get => Structure.Gbk.GetString(file_hitsfx); set { file_hitsfx = Structure.Gbk.GetBytes(value); } }
+        public string File_hitsfx { get => Gbk.GetString(file_hitsfx); set { file_hitsfx = Gbk.GetBytes(value); } }
         public int require_strength { get; set; }
         public int require_agility { get; set; }
         public int require_level { get; set; }
@@ -1154,7 +1153,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PROJECTILE_TYPE
+    public struct PROJECTILE_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -1163,24 +1162,24 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PROJECTILE_ESSENCE
+    public struct PROJECTILE_ESSENCE
     {
         public int id;
         public int type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_firegfx;
-        public string File_firegfx { get => Structure.Gbk.GetString(file_firegfx); set { file_firegfx = Structure.Gbk.GetBytes(value); } }
+        public string File_firegfx { get => Gbk.GetString(file_firegfx); set { file_firegfx = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hitgfx;
-        public string File_hitgfx { get => Structure.Gbk.GetString(file_hitgfx); set { file_hitgfx = Structure.Gbk.GetBytes(value); } }
+        public string File_hitgfx { get => Gbk.GetString(file_hitgfx); set { file_hitgfx = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hitsfx;
-        public string File_hitsfx { get => Structure.Gbk.GetString(file_hitsfx); set { file_hitsfx = Structure.Gbk.GetBytes(value); } }
+        public string File_hitsfx { get => Gbk.GetString(file_hitsfx); set { file_hitsfx = Gbk.GetBytes(value); } }
         public int require_weapon_level_min { get; set; }
         public int require_weapon_level_max { get; set; }
         public int damage_enhance { get; set; }
@@ -1198,7 +1197,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class QUIVER_SUB_TYPE
+    public struct QUIVER_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -1207,16 +1206,16 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class QUIVER_ESSENCE
+    public struct QUIVER_ESSENCE
     {
         public int id;
         public int id_sub_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_projectile { get; set; }
         public int num_min { get; set; }
         public int num_max { get; set; }
@@ -1224,7 +1223,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class STONE_SUB_TYPE
+    public struct STONE_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -1233,16 +1232,16 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class STONE_ESSENCE
+    public struct STONE_ESSENCE
     {
         public int id;
         public int id_sub_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int color { get; set; }
         public int price { get; set; }
@@ -1266,7 +1265,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MONSTER_ADDON
+    public struct MONSTER_ADDON
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -1279,7 +1278,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MONSTER_TYPE
+    public struct MONSTER_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -1320,7 +1319,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MONSTER_ESSENCE
+    public struct MONSTER_ESSENCE
     {
         public int id;
         public int id_type { get; set; }
@@ -1333,11 +1332,11 @@ namespace PWHelper.Element.Versions
         public int faction { get; set; }
         public int monster_faction { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_gfx_short;
-        public string File_gfx_short { get => Structure.Gbk.GetString(file_gfx_short); set { file_gfx_short = Structure.Gbk.GetBytes(value); } }
+        public string File_gfx_short { get => Gbk.GetString(file_gfx_short); set { file_gfx_short = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_gfx_short_hit;
-        public string File_gfx_short_hit { get => Structure.Gbk.GetString(file_gfx_short_hit); set { file_gfx_short_hit = Structure.Gbk.GetBytes(value); } }
+        public string File_gfx_short_hit { get => Gbk.GetString(file_gfx_short_hit); set { file_gfx_short_hit = Gbk.GetBytes(value); } }
         public float size { get; set; }
         public float damage_delay { get; set; }
         public int id_strategy { get; set; }
@@ -1620,7 +1619,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_TALK_SERVICE
+    public struct NPC_TALK_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -1630,7 +1629,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_SELL_SERVICE
+    public struct NPC_SELL_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -2704,7 +2703,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_BUY_SERVICE
+    public struct NPC_BUY_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -2714,7 +2713,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_REPAIR_SERVICE
+    public struct NPC_REPAIR_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -2724,49 +2723,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_INSTALL_SERVICE
-    {
-        public int id;
-[MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
-        
-        public int id_goods_1 { get; set; }
-        public int id_goods_2 { get; set; }
-        public int id_goods_3 { get; set; }
-        public int id_goods_4 { get; set; }
-        public int id_goods_5 { get; set; }
-        public int id_goods_6 { get; set; }
-        public int id_goods_7 { get; set; }
-        public int id_goods_8 { get; set; }
-        public int id_goods_9 { get; set; }
-        public int id_goods_10 { get; set; }
-        public int id_goods_11 { get; set; }
-        public int id_goods_12 { get; set; }
-        public int id_goods_13 { get; set; }
-        public int id_goods_14 { get; set; }
-        public int id_goods_15 { get; set; }
-        public int id_goods_16 { get; set; }
-        public int id_goods_17 { get; set; }
-        public int id_goods_18 { get; set; }
-        public int id_goods_19 { get; set; }
-        public int id_goods_20 { get; set; }
-        public int id_goods_21 { get; set; }
-        public int id_goods_22 { get; set; }
-        public int id_goods_23 { get; set; }
-        public int id_goods_24 { get; set; }
-        public int id_goods_25 { get; set; }
-        public int id_goods_26 { get; set; }
-        public int id_goods_27 { get; set; }
-        public int id_goods_28 { get; set; }
-        public int id_goods_29 { get; set; }
-        public int id_goods_30 { get; set; }
-        public int id_goods_31 { get; set; }
-        public int id_goods_32 { get; set; }
-        public int id_dialog { get; set; }
-
-    }
-
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_UNINSTALL_SERVICE
+    public struct NPC_INSTALL_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -2808,7 +2765,49 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_TASK_IN_SERVICE
+    public struct NPC_UNINSTALL_SERVICE
+    {
+        public int id;
+[MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
+        
+        public int id_goods_1 { get; set; }
+        public int id_goods_2 { get; set; }
+        public int id_goods_3 { get; set; }
+        public int id_goods_4 { get; set; }
+        public int id_goods_5 { get; set; }
+        public int id_goods_6 { get; set; }
+        public int id_goods_7 { get; set; }
+        public int id_goods_8 { get; set; }
+        public int id_goods_9 { get; set; }
+        public int id_goods_10 { get; set; }
+        public int id_goods_11 { get; set; }
+        public int id_goods_12 { get; set; }
+        public int id_goods_13 { get; set; }
+        public int id_goods_14 { get; set; }
+        public int id_goods_15 { get; set; }
+        public int id_goods_16 { get; set; }
+        public int id_goods_17 { get; set; }
+        public int id_goods_18 { get; set; }
+        public int id_goods_19 { get; set; }
+        public int id_goods_20 { get; set; }
+        public int id_goods_21 { get; set; }
+        public int id_goods_22 { get; set; }
+        public int id_goods_23 { get; set; }
+        public int id_goods_24 { get; set; }
+        public int id_goods_25 { get; set; }
+        public int id_goods_26 { get; set; }
+        public int id_goods_27 { get; set; }
+        public int id_goods_28 { get; set; }
+        public int id_goods_29 { get; set; }
+        public int id_goods_30 { get; set; }
+        public int id_goods_31 { get; set; }
+        public int id_goods_32 { get; set; }
+        public int id_dialog { get; set; }
+
+    }
+
+    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+    public struct NPC_TASK_IN_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3073,7 +3072,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_TASK_OUT_SERVICE
+    public struct NPC_TASK_OUT_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3346,7 +3345,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_TASK_MATTER_SERVICE
+    public struct NPC_TASK_MATTER_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3499,7 +3498,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_SKILL_SERVICE
+    public struct NPC_SKILL_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3765,7 +3764,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_HEAL_SERVICE
+    public struct NPC_HEAL_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3775,7 +3774,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_TRANSMIT_SERVICE
+    public struct NPC_TRANSMIT_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3882,7 +3881,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_TRANSPORT_SERVICE
+    public struct NPC_TRANSPORT_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3956,7 +3955,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_PROXY_SERVICE
+    public struct NPC_PROXY_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3966,7 +3965,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_STORAGE_SERVICE
+    public struct NPC_STORAGE_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -3975,7 +3974,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_MAKE_SERVICE
+    public struct NPC_MAKE_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4258,7 +4257,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_DECOMPOSE_SERVICE
+    public struct NPC_DECOMPOSE_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4268,7 +4267,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_TYPE
+    public struct NPC_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4277,7 +4276,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_ESSENCE
+    public struct NPC_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4286,7 +4285,7 @@ namespace PWHelper.Element.Versions
         public float refresh_time { get; set; }
         public int attack_rule { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         public float tax_rate { get; set; }
         public int id_src_monster { get; set; }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)] public string hello_msg;
@@ -4333,22 +4332,22 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TALK_PROC
+    public struct TALK_PROC
     {
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_TEXTURE_ESSENCE
+    public struct FACE_TEXTURE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_base_tex;
-        public string File_base_tex { get => Structure.Gbk.GetString(file_base_tex); set { file_base_tex = Structure.Gbk.GetBytes(value); } }
+        public string File_base_tex { get => Gbk.GetString(file_base_tex); set { file_base_tex = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_high_tex;
-        public string File_high_tex { get => Structure.Gbk.GetString(file_high_tex); set { file_high_tex = Structure.Gbk.GetBytes(value); } }
+        public string File_high_tex { get => Gbk.GetString(file_high_tex); set { file_high_tex = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int tex_part_id { get; set; }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
@@ -4360,15 +4359,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_SHAPE_ESSENCE
+    public struct FACE_SHAPE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_shape;
-        public string File_shape { get => Structure.Gbk.GetString(file_shape); set { file_shape = Structure.Gbk.GetBytes(value); } }
+        public string File_shape { get => Gbk.GetString(file_shape); set { file_shape = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int shape_part_id { get; set; }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
@@ -4379,26 +4378,26 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_EMOTION_TYPE
+    public struct FACE_EMOTION_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_EXPRESSION_ESSENCE
+    public struct FACE_EXPRESSION_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_expression;
-        public string File_expression { get => Structure.Gbk.GetString(file_expression); set { file_expression = Structure.Gbk.GetBytes(value); } }
+        public string File_expression { get => Gbk.GetString(file_expression); set { file_expression = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int emotion_id { get; set; }
@@ -4406,17 +4405,17 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_HAIR_ESSENCE
+    public struct FACE_HAIR_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hair_skin;
-        public string File_hair_skin { get => Structure.Gbk.GetString(file_hair_skin); set { file_hair_skin = Structure.Gbk.GetBytes(value); } }
+        public string File_hair_skin { get => Gbk.GetString(file_hair_skin); set { file_hair_skin = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_hair_model;
-        public string File_hair_model { get => Structure.Gbk.GetString(file_hair_model); set { file_hair_model = Structure.Gbk.GetBytes(value); } }
+        public string File_hair_model { get => Gbk.GetString(file_hair_model); set { file_hair_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
@@ -4426,15 +4425,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_MOUSTACHE_ESSENCE
+    public struct FACE_MOUSTACHE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_moustache_skin;
-        public string File_moustache_skin { get => Structure.Gbk.GetString(file_moustache_skin); set { file_moustache_skin = Structure.Gbk.GetBytes(value); } }
+        public string File_moustache_skin { get => Gbk.GetString(file_moustache_skin); set { file_moustache_skin = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
@@ -4443,13 +4442,13 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class COLORPICKER_ESSENCE
+    public struct COLORPICKER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_colorpicker;
-        public string File_colorpicker { get => Structure.Gbk.GetString(file_colorpicker); set { file_colorpicker = Structure.Gbk.GetBytes(value); } }
+        public string File_colorpicker { get => Gbk.GetString(file_colorpicker); set { file_colorpicker = Gbk.GetBytes(value); } }
         public int color_part_id { get; set; }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
@@ -4457,22 +4456,22 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class CUSTOMIZEDATA_ESSENCE
+    public struct CUSTOMIZEDATA_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_data;
-        public string File_data { get => Structure.Gbk.GetString(file_data); set { file_data = Structure.Gbk.GetBytes(value); } }
+        public string File_data { get => Gbk.GetString(file_data); set { file_data = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class RECIPE_MAJOR_TYPE
+    public struct RECIPE_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4481,7 +4480,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class RECIPE_SUB_TYPE
+    public struct RECIPE_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4490,7 +4489,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class RECIPE_ESSENCE
+    public struct RECIPE_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -4589,7 +4588,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ENEMY_FACTION_CONFIG
+    public struct ENEMY_FACTION_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4630,7 +4629,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class CHARRACTER_CLASS_CONFIG
+    public struct CHARRACTER_CLASS_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4674,7 +4673,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PARAM_ADJUST_CONFIG
+    public struct PARAM_ADJUST_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -4835,59 +4834,59 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PLAYER_ACTION_INFO_CONFIG
+    public struct PLAYER_ACTION_INFO_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_name;
-        public string Action_name { get => Structure.Gbk.GetString(action_name); set { action_name = Structure.Gbk.GetBytes(value); } }
+        public string Action_name { get => Gbk.GetString(action_name); set { action_name = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_prefix;
-        public string Action_prefix { get => Structure.Gbk.GetString(action_prefix); set { action_prefix = Structure.Gbk.GetBytes(value); } }
+        public string Action_prefix { get => Gbk.GetString(action_prefix); set { action_prefix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_1_suffix;
-        public string Action_weapon_suffix_1_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_1_suffix); set { action_weapon_suffix_1_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_1_suffix { get => Gbk.GetString(action_weapon_suffix_1_suffix); set { action_weapon_suffix_1_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_2_suffix;
-        public string Action_weapon_suffix_2_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_2_suffix); set { action_weapon_suffix_2_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_2_suffix { get => Gbk.GetString(action_weapon_suffix_2_suffix); set { action_weapon_suffix_2_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_3_suffix;
-        public string Action_weapon_suffix_3_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_3_suffix); set { action_weapon_suffix_3_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_3_suffix { get => Gbk.GetString(action_weapon_suffix_3_suffix); set { action_weapon_suffix_3_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_4_suffix;
-        public string Action_weapon_suffix_4_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_4_suffix); set { action_weapon_suffix_4_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_4_suffix { get => Gbk.GetString(action_weapon_suffix_4_suffix); set { action_weapon_suffix_4_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_5_suffix;
-        public string Action_weapon_suffix_5_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_5_suffix); set { action_weapon_suffix_5_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_5_suffix { get => Gbk.GetString(action_weapon_suffix_5_suffix); set { action_weapon_suffix_5_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_6_suffix;
-        public string Action_weapon_suffix_6_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_6_suffix); set { action_weapon_suffix_6_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_6_suffix { get => Gbk.GetString(action_weapon_suffix_6_suffix); set { action_weapon_suffix_6_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_7_suffix;
-        public string Action_weapon_suffix_7_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_7_suffix); set { action_weapon_suffix_7_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_7_suffix { get => Gbk.GetString(action_weapon_suffix_7_suffix); set { action_weapon_suffix_7_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_8_suffix;
-        public string Action_weapon_suffix_8_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_8_suffix); set { action_weapon_suffix_8_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_8_suffix { get => Gbk.GetString(action_weapon_suffix_8_suffix); set { action_weapon_suffix_8_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_9_suffix;
-        public string Action_weapon_suffix_9_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_9_suffix); set { action_weapon_suffix_9_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_9_suffix { get => Gbk.GetString(action_weapon_suffix_9_suffix); set { action_weapon_suffix_9_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_10_suffix;
-        public string Action_weapon_suffix_10_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_10_suffix); set { action_weapon_suffix_10_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_10_suffix { get => Gbk.GetString(action_weapon_suffix_10_suffix); set { action_weapon_suffix_10_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_11_suffix;
-        public string Action_weapon_suffix_11_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_11_suffix); set { action_weapon_suffix_11_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_11_suffix { get => Gbk.GetString(action_weapon_suffix_11_suffix); set { action_weapon_suffix_11_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_12_suffix;
-        public string Action_weapon_suffix_12_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_12_suffix); set { action_weapon_suffix_12_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_12_suffix { get => Gbk.GetString(action_weapon_suffix_12_suffix); set { action_weapon_suffix_12_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_13_suffix;
-        public string Action_weapon_suffix_13_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_13_suffix); set { action_weapon_suffix_13_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_13_suffix { get => Gbk.GetString(action_weapon_suffix_13_suffix); set { action_weapon_suffix_13_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_14_suffix;
-        public string Action_weapon_suffix_14_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_14_suffix); set { action_weapon_suffix_14_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_14_suffix { get => Gbk.GetString(action_weapon_suffix_14_suffix); set { action_weapon_suffix_14_suffix = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] action_weapon_suffix_15_suffix;
-        public string Action_weapon_suffix_15_suffix { get => Structure.Gbk.GetString(action_weapon_suffix_15_suffix); set { action_weapon_suffix_15_suffix = Structure.Gbk.GetBytes(value); } }
+        public string Action_weapon_suffix_15_suffix { get => Gbk.GetString(action_weapon_suffix_15_suffix); set { action_weapon_suffix_15_suffix = Gbk.GetBytes(value); } }
         public int hide_weapon { get; set; }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TASKDICE_ESSENCE
+    public struct TASKDICE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int task_lists_1_id { get; set; }
         public float task_lists_1_probability { get; set; }
         public int task_lists_2_id { get; set; }
@@ -4939,15 +4938,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TASKNORMALMATTER_ESSENCE
+    public struct TASKNORMALMATTER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -4957,15 +4956,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_FALING_ESSENCE
+    public struct FACE_FALING_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_faling_skin;
-        public string File_faling_skin { get => Structure.Gbk.GetString(file_faling_skin); set { file_faling_skin = Structure.Gbk.GetBytes(value); } }
+        public string File_faling_skin { get => Gbk.GetString(file_faling_skin); set { file_faling_skin = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int visualize_id { get; set; }
@@ -4974,7 +4973,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PLAYER_LEVELEXP_CONFIG
+    public struct PLAYER_LEVELEXP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5133,7 +5132,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MINE_TYPE
+    public struct MINE_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5142,7 +5141,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MINE_ESSENCE
+    public struct MINE_ESSENCE
     {
         public int id;
         public int id_type { get; set; }
@@ -5157,7 +5156,7 @@ namespace PWHelper.Element.Versions
         public int exp { get; set; }
         public int skillpoint { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         public int materials_1_id { get; set; }
         public float materials_1_probability { get; set; }
         public int materials_1_life { get; set; }
@@ -5244,7 +5243,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_IDENTIFY_SERVICE
+    public struct NPC_IDENTIFY_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5254,7 +5253,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FASHION_MAJOR_TYPE
+    public struct FASHION_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5263,7 +5262,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FASHION_SUB_TYPE
+    public struct FASHION_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5273,7 +5272,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FASHION_ESSENCE
+    public struct FASHION_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -5281,11 +5280,11 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] realname;
-        public string Realname { get => Structure.Gbk.GetString(realname); set { realname = Structure.Gbk.GetBytes(value); } }
+        public string Realname { get => Gbk.GetString(realname); set { realname = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int equip_location { get; set; }
         public int level { get; set; }
         public int require_level { get; set; }
@@ -5299,11 +5298,11 @@ namespace PWHelper.Element.Versions
         public int has_guid { get; set; }
         public int proc_type { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] wear_action;
-        public string Wear_action { get => Structure.Gbk.GetString(wear_action); set { wear_action = Structure.Gbk.GetBytes(value); } }
+        public string Wear_action { get => Gbk.GetString(wear_action); set { wear_action = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model_right;
-        public string File_model_right { get => Structure.Gbk.GetString(file_model_right); set { file_model_right = Structure.Gbk.GetBytes(value); } }
+        public string File_model_right { get => Gbk.GetString(file_model_right); set { file_model_right = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model_left;
-        public string File_model_left { get => Structure.Gbk.GetString(file_model_left); set { file_model_left = Structure.Gbk.GetBytes(value); } }
+        public string File_model_left { get => Gbk.GetString(file_model_left); set { file_model_left = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int action_type { get; set; }
         public int combined_switch { get; set; }
@@ -5317,7 +5316,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACETICKET_MAJOR_TYPE
+    public struct FACETICKET_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5326,7 +5325,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACETICKET_SUB_TYPE
+    public struct FACETICKET_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5335,7 +5334,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACETICKET_ESSENCE
+    public struct FACETICKET_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -5343,12 +5342,12 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int require_level { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] bound_file;
-        public string Bound_file { get => Structure.Gbk.GetString(bound_file); set { bound_file = Structure.Gbk.GetBytes(value); } }
+        public string Bound_file { get => Gbk.GetString(bound_file); set { bound_file = Gbk.GetBytes(value); } }
         public int unsymmetrical { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -5359,7 +5358,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACEPILL_MAJOR_TYPE
+    public struct FACEPILL_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5368,7 +5367,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACEPILL_SUB_TYPE
+    public struct FACEPILL_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5377,7 +5376,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACEPILL_ESSENCE
+    public struct FACEPILL_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -5385,60 +5384,60 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int duration { get; set; }
         public float camera_scale { get; set; }
         public int character_combo_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_1_file;
-        public string Pllfiles_1_file { get => Structure.Gbk.GetString(pllfiles_1_file); set { pllfiles_1_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_1_file { get => Gbk.GetString(pllfiles_1_file); set { pllfiles_1_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_2_file;
-        public string Pllfiles_2_file { get => Structure.Gbk.GetString(pllfiles_2_file); set { pllfiles_2_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_2_file { get => Gbk.GetString(pllfiles_2_file); set { pllfiles_2_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_3_file;
-        public string Pllfiles_3_file { get => Structure.Gbk.GetString(pllfiles_3_file); set { pllfiles_3_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_3_file { get => Gbk.GetString(pllfiles_3_file); set { pllfiles_3_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_4_file;
-        public string Pllfiles_4_file { get => Structure.Gbk.GetString(pllfiles_4_file); set { pllfiles_4_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_4_file { get => Gbk.GetString(pllfiles_4_file); set { pllfiles_4_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_5_file;
-        public string Pllfiles_5_file { get => Structure.Gbk.GetString(pllfiles_5_file); set { pllfiles_5_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_5_file { get => Gbk.GetString(pllfiles_5_file); set { pllfiles_5_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_6_file;
-        public string Pllfiles_6_file { get => Structure.Gbk.GetString(pllfiles_6_file); set { pllfiles_6_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_6_file { get => Gbk.GetString(pllfiles_6_file); set { pllfiles_6_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_7_file;
-        public string Pllfiles_7_file { get => Structure.Gbk.GetString(pllfiles_7_file); set { pllfiles_7_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_7_file { get => Gbk.GetString(pllfiles_7_file); set { pllfiles_7_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_8_file;
-        public string Pllfiles_8_file { get => Structure.Gbk.GetString(pllfiles_8_file); set { pllfiles_8_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_8_file { get => Gbk.GetString(pllfiles_8_file); set { pllfiles_8_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_9_file;
-        public string Pllfiles_9_file { get => Structure.Gbk.GetString(pllfiles_9_file); set { pllfiles_9_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_9_file { get => Gbk.GetString(pllfiles_9_file); set { pllfiles_9_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_10_file;
-        public string Pllfiles_10_file { get => Structure.Gbk.GetString(pllfiles_10_file); set { pllfiles_10_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_10_file { get => Gbk.GetString(pllfiles_10_file); set { pllfiles_10_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_11_file;
-        public string Pllfiles_11_file { get => Structure.Gbk.GetString(pllfiles_11_file); set { pllfiles_11_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_11_file { get => Gbk.GetString(pllfiles_11_file); set { pllfiles_11_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_12_file;
-        public string Pllfiles_12_file { get => Structure.Gbk.GetString(pllfiles_12_file); set { pllfiles_12_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_12_file { get => Gbk.GetString(pllfiles_12_file); set { pllfiles_12_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_13_file;
-        public string Pllfiles_13_file { get => Structure.Gbk.GetString(pllfiles_13_file); set { pllfiles_13_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_13_file { get => Gbk.GetString(pllfiles_13_file); set { pllfiles_13_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_14_file;
-        public string Pllfiles_14_file { get => Structure.Gbk.GetString(pllfiles_14_file); set { pllfiles_14_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_14_file { get => Gbk.GetString(pllfiles_14_file); set { pllfiles_14_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_15_file;
-        public string Pllfiles_15_file { get => Structure.Gbk.GetString(pllfiles_15_file); set { pllfiles_15_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_15_file { get => Gbk.GetString(pllfiles_15_file); set { pllfiles_15_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_16_file;
-        public string Pllfiles_16_file { get => Structure.Gbk.GetString(pllfiles_16_file); set { pllfiles_16_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_16_file { get => Gbk.GetString(pllfiles_16_file); set { pllfiles_16_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_17_file;
-        public string Pllfiles_17_file { get => Structure.Gbk.GetString(pllfiles_17_file); set { pllfiles_17_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_17_file { get => Gbk.GetString(pllfiles_17_file); set { pllfiles_17_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_18_file;
-        public string Pllfiles_18_file { get => Structure.Gbk.GetString(pllfiles_18_file); set { pllfiles_18_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_18_file { get => Gbk.GetString(pllfiles_18_file); set { pllfiles_18_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_19_file;
-        public string Pllfiles_19_file { get => Structure.Gbk.GetString(pllfiles_19_file); set { pllfiles_19_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_19_file { get => Gbk.GetString(pllfiles_19_file); set { pllfiles_19_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_20_file;
-        public string Pllfiles_20_file { get => Structure.Gbk.GetString(pllfiles_20_file); set { pllfiles_20_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_20_file { get => Gbk.GetString(pllfiles_20_file); set { pllfiles_20_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_21_file;
-        public string Pllfiles_21_file { get => Structure.Gbk.GetString(pllfiles_21_file); set { pllfiles_21_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_21_file { get => Gbk.GetString(pllfiles_21_file); set { pllfiles_21_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_22_file;
-        public string Pllfiles_22_file { get => Structure.Gbk.GetString(pllfiles_22_file); set { pllfiles_22_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_22_file { get => Gbk.GetString(pllfiles_22_file); set { pllfiles_22_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_23_file;
-        public string Pllfiles_23_file { get => Structure.Gbk.GetString(pllfiles_23_file); set { pllfiles_23_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_23_file { get => Gbk.GetString(pllfiles_23_file); set { pllfiles_23_file = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] pllfiles_24_file;
-        public string Pllfiles_24_file { get => Structure.Gbk.GetString(pllfiles_24_file); set { pllfiles_24_file = Structure.Gbk.GetBytes(value); } }
+        public string Pllfiles_24_file { get => Gbk.GetString(pllfiles_24_file); set { pllfiles_24_file = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -5448,7 +5447,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SUITE_ESSENCE
+    public struct SUITE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5478,12 +5477,12 @@ namespace PWHelper.Element.Versions
         public int addons_10_id { get; set; }
         public int addons_11_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_gfx;
-        public string File_gfx { get => Structure.Gbk.GetString(file_gfx); set { file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string File_gfx { get => Gbk.GetString(file_gfx); set { file_gfx = Gbk.GetBytes(value); } }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GM_GENERATOR_TYPE
+    public struct GM_GENERATOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5492,16 +5491,16 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GM_GENERATOR_ESSENCE
+    public struct GM_GENERATOR_ESSENCE
     {
         public int id;
         public int id_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_object { get; set; }
         public int pile_num_max { get; set; }
         public int has_guid { get; set; }
@@ -5510,7 +5509,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_TYPE
+    public struct PET_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5519,16 +5518,16 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_ESSENCE
+    public struct PET_ESSENCE
     {
         public int id;
         public int id_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int level_max { get; set; }
         public int level_require { get; set; }
@@ -5585,22 +5584,22 @@ namespace PWHelper.Element.Versions
         public int defence_level_inherit_max_rate { get; set; }
         public int specific_skill { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_gfx_short;
-        public string File_gfx_short { get => Structure.Gbk.GetString(file_gfx_short); set { file_gfx_short = Structure.Gbk.GetBytes(value); } }
+        public string File_gfx_short { get => Gbk.GetString(file_gfx_short); set { file_gfx_short = Gbk.GetBytes(value); } }
         public int id_evolved_skill_rand { get; set; }
         public int combined_switch { get; set; }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_EGG_ESSENCE
+    public struct PET_EGG_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_pet { get; set; }
         public int money_hatched { get; set; }
         public int money_restored { get; set; }
@@ -5681,15 +5680,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_FOOD_ESSENCE
+    public struct PET_FOOD_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int hornor { get; set; }
         public int exp { get; set; }
@@ -5703,15 +5702,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_FACETICKET_ESSENCE
+    public struct PET_FACETICKET_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -5721,17 +5720,17 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FIREWORKS_ESSENCE
+    public struct FIREWORKS_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_fw;
-        public string File_fw { get => Structure.Gbk.GetString(file_fw); set { file_fw = Structure.Gbk.GetBytes(value); } }
+        public string File_fw { get => Gbk.GetString(file_fw); set { file_fw = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int time_to_fire { get; set; }
         public int price { get; set; }
@@ -5743,15 +5742,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WAR_TANKCALLIN_ESSENCE
+    public struct WAR_TANKCALLIN_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -5761,7 +5760,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_WAR_TOWERBUILD_SERVICE
+    public struct NPC_WAR_TOWERBUILD_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -5790,7 +5789,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PLAYER_SECONDLEVEL_CONFIG
+    public struct PLAYER_SECONDLEVEL_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6055,7 +6054,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_RESETPROP_SERVICE
+    public struct NPC_RESETPROP_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6139,7 +6138,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_PETNAME_SERVICE
+    public struct NPC_PETNAME_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6150,7 +6149,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_PETLEARNSKILL_SERVICE
+    public struct NPC_PETLEARNSKILL_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6288,7 +6287,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_PETFORGETSKILL_SERVICE
+    public struct NPC_PETFORGETSKILL_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6299,15 +6298,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SKILLMATTER_ESSENCE
+    public struct SKILLMATTER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level_required { get; set; }
         public int id_skill { get; set; }
         public int level_skill { get; set; }
@@ -6320,15 +6319,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class REFINE_TICKET_ESSENCE
+    public struct REFINE_TICKET_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 16)] public string desc;
         public string Desc { get => desc; set { desc = value; } }
         public float ext_reserved_prob { get; set; }
@@ -6357,15 +6356,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DESTROYING_ESSENCE
+    public struct DESTROYING_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -6375,7 +6374,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_EQUIPBIND_SERVICE
+    public struct NPC_EQUIPBIND_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6390,7 +6389,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_EQUIPDESTROY_SERVICE
+    public struct NPC_EQUIPDESTROY_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6401,7 +6400,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_EQUIPUNDESTROY_SERVICE
+    public struct NPC_EQUIPUNDESTROY_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6412,15 +6411,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class BIBLE_ESSENCE
+    public struct BIBLE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_addons_1 { get; set; }
         public int id_addons_2 { get; set; }
         public int id_addons_3 { get; set; }
@@ -6442,15 +6441,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SPEAKER_ESSENCE
+    public struct SPEAKER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_icon_set { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -6461,15 +6460,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class AUTOHP_ESSENCE
+    public struct AUTOHP_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int total_hp { get; set; }
         public float trigger_amount { get; set; }
         public int cool_time { get; set; }
@@ -6482,15 +6481,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class AUTOMP_ESSENCE
+    public struct AUTOMP_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int total_mp { get; set; }
         public float trigger_amount { get; set; }
         public int cool_time { get; set; }
@@ -6503,15 +6502,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DOUBLE_EXP_ESSENCE
+    public struct DOUBLE_EXP_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int double_exp_time { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -6522,15 +6521,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TRANSMITSCROLL_ESSENCE
+    public struct TRANSMITSCROLL_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -6540,15 +6539,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DYE_TICKET_ESSENCE
+    public struct DYE_TICKET_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public float h_min { get; set; }
         public float h_max { get; set; }
         public float s_min { get; set; }
@@ -6565,29 +6564,29 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GOBLIN_ESSENCE
+    public struct GOBLIN_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model1;
-        public string File_model1 { get => Structure.Gbk.GetString(file_model1); set { file_model1 = Structure.Gbk.GetBytes(value); } }
+        public string File_model1 { get => Gbk.GetString(file_model1); set { file_model1 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model2;
-        public string File_model2 { get => Structure.Gbk.GetString(file_model2); set { file_model2 = Structure.Gbk.GetBytes(value); } }
+        public string File_model2 { get => Gbk.GetString(file_model2); set { file_model2 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model3;
-        public string File_model3 { get => Structure.Gbk.GetString(file_model3); set { file_model3 = Structure.Gbk.GetBytes(value); } }
+        public string File_model3 { get => Gbk.GetString(file_model3); set { file_model3 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model4;
-        public string File_model4 { get => Structure.Gbk.GetString(file_model4); set { file_model4 = Structure.Gbk.GetBytes(value); } }
+        public string File_model4 { get => Gbk.GetString(file_model4); set { file_model4 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon1;
-        public string File_icon1 { get => Structure.Gbk.GetString(file_icon1); set { file_icon1 = Structure.Gbk.GetBytes(value); } }
+        public string File_icon1 { get => Gbk.GetString(file_icon1); set { file_icon1 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon2;
-        public string File_icon2 { get => Structure.Gbk.GetString(file_icon2); set { file_icon2 = Structure.Gbk.GetBytes(value); } }
+        public string File_icon2 { get => Gbk.GetString(file_icon2); set { file_icon2 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon3;
-        public string File_icon3 { get => Structure.Gbk.GetString(file_icon3); set { file_icon3 = Structure.Gbk.GetBytes(value); } }
+        public string File_icon3 { get => Gbk.GetString(file_icon3); set { file_icon3 = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon4;
-        public string File_icon4 { get => Structure.Gbk.GetString(file_icon4); set { file_icon4 = Structure.Gbk.GetBytes(value); } }
+        public string File_icon4 { get => Gbk.GetString(file_icon4); set { file_icon4 = Gbk.GetBytes(value); } }
         public float exp_factor { get; set; }
         public int init_strength { get; set; }
         public int init_agility { get; set; }
@@ -6626,7 +6625,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GOBLIN_EQUIP_TYPE
+    public struct GOBLIN_EQUIP_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -6635,16 +6634,16 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GOBLIN_EQUIP_ESSENCE
+    public struct GOBLIN_EQUIP_ESSENCE
     {
         public int id;
         public int id_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int equip_type { get; set; }
         public int req_goblin_level { get; set; }
         public int strength { get; set; }
@@ -6665,15 +6664,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GOBLIN_EXPPILL_ESSENCE
+    public struct GOBLIN_EXPPILL_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int exp { get; set; }
         public int level { get; set; }
         public int price { get; set; }
@@ -6685,17 +6684,17 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SELL_CERTIFICATE_ESSENCE
+    public struct SELL_CERTIFICATE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] show_model;
-        public string Show_model { get => Structure.Gbk.GetString(show_model); set { show_model = Structure.Gbk.GetBytes(value); } }
+        public string Show_model { get => Gbk.GetString(show_model); set { show_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int num_sell_item { get; set; }
         public int num_buy_item { get; set; }
         public int max_name_length { get; set; }
@@ -6705,20 +6704,20 @@ namespace PWHelper.Element.Versions
         public int has_guid { get; set; }
         public int proc_type { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] name_image;
-        public string Name_image { get => Structure.Gbk.GetString(name_image); set { name_image = Structure.Gbk.GetBytes(value); } }
+        public string Name_image { get => Gbk.GetString(name_image); set { name_image = Gbk.GetBytes(value); } }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TARGET_ITEM_ESSENCE
+    public struct TARGET_ITEM_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int num_use_pertime { get; set; }
         public int num_area { get; set; }
         public int area_id_1 { get; set; }
@@ -6779,15 +6778,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class LOOK_INFO_ESSENCE
+    public struct LOOK_INFO_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -6797,7 +6796,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class UPGRADE_PRODUCTION_CONFIG
+    public struct UPGRADE_PRODUCTION_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -7046,7 +7045,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ACC_STORAGE_BLACKLIST_CONFIG
+    public struct ACC_STORAGE_BLACKLIST_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -7567,7 +7566,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_HAIR_TEXTURE_MAP
+    public struct FACE_HAIR_TEXTURE_MAP
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -7832,7 +7831,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MULTI_EXP_CONFIG
+    public struct MULTI_EXP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -7941,15 +7940,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class INC_SKILL_ABILITY_ESSENCE
+    public struct INC_SKILL_ABILITY_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_skill { get; set; }
         public int level_required { get; set; }
         public float inc_ratio { get; set; }
@@ -7962,7 +7961,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GOD_EVIL_CONVERT_CONFIG
+    public struct GOD_EVIL_CONVERT_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -8227,7 +8226,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WEDDING_CONFIG
+    public struct WEDDING_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -8386,15 +8385,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WEDDING_BOOKCARD_ESSENCE
+    public struct WEDDING_BOOKCARD_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int year { get; set; }
         public int month { get; set; }
         public int day { get; set; }
@@ -8407,15 +8406,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WEDDING_INVITECARD_ESSENCE
+    public struct WEDDING_INVITECARD_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -8425,15 +8424,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SHARPENER_ESSENCE
+    public struct SHARPENER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int equip_mask { get; set; }
         public int addon_1 { get; set; }
@@ -8450,15 +8449,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACE_THIRDEYE_ESSENCE
+    public struct FACE_THIRDEYE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_gfx;
-        public string File_gfx { get => Structure.Gbk.GetString(file_gfx); set { file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string File_gfx { get => Gbk.GetString(file_gfx); set { file_gfx = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int gender_id { get; set; }
         public int facepill_only { get; set; }
@@ -8466,7 +8465,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACTION_FORTRESS_CONFIG
+    public struct FACTION_FORTRESS_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -8947,7 +8946,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACTION_BUILDING_SUB_TYPE
+    public struct FACTION_BUILDING_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -8956,14 +8955,14 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACTION_BUILDING_ESSENCE
+    public struct FACTION_BUILDING_ESSENCE
     {
         public int id;
         public int id_sub_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int require_level { get; set; }
         public int technology_1 { get; set; }
@@ -8988,15 +8987,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACTION_MATERIAL_ESSENCE
+    public struct FACTION_MATERIAL_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int material_count_1 { get; set; }
         public int material_count_2 { get; set; }
         public int material_count_3 { get; set; }
@@ -9014,15 +9013,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class CONGREGATE_ESSENCE
+    public struct CONGREGATE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int congregate_type { get; set; }
         public int area_1_id { get; set; }
         public int area_1_require_level { get; set; }
@@ -9073,7 +9072,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ENGRAVE_MAJOR_TYPE
+    public struct ENGRAVE_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -9082,7 +9081,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ENGRAVE_SUB_TYPE
+    public struct ENGRAVE_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -9091,7 +9090,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ENGRAVE_ESSENCE
+    public struct ENGRAVE_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -9099,7 +9098,7 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int equip_mask { get; set; }
         public int require_level_min { get; set; }
@@ -9193,7 +9192,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_ENGRAVE_SERVICE
+    public struct NPC_ENGRAVE_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -9218,7 +9217,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_RANDPROP_SERVICE
+    public struct NPC_RANDPROP_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -9251,7 +9250,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class RANDPROP_TYPE
+    public struct RANDPROP_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -9260,7 +9259,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class RANDPROP_ESSENCE
+    public struct RANDPROP_ESSENCE
     {
         public int id;
         public int id_type { get; set; }
@@ -9322,7 +9321,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WIKI_TABOO_CONFIG
+    public struct WIKI_TABOO_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -10611,13 +10610,13 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FORCE_CONFIG
+    public struct FORCE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int color { get; set; }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)] public string desc;
         public string Desc { get => desc; set { desc = value; } }
@@ -10631,15 +10630,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FORCE_TOKEN_ESSENCE
+    public struct FORCE_TOKEN_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int require_force { get; set; }
         public int reputation_add { get; set; }
         public int reputation_increase_ratio { get; set; }
@@ -10652,7 +10651,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_FORCE_SERVICE
+    public struct NPC_FORCE_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -10662,7 +10661,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PLAYER_DEATH_DROP_CONFIG
+    public struct PLAYER_DEATH_DROP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -10927,15 +10926,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class DYNSKILLEQUIP_ESSENCE
+    public struct DYNSKILLEQUIP_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_skill_1 { get; set; }
         public int id_skill_2 { get; set; }
         public int id_skill_3 { get; set; }
@@ -10949,7 +10948,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class CONSUME_POINTS_CONFIG
+    public struct CONSUME_POINTS_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -13006,7 +13005,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ONLINE_AWARDS_CONFIG
+    public struct ONLINE_AWARDS_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -13656,7 +13655,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class COUNTRY_CONFIG
+    public struct COUNTRY_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -13664,22 +13663,22 @@ namespace PWHelper.Element.Versions
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string country_1_name;
         public string Country_1_name { get => country_1_name; set { country_1_name = value; } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] country_1_file_icon;
-        public string Country_1_file_icon { get => Structure.Gbk.GetString(country_1_file_icon); set { country_1_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string Country_1_file_icon { get => Gbk.GetString(country_1_file_icon); set { country_1_file_icon = Gbk.GetBytes(value); } }
         public int country_1_color { get; set; }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string country_2_name;
         public string Country_2_name { get => country_2_name; set { country_2_name = value; } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] country_2_file_icon;
-        public string Country_2_file_icon { get => Structure.Gbk.GetString(country_2_file_icon); set { country_2_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string Country_2_file_icon { get => Gbk.GetString(country_2_file_icon); set { country_2_file_icon = Gbk.GetBytes(value); } }
         public int country_2_color { get; set; }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string country_3_name;
         public string Country_3_name { get => country_3_name; set { country_3_name = value; } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] country_3_file_icon;
-        public string Country_3_file_icon { get => Structure.Gbk.GetString(country_3_file_icon); set { country_3_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string Country_3_file_icon { get => Gbk.GetString(country_3_file_icon); set { country_3_file_icon = Gbk.GetBytes(value); } }
         public int country_3_color { get; set; }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] public string country_4_name;
         public string Country_4_name { get => country_4_name; set { country_4_name = value; } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] country_4_file_icon;
-        public string Country_4_file_icon { get => Structure.Gbk.GetString(country_4_file_icon); set { country_4_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string Country_4_file_icon { get => Gbk.GetString(country_4_file_icon); set { country_4_file_icon = Gbk.GetBytes(value); } }
         public int country_4_color { get; set; }
         public int flag_controller_id_1 { get; set; }
         public int flag_controller_id_2 { get; set; }
@@ -13887,7 +13886,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GM_ACTIVITY_CONFIG
+    public struct GM_ACTIVITY_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -13913,7 +13912,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FASHION_WEAPON_CONFIG
+    public struct FASHION_WEAPON_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -13937,7 +13936,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_EVOLVE_CONFIG
+    public struct PET_EVOLVE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14036,7 +14035,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_EVOLVED_SKILL_CONFIG
+    public struct PET_EVOLVED_SKILL_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14049,15 +14048,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MONEY_CONVERTIBLE_ESSENCE
+    public struct MONEY_CONVERTIBLE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int price { get; set; }
         public int shop_price { get; set; }
         public int pile_num_max { get; set; }
@@ -14067,7 +14066,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class STONE_CHANGE_RECIPE_TYPE
+    public struct STONE_CHANGE_RECIPE_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14076,7 +14075,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class STONE_CHANGE_RECIPE
+    public struct STONE_CHANGE_RECIPE
     {
         public int id;
         public int id_type { get; set; }
@@ -14105,7 +14104,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MERIDIAN_CONFIG
+    public struct MERIDIAN_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14174,7 +14173,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PET_EVOLVED_SKILL_RAND_CONFIG
+    public struct PET_EVOLVED_SKILL_RAND_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14276,112 +14275,112 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class AUTOTASK_DISPLAY_CONFIG
+    public struct AUTOTASK_DISPLAY_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         public int list_1_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_1_file_icon;
-        public string List_1_file_icon { get => Structure.Gbk.GetString(list_1_file_icon); set { list_1_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_1_file_icon { get => Gbk.GetString(list_1_file_icon); set { list_1_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_1_file_gfx;
-        public string List_1_file_gfx { get => Structure.Gbk.GetString(list_1_file_gfx); set { list_1_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_1_file_gfx { get => Gbk.GetString(list_1_file_gfx); set { list_1_file_gfx = Gbk.GetBytes(value); } }
         public int list_1_color { get; set; }
         public int list_2_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_2_file_icon;
-        public string List_2_file_icon { get => Structure.Gbk.GetString(list_2_file_icon); set { list_2_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_2_file_icon { get => Gbk.GetString(list_2_file_icon); set { list_2_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_2_file_gfx;
-        public string List_2_file_gfx { get => Structure.Gbk.GetString(list_2_file_gfx); set { list_2_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_2_file_gfx { get => Gbk.GetString(list_2_file_gfx); set { list_2_file_gfx = Gbk.GetBytes(value); } }
         public int list_2_color { get; set; }
         public int list_3_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_3_file_icon;
-        public string List_3_file_icon { get => Structure.Gbk.GetString(list_3_file_icon); set { list_3_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_3_file_icon { get => Gbk.GetString(list_3_file_icon); set { list_3_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_3_file_gfx;
-        public string List_3_file_gfx { get => Structure.Gbk.GetString(list_3_file_gfx); set { list_3_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_3_file_gfx { get => Gbk.GetString(list_3_file_gfx); set { list_3_file_gfx = Gbk.GetBytes(value); } }
         public int list_3_color { get; set; }
         public int list_4_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_4_file_icon;
-        public string List_4_file_icon { get => Structure.Gbk.GetString(list_4_file_icon); set { list_4_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_4_file_icon { get => Gbk.GetString(list_4_file_icon); set { list_4_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_4_file_gfx;
-        public string List_4_file_gfx { get => Structure.Gbk.GetString(list_4_file_gfx); set { list_4_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_4_file_gfx { get => Gbk.GetString(list_4_file_gfx); set { list_4_file_gfx = Gbk.GetBytes(value); } }
         public int list_4_color { get; set; }
         public int list_5_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_5_file_icon;
-        public string List_5_file_icon { get => Structure.Gbk.GetString(list_5_file_icon); set { list_5_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_5_file_icon { get => Gbk.GetString(list_5_file_icon); set { list_5_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_5_file_gfx;
-        public string List_5_file_gfx { get => Structure.Gbk.GetString(list_5_file_gfx); set { list_5_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_5_file_gfx { get => Gbk.GetString(list_5_file_gfx); set { list_5_file_gfx = Gbk.GetBytes(value); } }
         public int list_5_color { get; set; }
         public int list_6_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_6_file_icon;
-        public string List_6_file_icon { get => Structure.Gbk.GetString(list_6_file_icon); set { list_6_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_6_file_icon { get => Gbk.GetString(list_6_file_icon); set { list_6_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_6_file_gfx;
-        public string List_6_file_gfx { get => Structure.Gbk.GetString(list_6_file_gfx); set { list_6_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_6_file_gfx { get => Gbk.GetString(list_6_file_gfx); set { list_6_file_gfx = Gbk.GetBytes(value); } }
         public int list_6_color { get; set; }
         public int list_7_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_7_file_icon;
-        public string List_7_file_icon { get => Structure.Gbk.GetString(list_7_file_icon); set { list_7_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_7_file_icon { get => Gbk.GetString(list_7_file_icon); set { list_7_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_7_file_gfx;
-        public string List_7_file_gfx { get => Structure.Gbk.GetString(list_7_file_gfx); set { list_7_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_7_file_gfx { get => Gbk.GetString(list_7_file_gfx); set { list_7_file_gfx = Gbk.GetBytes(value); } }
         public int list_7_color { get; set; }
         public int list_8_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_8_file_icon;
-        public string List_8_file_icon { get => Structure.Gbk.GetString(list_8_file_icon); set { list_8_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_8_file_icon { get => Gbk.GetString(list_8_file_icon); set { list_8_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_8_file_gfx;
-        public string List_8_file_gfx { get => Structure.Gbk.GetString(list_8_file_gfx); set { list_8_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_8_file_gfx { get => Gbk.GetString(list_8_file_gfx); set { list_8_file_gfx = Gbk.GetBytes(value); } }
         public int list_8_color { get; set; }
         public int list_9_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_9_file_icon;
-        public string List_9_file_icon { get => Structure.Gbk.GetString(list_9_file_icon); set { list_9_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_9_file_icon { get => Gbk.GetString(list_9_file_icon); set { list_9_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_9_file_gfx;
-        public string List_9_file_gfx { get => Structure.Gbk.GetString(list_9_file_gfx); set { list_9_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_9_file_gfx { get => Gbk.GetString(list_9_file_gfx); set { list_9_file_gfx = Gbk.GetBytes(value); } }
         public int list_9_color { get; set; }
         public int list_10_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_10_file_icon;
-        public string List_10_file_icon { get => Structure.Gbk.GetString(list_10_file_icon); set { list_10_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_10_file_icon { get => Gbk.GetString(list_10_file_icon); set { list_10_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_10_file_gfx;
-        public string List_10_file_gfx { get => Structure.Gbk.GetString(list_10_file_gfx); set { list_10_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_10_file_gfx { get => Gbk.GetString(list_10_file_gfx); set { list_10_file_gfx = Gbk.GetBytes(value); } }
         public int list_10_color { get; set; }
         public int list_11_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_11_file_icon;
-        public string List_11_file_icon { get => Structure.Gbk.GetString(list_11_file_icon); set { list_11_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_11_file_icon { get => Gbk.GetString(list_11_file_icon); set { list_11_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_11_file_gfx;
-        public string List_11_file_gfx { get => Structure.Gbk.GetString(list_11_file_gfx); set { list_11_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_11_file_gfx { get => Gbk.GetString(list_11_file_gfx); set { list_11_file_gfx = Gbk.GetBytes(value); } }
         public int list_11_color { get; set; }
         public int list_12_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_12_file_icon;
-        public string List_12_file_icon { get => Structure.Gbk.GetString(list_12_file_icon); set { list_12_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_12_file_icon { get => Gbk.GetString(list_12_file_icon); set { list_12_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_12_file_gfx;
-        public string List_12_file_gfx { get => Structure.Gbk.GetString(list_12_file_gfx); set { list_12_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_12_file_gfx { get => Gbk.GetString(list_12_file_gfx); set { list_12_file_gfx = Gbk.GetBytes(value); } }
         public int list_12_color { get; set; }
         public int list_13_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_13_file_icon;
-        public string List_13_file_icon { get => Structure.Gbk.GetString(list_13_file_icon); set { list_13_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_13_file_icon { get => Gbk.GetString(list_13_file_icon); set { list_13_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_13_file_gfx;
-        public string List_13_file_gfx { get => Structure.Gbk.GetString(list_13_file_gfx); set { list_13_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_13_file_gfx { get => Gbk.GetString(list_13_file_gfx); set { list_13_file_gfx = Gbk.GetBytes(value); } }
         public int list_13_color { get; set; }
         public int list_14_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_14_file_icon;
-        public string List_14_file_icon { get => Structure.Gbk.GetString(list_14_file_icon); set { list_14_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_14_file_icon { get => Gbk.GetString(list_14_file_icon); set { list_14_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_14_file_gfx;
-        public string List_14_file_gfx { get => Structure.Gbk.GetString(list_14_file_gfx); set { list_14_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_14_file_gfx { get => Gbk.GetString(list_14_file_gfx); set { list_14_file_gfx = Gbk.GetBytes(value); } }
         public int list_14_color { get; set; }
         public int list_15_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_15_file_icon;
-        public string List_15_file_icon { get => Structure.Gbk.GetString(list_15_file_icon); set { list_15_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_15_file_icon { get => Gbk.GetString(list_15_file_icon); set { list_15_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_15_file_gfx;
-        public string List_15_file_gfx { get => Structure.Gbk.GetString(list_15_file_gfx); set { list_15_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_15_file_gfx { get => Gbk.GetString(list_15_file_gfx); set { list_15_file_gfx = Gbk.GetBytes(value); } }
         public int list_15_color { get; set; }
         public int list_16_task_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_16_file_icon;
-        public string List_16_file_icon { get => Structure.Gbk.GetString(list_16_file_icon); set { list_16_file_icon = Structure.Gbk.GetBytes(value); } }
+        public string List_16_file_icon { get => Gbk.GetString(list_16_file_icon); set { list_16_file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_16_file_gfx;
-        public string List_16_file_gfx { get => Structure.Gbk.GetString(list_16_file_gfx); set { list_16_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_16_file_gfx { get => Gbk.GetString(list_16_file_gfx); set { list_16_file_gfx = Gbk.GetBytes(value); } }
         public int list_16_color { get; set; }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TOUCH_SHOP_CONFIG
+    public struct TOUCH_SHOP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14918,7 +14917,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TITLE_CONFIG
+    public struct TITLE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14940,7 +14939,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class COMPLEX_TITLE_CONFIG
+    public struct COMPLEX_TITLE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -14971,15 +14970,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MONSTER_SPIRIT_ESSENCE
+    public struct MONSTER_SPIRIT_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int type { get; set; }
         public int level { get; set; }
         public int power { get; set; }
@@ -14992,7 +14991,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PLAYER_SPIRIT_CONFIG
+    public struct PLAYER_SPIRIT_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15042,7 +15041,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PLAYER_REINCARNATION_CONFIG
+    public struct PLAYER_REINCARNATION_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15071,7 +15070,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HISTORY_STAGE_CONFIG
+    public struct HISTORY_STAGE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15084,7 +15083,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HISTORY_ADVANCE_CONFIG
+    public struct HISTORY_ADVANCE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15125,13 +15124,13 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class AUTOTEAM_CONFIG
+    public struct AUTOTEAM_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)] public string desc;
         public string Desc { get => desc; set { desc = value; } }
         public int type { get; set; }
@@ -15248,7 +15247,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PLAYER_REALM_CONFIG
+    public struct PLAYER_REALM_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15457,13 +15456,13 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class CHARIOT_CONFIG
+    public struct CHARIOT_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)] public string desc;
         public string Desc { get => desc; set { desc = value; } }
         public int level { get; set; }
@@ -15489,7 +15488,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class CHARIOT_WAR_CONFIG
+    public struct CHARIOT_WAR_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15504,7 +15503,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class POKER_LEVELEXP_CONFIG
+    public struct POKER_LEVELEXP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15618,7 +15617,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class POKER_SUITE_ESSENCE
+    public struct POKER_SUITE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -15634,15 +15633,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class POKER_DICE_ESSENCE
+    public struct POKER_DICE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int swallow_exp { get; set; }
         public int list_1_id { get; set; }
         public float list_1_probability { get; set; }
@@ -16165,7 +16164,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class POKER_SUB_TYPE
+    public struct POKER_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -16176,20 +16175,20 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class POKER_ESSENCE
+    public struct POKER_ESSENCE
     {
         public int id;
         public int id_sub_type { get; set; }
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_img;
-        public string File_img { get => Structure.Gbk.GetString(file_img); set { file_img = Structure.Gbk.GetBytes(value); } }
+        public string File_img { get => Gbk.GetString(file_img); set { file_img = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_gfx;
-        public string File_gfx { get => Structure.Gbk.GetString(file_gfx); set { file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string File_gfx { get => Gbk.GetString(file_gfx); set { file_gfx = Gbk.GetBytes(value); } }
         public int require_level { get; set; }
         public int require_control_point_1 { get; set; }
         public int require_control_point_2 { get; set; }
@@ -16230,7 +16229,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TOKEN_SHOP_CONFIG
+    public struct TOKEN_SHOP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -16303,15 +16302,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SHOP_TOKEN_ESSENCE
+    public struct SHOP_TOKEN_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int id_token_shop { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -16322,7 +16321,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class GT_CONFIG
+    public struct GT_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -16333,7 +16332,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class RAND_SHOP_CONFIG
+    public struct RAND_SHOP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -16857,7 +16856,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class PROFIT_TIME_CONFIG
+    public struct PROFIT_TIME_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -16867,7 +16866,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FACTION_PVP_CONFIG
+    public struct FACTION_PVP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -16976,15 +16975,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class UNIVERSAL_TOKEN_ESSENCE
+    public struct UNIVERSAL_TOKEN_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int combined_switch { get; set; }
         public int config_id_1 { get; set; }
         public int config_id_2 { get; set; }
@@ -17027,7 +17026,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TASK_LIST_CONFIG
+    public struct TASK_LIST_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -17292,7 +17291,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class TASK_DICE_BY_WEIGHT_CONFIG
+    public struct TASK_DICE_BY_WEIGHT_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -17335,13 +17334,13 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FASHION_SUITE_ESSENCE
+    public struct FASHION_SUITE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int list_1 { get; set; }
         public int list_2 { get; set; }
         public int list_3 { get; set; }
@@ -17353,7 +17352,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FASHION_BEST_COLOR_CONFIG
+    public struct FASHION_BEST_COLOR_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -17490,7 +17489,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SIGN_AWARD_CONFIG
+    public struct SIGN_AWARD_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -17561,15 +17560,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ASTROLABE_ESSENCE
+    public struct ASTROLABE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int character_combo_id { get; set; }
         public int require_level { get; set; }
         public int min_inner_point_value { get; set; }
@@ -17684,15 +17683,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ASTROLABE_RANDOM_ADDON_ESSENCE
+    public struct ASTROLABE_RANDOM_ADDON_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int addon_random_exp_gained { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -17703,15 +17702,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ASTROLABE_INC_INNER_POINT_VALUE_ESSENCE
+    public struct ASTROLABE_INC_INNER_POINT_VALUE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int increase_base { get; set; }
         public float increase_probability_1 { get; set; }
         public float increase_probability_2 { get; set; }
@@ -17734,15 +17733,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ASTROLABE_INC_EXP_ESSENCE
+    public struct ASTROLABE_INC_EXP_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int swallow_exp { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -17753,15 +17752,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ITEM_PACKAGE_BY_PROFESSION_ESSENCE
+    public struct ITEM_PACKAGE_BY_PROFESSION_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int prof_list_1_gender_list_1_item_id { get; set; }
         public int prof_list_1_gender_list_2_item_id { get; set; }
         public int prof_list_2_gender_list_1_item_id { get; set; }
@@ -17796,7 +17795,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ASTROLABE_LEVELEXP_CONFIG
+    public struct ASTROLABE_LEVELEXP_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -17905,7 +17904,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ASTROLABE_ADDON_RANDOM_CONFIG
+    public struct ASTROLABE_ADDON_RANDOM_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -18024,46 +18023,46 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class ASTROLABE_APPEARANCE_CONFIG
+    public struct ASTROLABE_APPEARANCE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         public int list_1_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_1_file_gfx;
-        public string List_1_file_gfx { get => Structure.Gbk.GetString(list_1_file_gfx); set { list_1_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_1_file_gfx { get => Gbk.GetString(list_1_file_gfx); set { list_1_file_gfx = Gbk.GetBytes(value); } }
         public int list_2_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_2_file_gfx;
-        public string List_2_file_gfx { get => Structure.Gbk.GetString(list_2_file_gfx); set { list_2_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_2_file_gfx { get => Gbk.GetString(list_2_file_gfx); set { list_2_file_gfx = Gbk.GetBytes(value); } }
         public int list_3_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_3_file_gfx;
-        public string List_3_file_gfx { get => Structure.Gbk.GetString(list_3_file_gfx); set { list_3_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_3_file_gfx { get => Gbk.GetString(list_3_file_gfx); set { list_3_file_gfx = Gbk.GetBytes(value); } }
         public int list_4_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_4_file_gfx;
-        public string List_4_file_gfx { get => Structure.Gbk.GetString(list_4_file_gfx); set { list_4_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_4_file_gfx { get => Gbk.GetString(list_4_file_gfx); set { list_4_file_gfx = Gbk.GetBytes(value); } }
         public int list_5_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_5_file_gfx;
-        public string List_5_file_gfx { get => Structure.Gbk.GetString(list_5_file_gfx); set { list_5_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_5_file_gfx { get => Gbk.GetString(list_5_file_gfx); set { list_5_file_gfx = Gbk.GetBytes(value); } }
         public int list_6_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_6_file_gfx;
-        public string List_6_file_gfx { get => Structure.Gbk.GetString(list_6_file_gfx); set { list_6_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_6_file_gfx { get => Gbk.GetString(list_6_file_gfx); set { list_6_file_gfx = Gbk.GetBytes(value); } }
         public int list_7_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_7_file_gfx;
-        public string List_7_file_gfx { get => Structure.Gbk.GetString(list_7_file_gfx); set { list_7_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_7_file_gfx { get => Gbk.GetString(list_7_file_gfx); set { list_7_file_gfx = Gbk.GetBytes(value); } }
         public int list_8_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_8_file_gfx;
-        public string List_8_file_gfx { get => Structure.Gbk.GetString(list_8_file_gfx); set { list_8_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_8_file_gfx { get => Gbk.GetString(list_8_file_gfx); set { list_8_file_gfx = Gbk.GetBytes(value); } }
         public int list_9_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_9_file_gfx;
-        public string List_9_file_gfx { get => Structure.Gbk.GetString(list_9_file_gfx); set { list_9_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_9_file_gfx { get => Gbk.GetString(list_9_file_gfx); set { list_9_file_gfx = Gbk.GetBytes(value); } }
         public int list_10_name_color { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] list_10_file_gfx;
-        public string List_10_file_gfx { get => Structure.Gbk.GetString(list_10_file_gfx); set { list_10_file_gfx = Structure.Gbk.GetBytes(value); } }
+        public string List_10_file_gfx { get => Gbk.GetString(list_10_file_gfx); set { list_10_file_gfx = Gbk.GetBytes(value); } }
 
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class EQUIP_MAKE_HOLE_CONFIG
+    public struct EQUIP_MAKE_HOLE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -18312,7 +18311,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SOLO_TOWER_CHALLENGE_LEVEL_CONFIG
+    public struct SOLO_TOWER_CHALLENGE_LEVEL_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -19039,7 +19038,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SOLO_TOWER_CHALLENGE_AWARD_PAGE_CONFIG
+    public struct SOLO_TOWER_CHALLENGE_AWARD_PAGE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -19108,7 +19107,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SOLO_TOWER_CHALLENGE_AWARD_LIST_CONFIG
+    public struct SOLO_TOWER_CHALLENGE_AWARD_LIST_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -19441,7 +19440,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class SOLO_TOWER_CHALLENGE_SCORE_COST_CONFIG
+    public struct SOLO_TOWER_CHALLENGE_SCORE_COST_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -19610,7 +19609,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class MNFACTION_WAR_CONFIG
+    public struct MNFACTION_WAR_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -19773,7 +19772,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class NPC_CROSS_SERVER_SERVICE
+    public struct NPC_CROSS_SERVER_SERVICE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -19791,15 +19790,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FIREWORKS2_ESSENCE
+    public struct FIREWORKS2_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int level { get; set; }
         public int time_to_fire { get; set; }
         public int price { get; set; }
@@ -19807,7 +19806,7 @@ namespace PWHelper.Element.Versions
         public int male_mine_id { get; set; }
         public int female_mine_id { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 32)] public byte[] cast_action;
-        public string Cast_action { get => Structure.Gbk.GetString(cast_action); set { cast_action = Structure.Gbk.GetBytes(value); } }
+        public string Cast_action { get => Gbk.GetString(cast_action); set { cast_action = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)] public string caster_word;
         public string Caster_word { get => caster_word; set { caster_word = value; } }
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)] public string receiver_word;
@@ -19819,15 +19818,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class FIX_POSITION_TRANSMIT_ESSENCE
+    public struct FIX_POSITION_TRANSMIT_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int energy { get; set; }
         public int price { get; set; }
         public int shop_price { get; set; }
@@ -19838,7 +19837,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_CONFIG
+    public struct HOME_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20183,24 +20182,24 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_PRODUCTS_CONFIG
+    public struct HOME_PRODUCTS_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         public int produce_type { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int is_have_surface_display { get; set; }
         public int time { get; set; }
         public int building_level_min { get; set; }
         public int building_level_max { get; set; }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter_primary;
-        public string File_matter_primary { get => Structure.Gbk.GetString(file_matter_primary); set { file_matter_primary = Structure.Gbk.GetBytes(value); } }
+        public string File_matter_primary { get => Gbk.GetString(file_matter_primary); set { file_matter_primary = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter_grow_up;
-        public string File_matter_grow_up { get => Structure.Gbk.GetString(file_matter_grow_up); set { file_matter_grow_up = Structure.Gbk.GetBytes(value); } }
+        public string File_matter_grow_up { get => Gbk.GetString(file_matter_grow_up); set { file_matter_grow_up = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter_ripe;
-        public string File_matter_ripe { get => Structure.Gbk.GetString(file_matter_ripe); set { file_matter_ripe = Structure.Gbk.GetBytes(value); } }
+        public string File_matter_ripe { get => Gbk.GetString(file_matter_ripe); set { file_matter_ripe = Gbk.GetBytes(value); } }
         public int output { get; set; }
         public int exp { get; set; }
         public int cost_grain_count { get; set; }
@@ -20211,7 +20210,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_RESOURCE_PRODUCE_CONFIG
+    public struct HOME_RESOURCE_PRODUCE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20382,7 +20381,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_FORMULAS_PRODUCE_RECIPE
+    public struct HOME_FORMULAS_PRODUCE_RECIPE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -20432,7 +20431,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_FORMULAS_ITEM_ESSENCE
+    public struct HOME_FORMULAS_ITEM_ESSENCE
     {
         public int id;
         public int id_major_type { get; set; }
@@ -20440,9 +20439,9 @@ namespace PWHelper.Element.Versions
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int formulas_id { get; set; }
         public int produce_times { get; set; }
         public int price { get; set; }
@@ -20454,7 +20453,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_PRODUCE_SERVICE_CONFIG
+    public struct HOME_PRODUCE_SERVICE_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20719,7 +20718,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_FACTORY_CONFIG
+    public struct HOME_FACTORY_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20841,7 +20840,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_ITEM_MAJOR_TYPE
+    public struct HOME_ITEM_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20850,7 +20849,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_ITEM_SUB_TYPE
+    public struct HOME_ITEM_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20859,7 +20858,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_ITEM_ENTITY
+    public struct HOME_ITEM_ENTITY
     {
         public int id;
         public int id_major_type { get; set; }
@@ -20870,9 +20869,9 @@ namespace PWHelper.Element.Versions
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)] public string desc;
         public string Desc { get => desc; set { desc = value; } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_model;
-        public string File_model { get => Structure.Gbk.GetString(file_model); set { file_model = Structure.Gbk.GetBytes(value); } }
+        public string File_model { get => Gbk.GetString(file_model); set { file_model = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int min_general_prosperous { get; set; }
         public int max_general_prosperous { get; set; }
         public int min_fine_prosperous { get; set; }
@@ -20891,7 +20890,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_FORMULAS_PRODUCE_MAJOR_TYPE
+    public struct HOME_FORMULAS_PRODUCE_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20900,7 +20899,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_FORMULAS_PRODUCE_SUB_TYPE
+    public struct HOME_FORMULAS_PRODUCE_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20909,7 +20908,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_FORMULAS_ITEM_MAJOR_TYPE
+    public struct HOME_FORMULAS_ITEM_MAJOR_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20918,7 +20917,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_FORMULAS_ITEM_SUB_TYPE
+    public struct HOME_FORMULAS_ITEM_SUB_TYPE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -20927,7 +20926,7 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class HOME_STORAGE_TASK_CONFIG
+    public struct HOME_STORAGE_TASK_CONFIG
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
@@ -21005,15 +21004,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class WISH_TRIBUTE_ESSENCE
+    public struct WISH_TRIBUTE_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int unique_id { get; set; }
         public int value_add { get; set; }
         public int skill_id { get; set; }
@@ -21029,15 +21028,15 @@ namespace PWHelper.Element.Versions
     }
 
     [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    public class RED_PACKET_PAPER_ESSENCE
+    public struct RED_PACKET_PAPER_ESSENCE
     {
         public int id;
 [MarshalAs(UnmanagedType.ByValArray, SizeConst = 64)] public byte[] name;
         
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_matter;
-        public string File_matter { get => Structure.Gbk.GetString(file_matter); set { file_matter = Structure.Gbk.GetBytes(value); } }
+        public string File_matter { get => Gbk.GetString(file_matter); set { file_matter = Gbk.GetBytes(value); } }
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)] public byte[] file_icon;
-        public string File_icon { get => Structure.Gbk.GetString(file_icon); set { file_icon = Structure.Gbk.GetBytes(value); } }
+        public string File_icon { get => Gbk.GetString(file_icon); set { file_icon = Gbk.GetBytes(value); } }
         public int time_limit { get; set; }
         public int money_min { get; set; }
         public int money_max { get; set; }

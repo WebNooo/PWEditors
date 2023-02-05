@@ -1,4 +1,5 @@
-﻿using PWHelper.Tools.Errors;
+﻿using NPOI.SS.Formula.Functions;
+using PWHelper.Tools.Errors;
 using System;
 using System.IO;
 
@@ -10,6 +11,9 @@ namespace PWHelper.Tools
 
         private static byte[] Source;
         private static int Position;
+
+        public static int GetPosition() { return Position; }
+        public static byte[] GetSource() { return Source; }
 
         public static void ReadFile(string? path)
         {
@@ -30,14 +34,28 @@ namespace PWHelper.Tools
             }
         }
 
-        public static byte ReadBytes()
+        public static int Seek(int offset)
+        {
+            return Position += offset;
+        }
+
+        public static byte ReadByte()
         {
             return 0x00;
         }
 
         public static byte[] ReadBytes(int length = 1)
         {
-            return new byte[] { 0x00 };
+            if (Position + length < Source.Length)
+            {
+                var value = new byte[length];
+                Array.Copy(Source, Position, value, 0, length);
+                Position += length;
+                return value;
+            }
+            else {
+                throw new HelperError(ErrorCode.POSITION_OUT_RANGE, "Ошибка при чтение массива байт, запршиваемый размер вышел за границу массива");
+            }
         }
 
         public static short ReadInt16()
@@ -77,5 +95,11 @@ namespace PWHelper.Tools
             return "";
         }
 
+        public static byte[] FillArray(byte[] value, int size)
+        {
+            var target = new byte[size];
+            Array.Copy(value, target, target.Length >= value.Length ? value.Length : target.Length);
+            return target;
+        }
     }
 }

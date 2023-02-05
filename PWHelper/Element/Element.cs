@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -21,25 +22,28 @@ namespace PWHelper.Element
         private readonly ElementHardInfo hardInfo = new ElementHardInfo();
 
 
-        private readonly ObservableCollection<ElementList> Lists = new ObservableCollection<ElementList>();
+        private ObservableCollection<ElementList> Lists;
         private readonly Dictionary<ID_SPACE, Dictionary<int, ElementItem>> Items = 
             new Dictionary<ID_SPACE, Dictionary<int, ElementItem>>();
+
+        public ElementList SelectedList { get; set; }
 
         public void Open(string filepath)
         {
             try 
             {
+                var timer = new Stopwatch();
+                timer.Start();
                 Binary.ReadFile(filepath);
                 header.Load();
+
+                foreach (ID_SPACE space in Enum.GetValues(typeof(ID_SPACE))) {
+                    Items.Add(space, null);
+                }
+
                 LoadLists();
-
-                var nameSpace = $"PWHelper.Element.Versions";
-
-                var lists = Assembly
-                    .GetExecutingAssembly()
-                    .GetTypes()
-                    .Where((x) => x.Namespace == nameSpace && x.Name != $"V{header.Version}")
-                    .Select(type => type.Name); 
+                timer.Stop();
+                MessageBox.Show(timer.ElapsedMilliseconds.ToString());
             }
             catch(HelperError ex)
             {
@@ -52,6 +56,16 @@ namespace PWHelper.Element
             using BinaryWriter bw = new BinaryWriter(null);
             header.Timestamp = new DateTime().Millisecond;
             header.Save(bw);
+        }
+
+        public void GetList()
+        {
+
+        }
+
+        public ObservableCollection<ElementList> GetLists()
+        {
+            return Lists;
         }
 
         public void Export()
@@ -93,12 +107,30 @@ namespace PWHelper.Element
         {
             try
             {
-                var count = Binary.ReadInt32();
+                Lists = new ObservableCollection<ElementList>();
 
-                //foreach (var list in )
-                //{
-                //    LoadItems();
-                //}
+                var listIndex = 0;
+                foreach (var list in header.GetStructures())
+                {
+                    if (ElementConstants.ComputerNameIndex == listIndex) computerName.Load();
+                    if (ElementConstants.HardInfoIndex == listIndex) hardInfo.Load();
+
+                    var space = ElementConstants.Spaces[list.Name];
+                    var elementList = new ElementList() 
+                    { 
+                        Name = list.Name, 
+                        Id = listIndex, 
+                        Space = space, 
+                        Type = list,
+                    };
+
+                    Items[space] = new Dictionary<int, ElementItem>();
+                     
+                    elementList.Load(Items[space]);
+                    Lists.Add(elementList);
+
+                    listIndex++;
+                }
 
             }
             catch(HelperError ex)
@@ -106,5 +138,7 @@ namespace PWHelper.Element
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }

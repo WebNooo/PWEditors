@@ -8,8 +8,6 @@ namespace PWHelper.Tools.Errors
 {
     public class HelperError : Exception
     {
-        private ErrorCode pOSITION_OUT_RANGE;
-
         public ErrorCode Code { get; set; }
         public string? Message { get; set; }
 
